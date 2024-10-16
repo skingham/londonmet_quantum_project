@@ -1,0 +1,316 @@
+%------------------------------------------------------------------------------%
+%
+%
+%------------------------------------------------------------------------------%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[big]{layaureo}              % Better formatting of the A4 page
+% some people use the http://www.howtotex.com/tag/scrartcl/
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages and setup 
+\usepackage{ifpdf}
+\usepackage{ifxetex}
+
+% General engine option settings and necessary packages
+\ifxetex
+  \usepackage{xltxtra} %includes fontspec, xunicode, etc. Details $ texdoc xltxtra
+\else \ifpdf
+  \usepackage{fontspec}
+  \pdfcompresslevel=9
+  \pdfoutput=1
+  \usepackage[T1]{fontenc}              % Use T1 fonts, with 8-bit encoding
+\fi\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Setup fonts 
+\usepackage{fontawesome5}
+
+% Allow XeTeX to use opentype fonts  
+\ifPDFTeX
+  \usepackage[T1]{fontenc}    % Output font encoding for international characters
+  \usepackage[utf8]{inputenc} % Required for inputting international characters
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+
+\ifxetex
+  % xltxtra already includes fontspec package for OpenType fonts
+  \defaultfontfeatures{Mapping=tex-text} 
+\fi
+
+% Define a new 'leo' style for the url package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+
+% Include useful fonts:
+% This block selects new math, roman (serif), sans serif, and typewriter fonts.
+\usepackage[scaled=0.875]{helvet}       % ss - Helvetica
+%\renewcommand{\ttdefault}{lmtt}        % tt - Latin Modern
+\usepackage{courier}                    % tt - Courier
+                                        % math & rm font - palatino 
+%\usepackage{palatino}                  % Palatino package is difficult to find
+%\usepackage[sc]{mathpazo}              % Math support with URW Palladio Palatino clone
+%\linespread{1.05}                      % Palatino needs more leading (space between lines)
+\usepackage{tgpagella}                  % TGPagella is a modified Palatino clone
+
+% Set the main font
+\ifxetex
+  \setmainfont{TeX Gyre Pagella}        % On linux we don't have Palatino
+  %\setmainfont{Palatino}               % This seems to get us close to pdflatex
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mathematical symbols, fonts and commands:
+
+% Use AMS; amssymb does not seem to be able/needed to be declared separately
+%\usepackage{amsmath}
+\usepackage{amsmath,amssymb}
+\usepackage{amstext}
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\numberwithin{equation}{section}
+
+% Other mathematical macros.
+\newcommand{\dd}{\text{d}}
+\newcommand{\Corr}[1]{\text{Cor}\left[#1\right]}
+\newcommand{\Cov}[1]{\text{Cov}\left[#1\right]}
+\newcommand{\Var}[1]{\text{Var}\left[#1\right]}
+\newcommand{\Expectation}[1]{\text{E}\left[#1\right]}
+\newcommand{\CondCov}[2]{\text{Cov}\left[#1\right.\left|#2\right]}
+\newcommand{\CondVar}[2]{\text{Var}\left[#1\right.\left|#2\right]}
+\newcommand{\CondExpectation}[2]{\text{E}\left[#1\right.\left|#2\right]}
+\newcommand{\Indicator}[1]{\text{\bf 1}_{\left\{#1\right\}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set up colours used in this doc
+\ifxetex
+  \usepackage[usenames,dvipsnames]{xcolor}
+\else \ifpdf                            % Pdflatex cannot use xcolour def'd names
+  \usepackage{xcolor}
+\fi\fi
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Graphics: to include a graphic, figure.xxx, use (NB no file extension):
+
+%\includegraphics[width=\textwidth]{figure}
+% if you use the 'epsfig' package instead of 'graphicx' you could use:
+%\usepackage[pdftex]{epsfig}
+%\epsfig{file=figure,width=\textwidth}
+\usepackage[inkscapeformat=png]{svg}
+
+\ifxetex
+  \usepackage{graphicx}
+\else 
+  \ifpdf                            % Pdflatex cannot use xcolour def'd names
+    \usepackage[pdftex]{graphicx}
+    \pdfcompresslevel=9
+    \pdfoutput=1
+  \else
+    \usepackage[dvips,xdvi]{graphicx}
+  \fi
+\fi
+
+\graphicspath{ {figures/} }
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\usepackage{float}
+\floatplacement{figure}{H} % forces figures to be placed at the correct location
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables:
+
+\usepackage{longtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Listings:
+
+%\usepackage{lgrind}
+% lgrind will convert code files into tex files 
+% (NB: I have not found a way of allowing line wrapping)
+% $ lgrind -i -lcpp sample.cpp > sample.cpp.tex
+%
+% To include the code within a outline box:
+%\fbox {
+%  \small % cut down on code overruns
+%  \begin{minipage}{150mm}
+%    \begin{lgrind}
+%      \input{code/sample.cpp.tex
+%    \end{lgrind}
+%  \end{minipage}
+%}
+
+\usepackage[outputdir=pdf]{minted}
+
+\usepackage{listings}
+% \lstset{language=Java, caption=Descriptive Caption Text, label=DescriptiveLabel} 
+% \begin{lstlisting}Code . . .\end{lstlisting}
+\lstset{
+%language=Octave,                % the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+%numbers=left,                   % where to put the line-numbers
+%numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+%stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
+                                % will be numbered
+%numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+%showspaces=false,               % show spaces adding particular underscores
+%showstringspaces=false,         % underline spaces within strings
+%showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,                   % adds a frame around the code
+% frame=shadowbox,              % Ugly blue shadow around the frame
+%rulesepcolor=\color{blue}
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+title=\lstname                  % show the filename of files included with \lstinputlisting;
+                                % also try caption instead of title
+%escapeinside={\%*}{*)},         % if you want to add a comment within your code
+%morekeywords={*,...}            % if you want to add more keywords to the set
+}
+
+% Literate programming environments:
+% \begin{code}Code . . .\end{code}
+\lstnewenvironment{code}
+  {\lstset{}%
+    \csname lst@SetFirstLabel\endcsname}
+  {\csname lst@SaveFirstLabel\endcsname}
+  \lstset{
+    basicstyle=\footnotesize\ttfamily,
+    backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+    frame=single,                   % adds a frame around the code
+    tabsize=2,                      % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname                  % show the filename of files included with \lstinputlisting;
+  }
+
+% For in-line code just use \icode{this is code}
+\newcommand{\icode}[1]{\begingroup\footnotesize\ttfamily{#1}\endgroup}
+
+% Or \begin{framed}\begin{verbatim}Code . . .\end{verbatim}\end{framed}
+\usepackage{framed}
+
+\long\def\comment#1{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% URLs & Hyperref support (pdflatex & xelatex only)
+
+% References
+\usepackage{url}
+\urlstyle{leo}
+
+% hrefs
+\ifxetex
+  \usepackage{hyperref}                   % Should be last package
+  \hypersetup{colorlinks, breaklinks, urlcolor=linkcolour, linkcolor=linkcolour}
+\else \ifpdf                              % Pdflatex cannot use xcolour def'd names
+  \usepackage{hyperref}                   % Should be last package
+  \hypersetup{colorlinks, breaklinks, urlcolor=linkcolour, linkcolor=linkcolour}
+\else
+  % make the commange \href from hyperref available as a 'print only'
+  \newcommand{\href}[2]{#2}
+\fi \fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fancy header and footer for the title page.
+
+% This uses the colour logo if pdflatex is being used and the black and white
+% version for latex. (This ensures that the graphics are good in the dvi file). 
+\newcommand{\Logo}{
+\begin{flushleft}
+\ifpdf
+%  \includegraphics[scale=1,keepaspectratio=true,hiresbb=true]{../fig/RBC_cm} 
+\else
+%  \includegraphics[scale=1,keepaspectratio=true,hiresbb=true]{../fig/RBC_cm_k} 
+\fi
+\end{flushleft}}
+
+%\usepackage{fancyhdr}
+\newcommand{\makefancytitle}{
+\title{\Logo\doctitle}
+\author{\docauthor}
+\date{\docdate}
+\maketitle
+%\thispagestyle{fancy}
+%\fancyhead{}
+%\lhead{\Logo}
+%\addtolength{\headheight}{.4in}
+%\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0pt}
+%\addtolength{\voffset}{.1in}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Indexing of terms:
+
+\usepackage{makeidx} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include Citations
+
+%\usepackage{named}     % named is perfectly good for normal references
+%\usepackage{harvard}   % harvard does not seem to play ball with pdflatex 
+%\usepackage{natbib}     % will use harvard references with \citep and agsm bst
+\usepackage[backend=biber, sorting=nyt, style=ieee]{biblatex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include Bibliography
+%\usepackage[english]{babel}
+\ifxetex
+  % try this some time in the future instead of babel
+  %\usepackage{polyglossia}
+  %\setmainlanguage[variant=british]{english}
+  \usepackage[british]{babel}
+\else
+  \usepackage[british]{babel}
+\fi
+
+% Useful packages
+\usepackage{lipsum}
+\usepackage{setspace}
+\doublespacing
+\usepackage{multicol}
+\usepackage{multirow}
+
+\usepackage{csquotes}
+\usepackage{mathtools}
+\usepackage{blkarray, bigstrut}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Setup doc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page and paragraph setup
+
+%set dimensions of columns, gap between columns, and paragraph indent 
+\setlength{\textheight}{241.4mm}
+\setlength{\textwidth}{150mm}
+\setlength{\columnsep}{10mm}
+\setlength{\topmargin}{-5.4mm}
+\setlength{\headheight}{17.0mm}
+\setlength{\footskip}{8.0mm}
+\setlength{\headsep}{0.0mm}
+\setlength{\oddsidemargin}{17.6mm}
+\setlength{\evensidemargin}{17.6mm}
+
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\renewcommand{\baselinestretch}{1.0}
+
+\parindent=0pt
+\parskip=9pt
+%\linespread{1.05}

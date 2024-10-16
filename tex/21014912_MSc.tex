@@ -1,0 +1,103 @@
+%------------------------------------------------------------------------------%
+%
+%
+%------------------------------------------------------------------------------%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document and encoding 
+\documentclass[11pt,a4paper]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Local fonts, styles, packages, and references.
+\usepackage{local_doc}
+
+\addbibresource{references.bib} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title info
+\author{Stuart Kingham: ID 21014912}
+\title{21014912 MSc Dissertation}
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{document}
+\doublespacing
+
+\begin{titlepage}
+  \topskip0pt
+  \vspace*{\fill}
+  \begin{center}
+       \vspace*{1cm}
+
+       {\LARGE Applications in Cryptography and Cryptanalysis}
+
+       \vspace*{1cm}
+       {\large \textbf{Practical Quantum Circuits that Break Cryptography}}
+       
+       \vspace{0.2cm}
+       {\large An Investigation into the Implementation of Quantum Circuits}
+            
+       %\vspace{1.5cm}
+
+       \vfill
+
+       \textbf{Stuart Kingham: ID 2101491}
+
+       \vfill
+                        
+       \vspace{0.8cm}
+     
+       %\includegraphics[width=0.4\textwidth]{university}
+
+       MA7011: Applications in Cryptography and Cryptanalysis \\
+       School of Computing and Digital Media\\
+       London Metropolitan University\\
+       May 10, 2024
+            
+  \end{center}
+  \vspace*{\fill}
+\end{titlepage}
+
+\pagebreak
+
+\begin{abstract}
+  In this paper I look at back to Shor's original paper on the quantum
+  calculation of the discrete logarithm problem and integer
+  factorisation and use the IBM quantum computing SDK \emph{QISKIT} to
+  implement the algorithm.
+\end{abstract}
+
+\newpage
+
+\singlespacing 
+\tableofcontents
+\listoffigures
+%\listoftables
+
+\doublespacing
+\pagenumbering{roman}
+\pagenumbering{arabic}
+
+\newpage
+
+\input{introduction}
+
+\pagebreak
+
+\printbibliography
+
+\pagebreak
+
+\appendix
+
+\pagebreak
+
+\printindex
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
