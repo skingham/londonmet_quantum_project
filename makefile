@@ -1,4 +1,7 @@
-all: tex
+pdf:
+	mkdir pdf
+
+all: pdf tex
 
 clean: tex-clean
 

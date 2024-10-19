@@ -4,22 +4,28 @@ ifneq (,)
 This makefile requires GNU Make.
 endif
 
-LATEX := xelatex
-LATEX_FLAGS := -synctex=1 -interaction=nonstopmode --shell-escape -output-directory=$(PDF_DIR)
-#-interaction=errorstopmode batchmode scrollmoder errorstopmode
+export TEXINPUTS=.:./tex//:
+
 PDF_DIR := pdf
 TEX_DIR := tex
 
-export TEXINPUTS=.:./tex//:
+BIBTEX := biber
+BIBTEX_FLAGS := --input-directory $(TEX_DIR)
+LATEX := xelatex
+LATEX_FLAGS := -synctex=1 -interaction=nonstopmode --shell-escape -output-directory=$(PDF_DIR)
+#-interaction=errorstopmode batchmode scrollmoder errorstopmode
+RM := rm
 
-RPT_NAME := 21014912_MSc
+RPT_NAME := 21014912_msc_quantum_dissertation
 
 PDF_FILES := \
-	21014912_MSc_ProjectPlan.pdf \
+	21014912_msc_project_proposal.pdf \
 	$(RPT_NAME).pdf
 
 RPT_TEX_FILES := \
-	tex/sections/introduction.tex
+	tex/sections/0.abstract.tex \
+	tex/sections/1.introduction.tex \
+	tex/sections/a.outreach.tex
 
 TEX_SRCS := $(shell find $(TEX_DIR) -maxdepth 3 -type f -regex ".*\.tex")
 
@@ -38,34 +44,24 @@ LATEX_INTERMEDIATE := $(PDF_DIR)/
 .SECONDARY: $(addprefix $(PDF_DIR)/,$(PDF_FILES:=.pdf=.bcf)) $(addprefix $(PDF_DIR)/,$(PDF_FILES:=.pdf=.bbl)) $(addprefix $(PDF_DIR)/,$(PDF_FILES:=.pdf=.toc))
 .FORCE:
 
-$(PDF_DIR)/%.bbl: $(TEX_DIR)/references.bib
-	biber --input-directory $(TEX_DIR) $(PDF_DIR)/$*.bcf
-
-$(PDF_DIR)/%.bcf: $(TEX_DIR)/%.tex $(TEX_FILES)
-	$(LATEX) $(LATEX_FLAGS) -output-directory=$(PDF_DIR) $*.tex
+$(PDF_DIR)/%.bbl: $(TEX_DIR)/%.tex $(TEX_FILES) $(TEX_DIR)/references.bib
+	$(LATEX) $(LATEX_FLAGS) $*.tex
+	$(BIBTEX) $(BIBTEX_FLAGS) $(PDF_DIR)/$*.bcf
 
 $(PDF_DIR)/%.toc: $(TEX_DIR)/%.tex $(TEX_FILES)
-	$(LATEX) $(LATEX_FLAGS) -output-directory=$(PDF_DIR) $*.tex
+	$(LATEX) $(LATEX_FLAGS) $*.tex
 
-$(PDF_DIR)/%.pdf: $(TEX_DIR)/%.tex $(PDF_DIR)/%.bcf $(PDF_DIR)/%.bbl $(PDF_DIR)/%.toc
-	$(LATEX) $(LATEX_FLAGS) -output-directory=$(PDF_DIR) $*.tex
+$(PDF_DIR)/%.pdf: $(TEX_DIR)/%.tex $(PDF_DIR)/%.bbl $(PDF_DIR)/%.toc
+	$(LATEX) $(LATEX_FLAGS) $*.tex
 
-$(PDF_DIR)/$(RPT_NAME).pdf: $(TEX_DIR)/$(RPT_NAME).tex $(RPT_TEX_FILES)
-	$(LATEX) $(LATEX_FLAGS) -output-directory=$(PDF_DIR) $(RPT_NAME).tex
-
-$(PDF_DIR):
-	mkdir $(PDF_DIR)
-
-tex: $(PDF_TARGETS) $(PDF_DIR)
+tex: $(PDF_TARGETS)
 
 clean-bcf:
-	-rm $(PDF_DIR)/*.bcf $(PDF_DIR)/*.blg
+	-$(RM) $(PDF_DIR)/*.bcf $(PDF_DIR)/*.blg
 
 tex-clean:
-	-rm $(PDF_DIR)/*.aux $(PDF_DIR)/*.bbl $(PDF_DIR)/*.blg $(PDF_DIR)/*.idx $(PDF_DIR)/*.ilg $(PDF_DIR)/*.ind $(PDF_DIR)/*.log $(PDF_DIR)/*.out $(PDF_DIR)/*.toc
-
-distclean:
-	-rm -f $(PDF_DIR)/*.aux $(PDF_DIR)/*.bbl $(PDF_DIR)/*.blg $(PDF_DIR)/*.idx $(PDF_DIR)/*.ilg $(PDF_DIR)/*.ind $(PDF_DIR)/*.log $(PDF_DIR)/*.out $(PDF_DIR)/*.pdf $(PDF_DIR)/*.toc
+	-$(RM) $(PDF_DIR)/*.aux $(PDF_DIR)/*.bbl $(PDF_DIR)/*.blg $(PDF_DIR)/*.idx \
+		$(PDF_DIR)/*.ilg $(PDF_DIR)/*.ind $(PDF_DIR)/*.log $(PDF_DIR)/*.out $(PDF_DIR)/*.toc
 
 info:
 	@echo "TEXINPUTS="$(TEXINPUTS)

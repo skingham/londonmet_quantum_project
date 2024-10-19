@@ -69,11 +69,11 @@
 % Mathematical symbols, fonts and commands:
 
 % Use AMS; amssymb does not seem to be able/needed to be declared separately
-%\usepackage{amsmath}
-\usepackage{amsmath,amssymb}
-\usepackage{amstext}
-\usepackage{amsbsy}
-\usepackage{amsfonts}
+\usepackage{amsmath}
+%\usepackage{amsmath,amssymb,amstext,amsbsy}
+%\usepackage{amstext}
+%\usepackage{amsbsy}
+%\usepackage{amsfonts}
 \numberwithin{equation}{section}
 
 % Other mathematical macros.
@@ -105,6 +105,8 @@
 %\usepackage[pdftex]{epsfig}
 %\epsfig{file=figure,width=\textwidth}
 \usepackage[inkscapeformat=png]{svg}
+\usepackage{graphicx}
+\graphicspath{ {tex/figures/} }
 
 \ifxetex
   \usepackage{graphicx}
@@ -118,7 +120,7 @@
   \fi
 \fi
 
-\graphicspath{ {figures/} }
+
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \usepackage{float}

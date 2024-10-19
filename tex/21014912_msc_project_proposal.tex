@@ -1,0 +1,352 @@
+%------------------------------------------------------------------------------%
+%
+%
+%------------------------------------------------------------------------------%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document and encoding 
+\documentclass[11pt,a4paper]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Local fonts, styles, packages, and references.
+\usepackage{local_doc}
+\usepackage{lscape}
+\addbibresource{references.bib} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title info
+\newcommand{\mytitle}{Preparing Cryptographers for the Quantum Era}
+\newcommand{\mysubtitle}{Learning Outcomes and Algorithmic Frameworks for Quantum Computing Applications}
+\newcommand{\myauthor}{Stuart Kingham}
+\newcommand{\myid}{21014912}
+
+\author{\myauthor: ID \myid}
+\title{\mytitle}
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{document}
+\doublespacing
+
+%\maketitle
+
+%%% **Title Page**
+%%% **Project Title**:
+%%% **Student Name**: [Your Name]
+%%% **Supervisor Name**: [Supervisor's Name]
+%%% **Course Title**: MSc in [Your Course Title]
+%%% **Date**: [Date of Submission]
+
+\begin{titlepage}
+  \topskip0pt
+  \vspace*{\fill}
+  \begin{center}
+       \vspace*{1cm}
+
+       {\LARGE CT7P01 MSc Project Proposal}
+
+       \vspace*{1cm}
+       {\large \textbf{\mytitle}}
+       
+       \vspace{0.2cm}
+       {\large \mysubtitle}
+            
+       %\vspace{1.5cm}
+
+       \vfill
+
+       \textbf{\myauthor : ID \myid}
+
+       \vfill
+                        
+       \vspace{0.8cm}
+     
+       %\includegraphics[width=0.4\textwidth]{university}
+
+       Supervisor: Graham Taylor-Russel \\
+       MSc in Cryptography \\
+       School of Computing and Digital Media\\
+       London Metropolitan University\\
+       \today
+            
+  \end{center}
+  \vspace*{\fill}
+\end{titlepage}
+
+
+\pagebreak
+
+\newpage
+
+\singlespacing 
+\tableofcontents
+\listoffigures
+%\listoftables
+\doublespacing
+
+\pagenumbering{roman}
+\pagenumbering{arabic}
+\newpage
+
+\section{Project Introduction}
+
+This research project seeks to detail a comprehensive framework for teaching quantum computing algorithms to
+graduate and postgraduate cryptography students.
+I will focus on the use of Software Development Kits (SDKs) from leading quantum hardware and software companies
+that are deliver world class quantum systems, emulators and quantum simulators via cloud environments.
+The study seeks to identify the essential learning outcomes required for new researchers to become proficient
+in constructing quantum circuits of increasing complexity.
+
+We will perform a survey of available quantum computing platforms, evaluating them for their usability, scalability
+and suitability for cryptographic applications.  We will look to implement key quantum algorithms used in
+cryptanalysis (Shor, Grover, Quantum phase estimation algorithm (QPE), Quadratic Unconstrained Binary Optimization 
+(Ising-QUBO), etc.), as well as introducing the supporting quantum principles and
+mathematical models that underpin these algorithms (Hidden-subgroup problems, combinatorics, optimizations, etc.). 
+Further, we will look to see examples of how researchers are applying quantum techniques to attempt to solve the 
+Shortest Vector Problem (SVP) and to attack Substitution–Permutation Networks (SPN), which underpins AES symmetric 
+encryption.
+Some approaches, such as Quantum Annealing and Coherent Ising Machines, are claiming to show evidence of quantum 
+advantage and are of great interest.
+
+The expectation of this project is to offer a practical pathway for new entrants to the field of quantum computing
+to gain the skills to compete in this rapidly evolving and exciting area of research.
+
+\subsection{Objectives}
+
+In their recent survey of quantum algorithms, \citetitle{Arnault:2024}, \citeauthor{Arnault:2024} \cite{Arnault:2024} 
+they make the observation
+that quantum algorithms for cryptanalysis domain has evolved `slowest in terms of acceleration of the number of new 
+algorithms`.  But for other problem areas, notably quantum chemistry, researchers are predicting imminent quantum superiority 
+using current generation quantum processors \cite{Qunova:2024} especially as the solution space can be decomposed to problems 
+that can run on currently available, smaller qbit, processors.
+
+Quantum processors that can crack asymmetric public-private encryption schemes relying on prime factorization schemes
+(RSA \cite{Rivest:1978}), discrete logarithm problem (DLP) schemes (Diffie-Helman \cite{Diffie:1976} \& El-gamal \cite{ElGamal:1985}) and
+Elliptic Curve Cryptography (ECC) \cite{Koblitz:1987} schemes for current key-lengths are someway away.
+But researchers are progressing with solutions to other problems of interest to cryptoanalysis. A recent paper on the 
+Shortest Vector Problem (SVP) \cite{Mizuno:2024} proposes using Quantum 
+Annealing (QA) to solve using a folded spectrum method.  
+And recently there was a newspaper report in the South China Morning Post on Chinese researchers using a D-Wave quantum
+machine to solve parts of the Substitution-Permutation Network (SPN) class of problems, targeting the Present, Gift-64, and Rectangle 
+algorithms.  If confirmed, this would be hugely important to cryptologists as and the AES \cite{Wiki:AES:2024} could
+be susceptible to these attacks.
+
+It then is important to look at a broad range of quantum systems and algorithms as novel applications of other classes
+of algos may become important to cryptanalysts.  This project focuses on developing a curriculum that introduces 
+students of cryptography to these algorithms using SDKs from quantum hardware manufacturers like IBM, Google, and Rigetti.
+
+This project seeks to define the essential learning outcomes for graduate and postgraduate students aiming to develop novel
+applications using quantum computing.
+%The research will identify the key quantum algorithms -- such as the Quadddntum Fourier Transform (QFT), quantum binary searches,
+%and quantum annealing (QA) -- that are crucial for solving complex problems, including integer factorization,
+%optimization challenges, the folded spectrum methods, and attacks on SPN.
+The syllabus will be designed to equip students and researchers with both theoretical knowledge and practical skills,
+enabling them to work with quantum hardware from major manufacturers.
+Additionally, the project aims to prepare university staff and students for participation in national quantum
+computing events, such as the National Quantum Computing Centre (NQCC) Quantum Hackathon, by providing them with a
+clear understanding of how to apply quantum algorithms to real-world cryptographic problems.
+
+Our research objectives:
+\begin{itemize}
+\item To develop a curriculum that effectively teaches quantum computing algorithms to cryptographic students.
+\item To integrate quantum SDKs into practical exercises.
+\end{itemize}
+
+Research Questions:
+\begin{itemize}
+\item How can SDKs be used to teach quantum algorithms in cryptography?
+\item What challenges do students face in understanding quantum algorithms, and how can these be mitigated?
+\end{itemize}
+
+%\subsection{Background Significance of the Study}
+
+%Quantum algorithms represent a groundbreaking shift in the field of cryptography.
+%As quantum computers have the potential to break widely used cryptographic protocols such as RSA and ECC (Elliptic Curve Cryptography), there is an urgent need to study these algorithms to ensure future-proof cryptographic solutions.
+%Teaching these algorithms to graduate and postgraduate cryptographic students equips the next generation of professionals to tackle these future challenges head-on.
+
+%In addition to quantum algorithms like Shor’s \cite{Shor:1994} and Grover’s \cite{Grover:1996}, research into quantum annealing has demonstrated its potential in solving cryptographic challenges such as the Shortest Vector Problem (SVP), which is a core problem in lattice-based cryptography.
+%Quantum annealing has been explored as a means of finding approximate solutions to SVP, which is essential for understanding potential vulnerabilities in post-quantum cryptographic schemes.
+%Moreover, there is ongoing research into using quantum annealing to attack Substitution–Permutation Network (SPN) algorithms, such as those used in AES symmetric encryption standards.
+%These advancements highlight the growing importance of quantum techniques in both breaking and securing cryptographic protocols.
+
+\subsection{Relevance to Cryptography}
+
+Quantum computing introduces new approaches to problem-solving, particularly in cryptography.
+Classical cryptography relies on computational hardness assumptions, which quantum computers threaten to undermine.
+By understanding quantum algorithms, students can develop new cryptographic protocols resistant to quantum attacks, 
+ensuring the security of digital communications, data storage, and financial systems in the post-quantum era.
+
+The current generation of quantum computers, quantum simulators, and quantum system emulators are now cheap and easy enough to access, that 
+it brings a remarkable chance to democratise the knowledge of this powerful technology.  Certain areas of quantum research obviously require
+expensive and specialised equipment (such as Quant Key Distribution (QKD) solutions), but hands on learning and access to real quantum hardware
+via cloud services is now readily available to students from all areas of the globe and all socio-economic backgrounds.  I believe that,
+as the threat from bad actors utilising quantum technology is increasing, we have an obligation to deliver learning programs to the widest
+range of students and researchers, to ensure that the benefits of these advances accrue widely through society.
+
+\section{Literature Review}
+
+Reading \citetitle{Wong:2011} \cite{Wong:2011}, we can see there are evidence based approachers to developing learning materials for tertiary 
+students using an outcome-based approach (OBA).  This will be useful in giving this research a reference for development of our framework.
+
+The project itself will need to range more broadly over papers, system documentation, tutorials, mathematical background reading, 
+and very importantly, topics in quantum physics that are needed to succeed in constructing quantum circuits and understand how
+quantum gates operate.
+
+\subsection{Historic Background}
+
+The development of quantum algorithms of interest to cryptographers has its roots in the seminal by Shor \cite{Shor:1997} and Grover \cite{Grover:1996}.
+In his paper \citetitle{Shor:1997} Shor introduced an algorithm capable of factoring large integers and solving discrete logarithms 
+exponentially faster than classical algorithms.  This directly challenges the security of widely used cryptographic systems, including RSA and El-Gamal.
+
+Shor’s algorithm builds on the earlier work of \citeauthor{Deutsch:1992} \cite{Deutsch:1992}, as well as \citeauthor{Berthiaume:1992} 
+\cite{Berthiaume:1992}, who demonstrated that quantum computers could solve problems in the bounded-error probabilistic polynomial time (BPP) 
+complexity class more efficiently than classical computers.
+Shor also relied on advances in the Quantum Fourier Transform (QFT), initially developed by \citeauthor{Coppersmith:1994} \cite{Coppersmith:1994},
+which is a crucial component of his factoring algorithm.
+
+Similarly, Grover’s \citetitle{Grover:1996} \cite{Grover:1996} presented an algorithm capable of searching an unsorted database quadratically 
+faster than any classical algorithm.
+Grover's algorithm has broad implications for data retrieval and optimization problems within cryptography.
+
+\subsection{Quantum SDKs}
+
+Looking at the IBM QISKIT documentation \cite{Qiskit:2023} we can see quantum platforms are putting effort in making their systems accessible to the 
+public.  For example, we found it easy to implement phase-estimation and factoring \cite{Qiskit:2024a} relevant to Shor's algorithm.
+
+This gives us confidence that neccessary material will be availble to support this research.
+
+
+\section{Project Methodology and Delivery}
+
+The project is organized into manageable phases with clear objectives, milestones, and deadlines.
+Progress will be regularly reviewed to ensure the project stays on track.
+
+\subsection{Survey and Comparative Analysis of Quantum Systems/SDKs}
+
+A thorough survey and comparative analysis of quantum computing platforms and their SDKs will be conducted to understand their suitability for educational purposes:
+
+\begin{itemize}
+	\item \textbf{Review Official Resources and Engage with Industry}: Analyse official documentation from leading quantum computing platforms 
+		(e.g. IBM Qiskit, Google Cirq, Rigetti Forest) and contact company representatives for additional insights into available educational 
+		resources, supported algorithms, and student partnerships.
+	\item \textbf{Inquire about Partnerships and Student Support}: Explore opportunities for collaboration, including academic programs and 
+		hackathon sponsorships, and gather information on support services for student researchers.
+	\item \textbf{Search for Technical Literature}: Use IEEE Xplore, arXiv, and other academic databases to identify papers and reports on real-world 
+		use cases of quantum algorithms on commercial systems.
+	\item \textbf{Draft Comparison Table}: Construct a comparative table that highlights key features of each platform, focusing on aspects such as 
+		usability, scalability, community support, and compatibility with cryptographic algorithms.
+	\item \textbf{Review Complexity of Algorithms}: Analyse the complexity of various quantum algorithms, documenting the necessary background 
+		theory for each and understanding their practical applications.
+	\item \textbf{Summary of Findings}: analysis results, highlighting the strengths and weaknesses of each quantum system and SDK for educational use.
+\end{itemize}
+
+\subsection{Development of Selection Criteria and Initial Roadmap}
+
+This phase focuses on defining criteria for selecting the most suitable quantum algorithms and drafting a roadmap for their implementation:
+
+\begin{itemize}
+	\item \textbf{Identify Key Quantum Algorithms}: Select algorithms that align closely with cryptographic applications, including at a minimum 
+		Shor’s and Grover’s algorithms, quantum annealing for optimization problems, and lattice-based quantum simulation methods.
+	\item \textbf{Categorize Algorithm Examples}: Organize collected examples by type, complexity, and the SDK used, emphasizing those most 
+		suitable for novice researchers.
+	\item \textbf{Setup SDK Environments}: Implement the selected algorithms using the latest SDK versions, adapting and updating any outdated 
+		examples to ensure compatibility.
+	\item \textbf{Benchmark Performance}: Evaluate the performance of the implemented algorithms, recording factors such as execution time, 
+		qubit usage, and circuit depth.
+	\item \textbf{Define Selection Criteria}: Develop criteria for selecting algorithms that will be included in the curriculum, focusing 
+		on their educational value and relevance to cryptography.
+	\item \textbf{Draft Roadmap}: Outline a roadmap that guides students through progressively complex quantum algorithms, highlighting practical 
+		challenges and solutions for working with each SDK.
+\end{itemize}
+
+\subsection{Formulation of the Pedagogical Framework and Learning Outcomes}
+
+A pedagogical framework will be developed to ensure that the learning process is structured and effective:
+
+\begin{itemize}
+	\item \textbf{Define Learning Objectives}: Establish clear learning outcomes that detail the core concepts and skills students should 
+		acquire, ensuring alignment with the curriculum’s goals.
+	\item \textbf{Appendix of Advanced Topics}: Draft an appendix that outlines ancillary topics, such as the Shortest Vector Problem (SVP), 
+		that are important but beyond the immediate scope of the course.
+	\item \textbf{Categorize Objectives}: Group the learning objectives into levels—basic, intermediate, and advanced—and ensure they are 
+		Specific, Measurable, Achievable, Relevant, and Time-bound (SMART).
+	\item \textbf{Research Pedagogical Best Practices}: Review best practices in quantum computing education, focusing on methods that enhance 
+		understanding of complex quantum algorithms.
+	\item \textbf{Design the Teaching Model}: Create a teaching model that integrates the gathered materials, using a mix of presentations, 
+		hands-on labs, and hackathon-style challenges.
+\end{itemize}
+
+\subsection{Evaluation of Trial Implementation and Feedback Collection}
+
+Ideally the effectiveness of the developed curriculum would be tested through a small-scale trial, but realistically would be validated by staff in 
+the London Met Digital Media department:
+
+\begin{itemize}
+	\item \textbf{Review Materials and Background Information}: Ensure that all teaching materials and background information are comprehensible 
+		and aligned with the students' learning pace.
+	\item \textbf{Refine the Framework}: Gather feedback from students during the trial implementation to identify areas for improvement in the 
+		teaching model and roadmap.
+	\item \textbf{Update Learning Path}: Refine the roadmap and teaching model based on feedback to better address any identified challenges 
+		and optimize the learning experience.
+\end{itemize}
+
+\subsection{Finalization and Submission of the Dissertation}
+
+The final phase involves refining the research findings and preparing the dissertation for submission:
+
+\begin{itemize}
+	\item \textbf{Refine the Roadmap}: Integrate the feedback from the trial into the final version of the roadmap, ensuring that it is 
+		tailored for novice researchers.
+	\item \textbf{Dissertation Write-Up}: Compile the results, methodologies, and reflections into a cohesive dissertation document.
+	\item \textbf{Project Submission}: Ensure that the dissertation meets all submission requirements and submit.
+\end{itemize}
+
+
+\subsection{Personal Development}
+
+Throughout this research project, I will be enhancing my understanding of quantum computing, specifically in the context of cryptographic applications. 
+As I work through the complexities of quantum algorithms, I expect to develop more advanced skills and familiarity with using the various SDKs and to
+deepen my knowledge of quantum circuit design. 
+
+I hope broaden my outlook by understanding the challengers that other students will face when learning this challenging set of technologies.  
+By designing a curriculum and pedagogical framework, I will gain experience in educational methodologies, enabling me to translate complex technical 
+concepts into accessible learning outcomes. This growth will not only prepare me to contribute meaningfully to the field of quantum cryptography 
+but also equip me to mentor and guide future researchers.
+
+\section{Mitigants against potential fails}
+
+The most obvious challenge is that I cannot fully anticipate the level effort that will be required to get myself, and by extension the content,
+up to the standard needed to successfully compete at the NQCC Hackathon level.
+
+The flip side of the problem is that, as a time-bounded problem, whatever pedagogic outcomes I do formulate, will be roughly the amount of content
+I could reasonably expect a new student to quantum systems to absorb.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+\printbibliography
+
+\pagebreak
+
+\appendix
+
+\section{Project Gantt Chart}
+
+\begin{landscape}
+\begin{figure}
+  \includesvg{project_plan_gantt_chart}\hfill
+  \caption{Project Deliverables Gantt Chart}
+\end{figure}
+\end{landscape}
+
+\pagebreak
+
+\printindex
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
