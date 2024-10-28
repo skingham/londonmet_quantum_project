@@ -1,2 +1,93 @@
 \section{Survey and Comparative Analysis}
 
+This survey seeks to identify quantum computing industry leaders with technology road-maps that would align with students
+and researchers having confidence that the technology will evolve and be a stable platform for research and development.
+
+\subsection{Quantum Computing Systems}
+
+As thermal energy can cause decoherence in many qubit technologies, increasing the noise in the probabilistic solution
+results.
+Because of this, manufacturers can use error correction by constructing logical qubits from several physical qubits,
+increasing the accuracy of their systems.
+IBM, for example in their Heron processor, used two qubit gates to achieve a 99.7\% fidelity for a total of 156
+programmable qubits \cite{IBM:heronr2:2024}.  
+
+\begin{enumeration}
+\item \textbf{IBM} (USA): Holds the record for the highest number of operational qubits with the 433-qubit Osprey QPU
+  \cite{IBM:ossprey:2024} based on Josephson junctions.
+  As noted, they have achieved up to 99.7\% fidelities.
+  Their cloud provisioned platform is the Qiskit \cite{IBM:qiskit:2023} framework for quantum circuit construction and
+  algorithm development.
+\item \textbf{Google} (USA): Known for its Sycamore processor, they have developed custom electronics for qubit control.
+  They provide access to their quantum computers through the Google Quantum AI platform.
+\item \textbf{IQM} (Finland): Recognized as a key player in Europe, IQM focuses on building customized superconducting
+  qubit QPUs.
+  They achieved 99.9\% two-qubit gate fidelity and 1 millisecond coherence time in 2024.
+\item \textbf{Origin Quantum} (China):  One of the largest quantum computing startups in China.
+  They offer a 24-qubit superconducting system and develop various software tools, including an operating system,
+  programming framework, and quantum machine learning framework.
+\item \textbf{Amazon} (USA):  Provides cloud access to third-party quantum computers, including those based on
+  superconducting qubits, through Amazon Braket.
+\item \textbf{Alibaba} (China): Uses data centers to emulate quantum algorithms exceeding 50 qubits.
+\item \textbf{QuantWare} (Netherlands):  Develops superconducting qubit chips and aims to make quantum computers more scalable.
+\item \textbf{Rigetti} (USA): Offers an 84-qubit QPU.
+ They have developed their own quantum programming language and software tools, including the Forest SDK.
+\item \textbf{Quantinuum} (USA): A result of the merger between Honeywell Quantum Solutions and Cambridge Quantum Computing,
+  Quantinuum is a major player in trapped-ion quantum computing.
+ They claim to have achieved a quantum volume of 219.
+ They offer access to their systems through cloud platforms and have developed software solutions for various applications.
+\item \textbf{IonQ} (USA): Another major player in the trapped-ion space, IonQ offers its systems through cloud platforms.
+\item \textbf{Pasqal} (France): lans to offer rack-mounted systems for their trapped-ion quantum computers.
+ They have developed a software platform called Pulser for controlling neutral atom quantum processors.
+\item \textbf{Alpine Quantum Technologies (AQT)} (Austria): Offers trapped-ion quantum computers integrated into
+  standard 19-inch racks.
+\end{enumeration}
+
+Neutral Atoms:  Key Players: Pasqal (France), QuEra (USA), Atoms Computing (USA), and PlanQC (Germany).
+ These companies use lasers to control neutral atoms as qubits.
+
+Photon Qubits: Key Players: PsiQuantum (USA), Xanadu (Canada).
+ Photon qubits are challenging to scale due to their probabilistic nature.
+
+Quantum Dots Spins Qubits: Key Players: Intel is a major company researching quantum dots spin qubits.
+
+NV Centers Qubits: Key Players: Quantum Brilliance (Australia) is developing room temperature NV centers QPUs.
+
+Topological Qubits: Key Players: Microsoft is the only major company focusing on topological qubits based on Majorana fermions, though the technology is still in its early stages.
+
+
+\subsection{Quantum Simulation Systems}
+
+\begin{enumeration}
+\item \textbf{D-Wave} (Canada): Quantum annealing technology.  While different from gate-based quantum computing,
+  D-Wave also announced plans for gate-based systems.
+\end{enumeration}
+
+
+\subsection{Quantum SDKs and Emulators}
+
+Most major quantum hardware manufacturers have also developed their own software platforms for constructing quantum
+circuits and integrating with their computing infrastructure.
+These platforms will typically also have quantum emulators that allow development without the expense of actually
+running on an actual quantum machine.
+We also include pure quantum emulators.
+
+\begin{enumeration}
+\item \textbf{IBM: Qiskit}: Includes Aer emulator
+\item \textbf{Rigetti: Forest SDK}:
+\item \textbf{Google: Google Quantum AI}:
+\item \textbf{Microsoft: Q# language, Azure Quantum platform}:
+\item \textbf{D-Wave: Ocean SDK}:
+\item \textbf{Pasqal: Pulser}:
+\item \textbf{Classiq}: ISV Algorithm development
+\item \textbf{QEDma Quantum Computing}: ISV Algorithm development: Classiq, 
+\item \textbf{Atos QLM}: Emulator
+\item \textbf{Q-CTRL}: Circuit optimization
+\item \textbf{QSimulate}: Hybrid quantum-classical computing: 
+\end{enumeration}
+
+
+\subsection{Other Considerations for evaluation}
+
+Back in \citeyear{Ft:Gournianov:2022} \citeauthor{Ft:Gournianov:2022}, in the Financial Times newspaper \cite{Ft:Gournianov:2022}
+warned of the financial excesses of irrational exuberance due to over-optimism of the prospects of quantum computing.  

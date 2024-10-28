@@ -54,13 +54,13 @@ LATEX_INTERMEDIATE := $(PDF_DIR)/
 
 $(PDF_DIR)/%.bbl: $(TEX_DIR)/references.bib
 	$(LATEX) $(LATEX_FLAGS) $*.tex
-	$(BIBTEX) $(BIBTEX_FLAGS) $*.bcf
+	$(BIBTEX) $(BIBTEX_FLAGS) $(PDF_DIR)/$*.bcf
 
 $(PDF_DIR)/%.ind:
 	$(LATEX) $(LATEX_FLAGS) $*.tex
-	$(MKIDX) $(MKIDX_FLAGS) $*.idx
+	$(MKIDX) $(MKIDX_FLAGS) $(PDF_DIR)/$*.idx
 
-$(PDF_DIR)/%.pdf: $(TEX_DIR)/%.tex $(TEX_FILES) $(PDF_DIR)/%.bbl $(PDF_DIR)/%.ind
+$(PDF_DIR)/%.pdf: $(TEX_DIR)/%.tex $(PDF_DIR)/%.bbl $(PDF_DIR)/%.ind
 	$(LATEX) $(LATEX_FLAGS) $<
 
 $(PDF_DIR)/$(RPT_NAME).pdf: $(RPT_TEX_SRCS) $(PDF_DIR)/$(RPT_NAME).bbl $(PDF_DIR)/$(RPT_NAME).ind
