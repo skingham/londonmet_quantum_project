@@ -10,6 +10,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Local fonts, styles, packages, and references.
 \usepackage{local_doc}
+\usepackage{jupyter}
 
 \addbibresource{references.bib} 
 
@@ -30,13 +31,14 @@
   \begin{center}
        \vspace*{1cm}
 
-       {\LARGE Applications in Cryptography and Cryptanalysis}
+       {\LARGE CT7P01 MSc Project}
+
 
        \vspace*{1cm}
-       {\large \textbf{Practical Quantum Circuits that Break Cryptography}}
+       {\large \textbf{Preparing Cryptographers for the Quantum Era}}
        
        \vspace{0.2cm}
-       {\large An Investigation into the Implementation of Quantum Circuits}
+       {\large Learning Outcomes and Algorithmic Frameworks for Quantum Computing Applications}
             
        %\vspace{1.5cm}
 
@@ -50,10 +52,12 @@
      
        %\includegraphics[width=0.4\textwidth]{university}
 
-       MA7011: Applications in Cryptography and Cryptanalysis \\
+       Supervisor: Graham Taylor-Russel \\
+       MSc in Cryptography \\
        School of Computing and Digital Media\\
        London Metropolitan University\\
-       May 10, 2024
+       \date{\today}
+       %Jan 06, 2025
             
   \end{center}
   \vspace*{\fill}
@@ -106,7 +110,11 @@
 
 \input{a.week2}
 
-\input{a.week3}
+
+\graphicspath{ {sections/a.week3/} }
+\singlespace
+%\input{a.week3}
+\input{a.week3/appendix_qiskit_intro}
 
 \input{a.week4}
 
