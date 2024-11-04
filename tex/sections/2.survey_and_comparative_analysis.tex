@@ -91,3 +91,75 @@ We also include pure quantum emulators.
 
 Back in \citeyear{Ft:Gourianov:2022} \citeauthor{Ft:Gourianov:2022}, in the Financial Times newspaper \cite{Ft:Gourianov:2022}
 warned of the financial excesses of irrational exuberance due to over-optimism of the prospects of quantum computing.  
+
+\emph{rewrite everything from this point forward}
+
+\subsection{Classes of Quantum Algorithms}
+
+Using \citeauthor{Arnault:2024} \citeyear{Arnault:2024} \cite{Arnault:2024} classification of mathematical classes
+and application domains of quantum algorithms.
+
+\begin{itemize}
+\item \textbf{Hidden-Subgroup Problems}: This class of problems involves finding a subgroup $H$ of a group $G$ such
+  that a function $f(x)$ is constant “on” each coset of $H$, meaning that, for all $g_1, g_2 \in G$, $f(g_1) = f(g_2)$
+  if and only if $g_1H = g_2H$.
+  Shor’s algorithm, which solves the problems of prime-numbers factorisation and of computing discrete logarithms,
+  can be generalised as an HSP for finite Abelian groups.
+
+\item \textbf{Linear Algebra}: Linear-algebra problems involve linear equations, linear transformations and their
+  representations using matrices.
+  For example, the Quantum Singular-Value Decomposition (QSVD) algorithm produces the singular-value decomposition of a matrix.
+
+\item \textbf{Dynamical Systems}:  Dynamical systems are mathematical models used to describe the evolution of a
+  system over time, typically governed by differential equations (e.g. an equation that is an ordinary differential
+  equation with respect to time, with finite differences in space).
+  Quantum algorithms that belong to this class seek to predict and analyse the system’s time evolution, e.g., by
+  preparing an initial state, encoding information therein, evolving it, or evaluating key features of this evolution.
+  For instance, the Quantum Lanczos algorithm computes the ground state of some Hamiltonian, which is a key feature of
+  the evolution of the system described by the Hamiltonian.
+  
+\item \textbf{Stochastic Processes \& Statistics}:  A stochastic process is a mathematical object that describes the
+  evolution of a random variable over time. Statistics is the discipline that concerns the collection, organisation,
+  analysis, interpretation, and presentation of data.
+  An example of an algorithm that solves a stochastic-processes problem is the Gaussian-Boson-Sampling (GBS)
+  Matrix-Point Process – which, in addition, is a sampling algorithm. An example of an algorithm that solves a
+  statistics problem is the Quantum k-means algorithm.
+
+\item \textbf{Optimisation}: “Optimisation” refers to the class of problems that deal with finding the best solution
+  among a given set of candidates. The “best” solution is determined by minimizing or maximising some target function
+  while satisfying a set of constraints.
+  Optimisation includes numerical optimisation and combinatorial optimisation problems. An example is the
+  Quantum Linear Regression algorithm, whose fundamental mathematical problem is linear regression using least-squares
+  optimisation, which is convex optimisation (which is a subclass of numerical optimisation).
+
+\item \textbf{Combinatorics}: Combinatorial problems involve finding, for a discrete finite set of objects that
+  satisfy some given conditions, either a grouping, or an ordering, or an assignment. They can be divided into
+  three basic types: enumeration problems, existence problems, and optimisation problems.
+  An algorithm classified under “Combinatorics” in the classification table focuses on solving problems like
+  graph-theoretical problems, search tasks, counting tasks, etc. For example, Grover’s search algorithm has been
+  extended to Quantum Counting, and both can be classified as combinatorial.
+\end{itemize}
+
+\subsection{D-Wave}
+
+The question of whether D-Wave annealers offer a true quantum advantage over classical computing is still under
+debate within the scientific community
+D-Wave's software development environment, Ocean, provides tools for hybrid algorithm development. Hybrid algorithms
+combine classical computing with quantum annealing, allowing users to leverage the strengths of both approaches.
+
+\begin{itemize}
+\item \textbf{Optimisation}: D-Wave quantum annealers are specifically designed to solve optimisation problems by
+  finding the global minimum energy state of a system. Many problems can be translated into quantum annealing problems
+  using QUBO (Quadratic Unconstrained Binary Optimisation) or Ising problem formulations. D-Wave's most efficient tools
+  are its hybrid solvers, which use both classical computing and their annealer.
+  
+\item \textbf{Combinatorics}: Optimisation problems are a subset of combinatorial problems, so D-Wave annealers can be
+  used to solve some problems in the Combinatorics class.
+  D-Wave annealers can theoretically solve NP-complete problems.
+
+\item \textbf{Machine Learning}: D-Wave's quantum annealers can be used for machine learning tasks because they are
+  well-suited to finding the minimum energy of complex systems, which is equivalent to searching for a minimum level
+  of errors in the adjustment of the weights of neurons in a neural network.
+  D-Wave has tested a Restricted Boltzmann Machine (RBM) model and a hybrid algorithm for image recognition using a
+  variational circuit and a hybrid algorithm.
+\end{itemize}
