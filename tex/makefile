@@ -64,7 +64,7 @@ $(PDF_DIR)/%.pdf: $(TEX_DIR)/%.tex $(PDF_DIR)/%.bbl $(PDF_DIR)/%.ind
 	$(LATEX) $(LATEX_FLAGS) $<
 
 $(PDF_DIR)/$(RPT_NAME).pdf: $(RPT_TEX_SRCS) $(PDF_DIR)/$(RPT_NAME).bbl $(PDF_DIR)/$(RPT_NAME).ind
-	$(LATEX) $(LATEX_FLAGS) $(TEX_DIR)/$(RPT_NAME).tex
+	$(LATEX) $(LATEX_FLAGS) $(TEX_DIR)/$(RPT_NAME).tex ; (rc=$$? && [[ $$rc == 0 ]] && echo "OK")
 
 tex: $(PDF_TARGETS)
 

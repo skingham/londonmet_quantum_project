@@ -1,7 +1,152 @@
 \section{Survey and Comparative Analysis}
 
+
 This survey seeks to identify quantum computing industry leaders with technology road-maps that would align with students
 and researchers having confidence that the technology will evolve and be a stable platform for research and development.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{\emph{Objective}}
+
+To provide a comprehensive comparison of available quantum hardware, simulators, and emulators, and analyze their suitability for educational purposes. This section should also cover technical aspects like qubit types, gate mechanics, and practical limitations (e.g., thermal noise), helping students understand the real-world constraints of quantum systems.
+
+\textbf{\emph{How to Achieve This}}
+
+\emph{Comparative Analysis}: Review and compare various quantum computing systems (e.g., IBM Qiskit, Google Cirq, Rigetti Forest, D-Wave) and their SDKs. Focus on usability, scalability, community support, and the types of qubit systems (e.g., superconducting qubits, trapped ions).
+      
+\emph{Technical Details}: Discuss the mechanics of quantum gates (e.g., single-qubit and multi-qubit gates) and practical issues like decoherence and thermal noise. Explain how these factors impact quantum computation and the limitations they impose on algorithm performance.
+    
+\emph{Suitability for Education}: Evaluate each system’s practicality for teaching purposes. Discuss whether simulators or emulators are preferable for certain topics, and how they support students’ understanding before transitioning to physical hardware.
+
+\textbf{\emph{Challenges}}
+
+\emph{Technical Complexity}: Explaining concepts like thermal noise and gate fidelity can be challenging for readers new to quantum computing. Providing clear analogies and visuals may help convey these ideas effectively.
+    
+\emph{Keeping the Survey Current}: Quantum technology evolves quickly, so it may be difficult to ensure that the survey reflects the latest advancements. Rely on recent literature and technical resources, and acknowledge that some aspects may become outdated.
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+    \item Introduce the concept of quantum computing and its potential impact.
+\end{itemize}
+
+\subsection{Types of Quantum Systems}
+\begin{itemize}
+    \item \textbf{Quantum Computers}:
+        \begin{itemize}
+            \item Discuss different types of quantum computers:
+                \begin{itemize}
+                    \item \textbf{Gate-based quantum computers}: 
+                        \begin{itemize}
+                            \item Explain the concept of qubits and how they are used to perform computations.
+                            \item Introduce examples like IBM Qiskit, Google Cirq, and Rigetti Forest.
+                        \end{itemize}
+                    \item \textbf{Quantum annealers}:
+                        \begin{itemize}
+                            \item Explain the principles behind quantum annealing and its applications.
+                            \item Provide an example like D-Wave. 
+                        \end{itemize}
+                \end{itemize}
+            \item \textbf{Focus on the types of qubit systems used in each}: 
+                \begin{itemize}
+                    \item Superconducting qubits.
+                    \item Trapped ions.
+                    \item Neutral atoms.
+                    \item Other types (quantum dots spins qubits, NV centers qubits, topological qubits, NMR qubits, photon qubits).
+                \end{itemize}
+        \end{itemize}
+    \item \textbf{Simulators}:
+        \begin{itemize}
+            \item Define quantum simulators and differentiate them from emulators.
+            \item Explain their role in simulating quantum systems using classical computers. 
+            \item Highlight their use in research and education for understanding quantum phenomena.
+        \end{itemize}
+    \item \textbf{Emulators}:
+        \begin{itemize}
+            \item Define quantum emulators and explain how they emulate the behaviour of quantum computers on classical systems.
+            \item Discuss their limitations in terms of scalability (qubit number and memory capacity).
+            \item Emphasise their usefulness for educational purposes:
+                \begin{itemize}
+                    \item Learning quantum programming.
+                    \item Testing and debugging quantum algorithms. 
+                    \item Visualising quantum algorithm data. 
+                \end{itemize}
+        \end{itemize}
+    \item \textbf{Software Development Kits (SDKs)}:
+        \begin{itemize}
+            \item Review the SDKs associated with each quantum computing system. 
+                \begin{itemize}
+                    \item IBM Qiskit.
+                    \item Google Cirq. 
+                    \item Rigetti Forest.
+                    \item D-Wave.
+                \end{itemize}
+            \item \textbf{Comparative Analysis:} 
+                \begin{itemize}
+                    \item Evaluate the usability, scalability, and community support of each SDK. 
+                    \item Discuss the pros and cons of each platform for educational use. 
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
+
+\subsection{Technical Details}
+\begin{itemize}
+    \item \textbf{Quantum Gates:} 
+        \begin{itemize}
+            \item Explain the mechanics of:
+                \begin{itemize}
+                    \item Single-qubit gates. 
+                    \item Multi-qubit gates (e.g., CNOT gate). 
+                \end{itemize}
+            \item Discuss how quantum gates are used to manipulate qubits and perform quantum computations.
+        \end{itemize}
+    \item \textbf{Practical Limitations}:
+        \begin{itemize}
+            \item \textbf{Decoherence}:
+                \begin{itemize}
+                    \item Define decoherence and its impact on qubit stability. 
+                    \item Explain how decoherence limits the time available for quantum computations. 
+                \end{itemize}
+            \item \textbf{Thermal Noise}:
+                \begin{itemize}
+                    \item Describe thermal noise and its effects on quantum systems. 
+                    \item Discuss how cooling techniques are used to mitigate thermal noise. 
+                \end{itemize}
+            \item \textbf{Impact on Algorithm Performance}:
+                \begin{itemize}
+                    \item Explain how decoherence and thermal noise lead to errors in quantum computations.
+                    \item Discuss how these errors impose limitations on algorithm performance and the need for error correction techniques.
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
+
+\subsection{Suitability for Education}
+\begin{itemize}
+    \item \textbf{Practicality for Teaching}:
+        \begin{itemize}
+            \item Evaluate the suitability of each system for teaching different quantum computing concepts.
+            \item Consider factors such as: 
+                \begin{itemize}
+                    \item Ease of use.
+                    \item Availability of educational resources and tutorials.
+                    \item Cost and accessibility. 
+                \end{itemize}
+        \end{itemize}
+    \item \textbf{Simulators vs. Emulators}:
+        \begin{itemize}
+            \item Discuss when simulators or emulators are preferable for specific learning objectives. 
+                \begin{itemize}
+                    \item Use simulators to introduce fundamental quantum phenomena and concepts.
+                    \item Use emulators to teach quantum programming and algorithm development. 
+                \end{itemize}
+        \end{itemize}
+    \item \textbf{Transitioning to Physical Hardware}:
+        \begin{itemize}
+            \item Explain how using simulators and emulators can prepare students for working with real quantum computers. 
+            \item Highlight the importance of understanding practical limitations before using physical hardware.
+        \end{itemize}
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsection{Quantum Computing Systems}
 

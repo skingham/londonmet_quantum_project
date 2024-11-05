@@ -1,5 +1,112 @@
 \section{Quantum Algorithm Road-map}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Roadmap of Algorithms and Their Role in Achieving Learning Outcomes
+
+\textbf{\emph{Objective}}
+
+To outline a roadmap of quantum algorithms covered in the lesson plan and demonstrate how each supports the expected learning outcomes. This section will link the algorithms to specific competencies, guiding students through progressively challenging exercises.
+
+\textbf{\emph{How to Achieve This}}
+
+\emph{Algorithm Selection and Progression}: Select a series of algorithms (e.g., Quantum Fourier Transform, Grover’s search, Shor’s algorithm) and organize them from foundational to advanced. Start with simpler algorithms that introduce basic quantum concepts, then progress to more complex algorithms that address cryptographic applications.
+      
+\emph{Link to Learning Outcomes}: For each algorithm, specify the skills students are expected to gain, such as circuit construction, optimization, and performance evaluation. Explain how each step in the roadmap builds toward mastery of quantum computing and its applications in cryptography.
+    Practical Exercises and Examples: Include sample exercises or problem-solving activities aligned with each algorithm. Describe how these exercises encourage hands-on practice with quantum circuits and reinforce theoretical understanding.
+
+\textbf{\emph{Challenges}}
+
+\emph{Selecting the Right Algorithms}: It may be challenging to choose algorithms that are both educationally valuable and feasible for students with limited experience. Balance foundational algorithms with advanced ones that show real-world applicability.
+
+\emph{Ensuring Learning Outcomes are Measurable}: Clearly define how students’ proficiency will be assessed. Create specific criteria to evaluate understanding and skill development at each stage of the roadmap.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Proposed Quantum Algorithms Roadmap for a Lesson Plan}
+
+This roadmap outlines a series of quantum algorithms, organized from foundational to advanced, for a lesson plan focusing on cryptography. Each algorithm is linked to specific competencies and includes sample exercises. The roadmap incorporates insights from the typology of quantum algorithms presented in the sources, focusing on algorithms relevant to hackathon projects and the progression of learning.
+
+\subsection{Module 1: Foundational Quantum Concepts}
+
+\begin{itemize}
+    \item \textbf{Algorithm:} Quantum Teleportation
+    \begin{itemize}
+        \item \textbf{Skills:} Introduction to qubits, entanglement, and basic quantum gates (Hadamard, CNOT). Understanding quantum measurement and the no-cloning theorem.
+        \item \textbf{Exercise:} Simulate quantum teleportation using a quantum simulator like Quirk. Analyze the state of the qubits at each step and verify the teleportation of the quantum state.
+    \end{itemize}
+    
+    \item \textbf{Algorithm:} Superdense Coding
+    \begin{itemize}
+        \item \textbf{Skills:} Building upon quantum teleportation, understanding how to leverage entanglement for communication efficiency. Introduction to Bell state measurement.
+        \item \textbf{Exercise:} Implement superdense coding on a simulator and compare its efficiency to classical communication methods. Analyze the impact of noise on the protocol.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Module 2: Quantum Search and its Applications}
+
+\begin{itemize}
+    \item \textbf{Algorithm:} Grover's Search Algorithm
+    \begin{itemize}
+        \item \textbf{Skills:} Understanding oracle-based quantum algorithms. Implementing quantum oracles for specific search problems. Analyzing the quadratic speedup provided by Grover's algorithm.
+        \item \textbf{Exercise:} Design a quantum oracle to search for a specific element in an unsorted database. Implement Grover's algorithm on a simulator and compare its performance to classical search algorithms.
+    \end{itemize}
+    
+    \item \textbf{Application:} Vaccination Centre Location
+    \begin{itemize}
+        \item \textbf{Skills:} Applying Grover's search to real-world optimization problems. Formulating practical problems in the context of quantum search.
+        \item \textbf{Exercise:} Using the vaccination centre location use-case from the hackathon, formulate the problem as a search problem suitable for Grover's algorithm. Explore the limitations of the algorithm for large-scale problems and discuss potential hybrid approaches.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Module 3: Quantum Fourier Transform and Phase Estimation}
+
+\begin{itemize}
+    \item \textbf{Algorithm:} Quantum Fourier Transform (QFT)
+    \begin{itemize}
+        \item \textbf{Skills:} Understanding the quantum analogue of the classical Fourier transform. Implementing the QFT circuit and analyzing its properties.
+        \item \textbf{Exercise:} Implement the QFT on a simulator and apply it to a simple signal. Analyze the output and compare it to the classical Fourier transform.
+    \end{itemize}
+    
+    \item \textbf{Algorithm:} Quantum Phase Estimation (QPE)
+    \begin{itemize}
+        \item \textbf{Skills:} Building upon the QFT, understanding how to estimate the eigenvalues of a unitary operator. Appreciating the role of QPE as a subroutine in more complex algorithms.
+        \item \textbf{Exercise:} Given a unitary operator, implement QPE on a simulator to estimate its eigenvalues. Analyze the accuracy of the estimation and the impact of different parameters.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Module 4: Advanced Cryptographic Applications}
+
+\begin{itemize}
+    \item \textbf{Algorithm:} Shor's Algorithm
+    \begin{itemize}
+        \item \textbf{Skills:} Understanding the implications of Shor's algorithm for breaking widely used public-key cryptography systems like RSA. Combining QFT and modular exponentiation for efficient factoring.
+        \item \textbf{Exercise:} Using a simulator, implement Shor's algorithm to factor a small integer. Analyze the resources required and the potential impact of Shor's algorithm on cybersecurity.
+    \end{itemize}
+    
+    \item \textbf{Application:} Post-Quantum Cryptography (PQC)
+    \begin{itemize}
+        \item \textbf{Skills:} Understanding the need for PQC in light of potential threats from quantum computers. Exploring different PQC approaches like lattice-based, code-based, and hash-based cryptography.
+        \item \textbf{Exercise:} Research and present on different PQC algorithms, comparing their security properties and potential for real-world implementation.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Throughout the Roadmap, Emphasize the Following:}
+
+\begin{itemize}
+    \item \textbf{Circuit Construction:} Encourage students to construct quantum circuits for the algorithms using graphical tools and quantum programming languages.
+    \item \textbf{Optimization:} Discuss techniques for optimizing quantum circuits to minimize the number of gates and reduce error rates.
+    \item \textbf{Performance Evaluation:} Guide students in analyzing the performance of quantum algorithms, considering factors like circuit depth, qubit count, and error rates. Discuss the limitations of current quantum hardware and the role of quantum simulators and emulators.
+\end{itemize}
+
+\subsection{Additional Resources}
+
+\begin{itemize}
+    \item Utilize diverse quantum compute resources to provide students with access to various hardware modalities and broaden their understanding of different platforms.
+    \item Encourage the use of open-source quantum software development kits (SDKs) like Qiskit, Cirq, and PennyLane for practical exercises.
+    \item Refer to resources like the "Quantum Algorithm Zoo" and academic papers to stay up-to-date on the latest developments in quantum algorithms.
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsection{SPN Attacks \& Integral Distinguishers}
 
 \citetitle{Eskandari:2018}
