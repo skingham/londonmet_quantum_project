@@ -1,3 +1,6 @@
+
+SHELL = /bin/bash
+
 pdf:
 	mkdir pdf
 

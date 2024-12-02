@@ -1,31 +1,79 @@
-\section{Quantum Algorithm Road-map}
+\section{Roadmap of Quantum Algorithms}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Roadmap of Algorithms and Their Role in Achieving Learning Outcomes
+\begin{quote}\itshape
+\textbf{Objective}
 
-\textbf{\emph{Objective}}
-
-To outline a roadmap of quantum algorithms covered in the lesson plan and demonstrate how each supports the expected learning outcomes. This section will link the algorithms to specific competencies, guiding students through progressively challenging exercises.
+For the roadmap of quantum algorithms and their role in achieving learning outcomes, I want to outline algorithms covered
+in the lesson plan and demonstrate how each supports the expected learning outcomes. 
+This section will link the algorithms to specific competencies, guiding students through progressively challenging exercises.
 
 \textbf{\emph{How to Achieve This}}
 
-\emph{Algorithm Selection and Progression}: Select a series of algorithms (e.g., Quantum Fourier Transform, Grover’s search, Shor’s algorithm) and organize them from foundational to advanced. Start with simpler algorithms that introduce basic quantum concepts, then progress to more complex algorithms that address cryptographic applications.
-      
-\emph{Link to Learning Outcomes}: For each algorithm, specify the skills students are expected to gain, such as circuit construction, optimization, and performance evaluation. Explain how each step in the roadmap builds toward mastery of quantum computing and its applications in cryptography.
-    Practical Exercises and Examples: Include sample exercises or problem-solving activities aligned with each algorithm. Describe how these exercises encourage hands-on practice with quantum circuits and reinforce theoretical understanding.
+\emph{Algorithm Selection and Progression}: I will select a series of algorithms (e.g., Quantum Fourier Transform, 
+Grover’s search, Shor’s algorithm) and organize them from foundational to advanced. 
+Start with simpler algorithms that introduce basic quantum concepts, then progress to more complex algorithms that address cryptographic applications.
+
+\emph{Link to Learning Outcomes}: For each algorithm, I want to identify the skills that new learners are expected to gain, 
+such as circuit construction, optimization, and performance evaluation. Explain how each step in the roadmap builds toward 
+mastery of quantum computing and its applications in cryptography.
+
+\emph{Practical Exercises and Examples}: Include sample exercises or problem-solving activities aligned with each algorithm. 
+Describe how these exercises encourage hands-on practice with quantum circuits and reinforce theoretical understanding.
 
 \textbf{\emph{Challenges}}
 
-\emph{Selecting the Right Algorithms}: It may be challenging to choose algorithms that are both educationally valuable and feasible for students with limited experience. Balance foundational algorithms with advanced ones that show real-world applicability.
+\emph{Selecting the Right Algorithms}: Having a mix of quantum computing hardware and SDKs will increase the cognative load.
+It may be challenging to choose algorithms that are both educationally valuable and feasible for students with limited experience. 
+I should try to balance foundational algorithms with advanced ones that show real-world applicability.
 
-\emph{Ensuring Learning Outcomes are Measurable}: Clearly define how students’ proficiency will be assessed. Create specific criteria to evaluate understanding and skill development at each stage of the roadmap.
+\emph{Ensuring Learning Outcomes are Measurable}: Clearly define how students’ proficiency will be assessed. 
+Create specific criteria to evaluate understanding and skill development at each stage of the roadmap.
+\end{quote}\ignorespacesafterend
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{Proposed Quantum Algorithms Roadmap for a Lesson Plan}
 
-This roadmap outlines a series of quantum algorithms, organized from foundational to advanced, for a lesson plan focusing on cryptography. Each algorithm is linked to specific competencies and includes sample exercises. The roadmap incorporates insights from the typology of quantum algorithms presented in the sources, focusing on algorithms relevant to hackathon projects and the progression of learning.
+This section outlines a structured roadmap of quantum algorithms designed to progressively build students' understanding 
+and skills, using a blended discovery-project learning approach \emph{namecheck BDPL \cite{muhammad:2020}}. 
+The roadmap emphasizes practical, problem-based learning, mirroring the active learning strategies highlighted in Muhammad’s BDPL model. 
+By following this roadmap, students will gain the necessary competencies to participate successfully in quantum computing challenges like the Quantum Hackathon.
+Modules are organised from foundational to advanced, for a lesson plan focusing on cryptography. 
+The roadmap incorporates insights from the typology of quantum algorithms presented in the sources, 
 
+\subsection{Structured Learning Process for Quantum Algorithms}
+
+The learning process is divided into four main steps: \textbf{Problem Identification}, \textbf{Simulation and Analysis}, 
+\textbf{Project Execution}, and \textbf{Reflection and Iteration}. 
+Each module will guide students through increasingly complex quantum algorithms, ensuring a solid understanding and the 
+ability to apply their knowledge to real-world cryptographic and optimization problems.
+Each algorithm is linked to specific competencies and includes sample exercises. 
+It offers a balance between theoretical understanding and hands-on application, fostering a comprehensive learning experience.
+
+\subsection{Key Emphases Throughout the Roadmap}
+\begin{itemize}
+    \item \textbf{Circuit Construction:} Students will learn to construct and optimize quantum circuits, minimizing gate count and error rates.
+    \item \textbf{Performance Evaluation:} The curriculum will guide students in evaluating the performance of algorithms, understanding the limitations of current quantum hardware.
+    \item \textbf{Use of Technology:} E-learning platforms will facilitate collaboration, while quantum simulators and emulators will provide practical experience.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Module 1: Foundational Quantum Concepts}
+
+\begin{itemize}
+    \item \textbf{Problem Identification:} Students will be introduced to basic quantum principles through contextual problems that highlight the importance of qubits, entanglement, and simple quantum operations.
+    \item \textbf{Algorithms Covered:}
+    \begin{itemize}
+        \item \textbf{Quantum Teleportation:} Focus on entanglement and fundamental gates like Hadamard and CNOT.
+        \item \textbf{Superdense Coding:} Build on the concept of entanglement for efficient communication.
+    \end{itemize}
+    \item \textbf{Simulation and Analysis:} Students will simulate these algorithms using tools like Quirk or IBM Qiskit. They will analyze the behavior of qubits and the impact of measurements, discussing the implications of quantum mechanics for information theory.
+    \item \textbf{Project Execution:} Small, individual projects will require students to construct circuits that demonstrate these concepts, focusing on circuit construction and the no-cloning theorem.
+    \item \textbf{Reflection and Iteration:} Students will upload their project reports, receive feedback, and reflect on their understanding, discussing challenges and solutions with peers and instructors.
+\end{itemize}
+
 
 \begin{itemize}
     \item \textbf{Algorithm:} Quantum Teleportation
@@ -44,6 +92,19 @@ This roadmap outlines a series of quantum algorithms, organized from foundationa
 \subsection{Module 2: Quantum Search and its Applications}
 
 \begin{itemize}
+    \item \textbf{Problem Identification:} Introduce optimization and search problems, emphasizing their relevance to cryptographic challenges.
+    \item \textbf{Algorithms Covered:}
+    \begin{itemize}
+        \item \textbf{Grover’s Search Algorithm:} Students will learn how to design and implement quantum oracles for search problems.
+        \item \textbf{Application Example:} Vaccination center location optimization, as a practical application of Grover’s algorithm.
+    \end{itemize}
+    \item \textbf{Simulation and Analysis:} Use quantum simulators to compare the efficiency of Grover’s algorithm to classical search methods, emphasizing the quadratic speedup. Students will experiment with different oracle designs and analyze the limitations of the algorithm.
+    \item \textbf{Project Execution:} Students will form groups to tackle real-world optimization problems, applying Grover’s algorithm in a project format. They will focus on problem formulation, oracle design, and evaluating performance.
+    \item \textbf{Reflection and Iteration:} Teams will present their findings, discuss the challenges faced during implementation, and propose potential hybrid solutions for large-scale problems.
+\end{itemize}
+
+
+\begin{itemize}
     \item \textbf{Algorithm:} Grover's Search Algorithm
     \begin{itemize}
         \item \textbf{Skills:} Understanding oracle-based quantum algorithms. Implementing quantum oracles for specific search problems. Analyzing the quadratic speedup provided by Grover's algorithm.
@@ -58,6 +119,17 @@ This roadmap outlines a series of quantum algorithms, organized from foundationa
 \end{itemize}
 
 \subsection{Module 3: Quantum Fourier Transform and Phase Estimation}
+\begin{itemize}
+    \item \textbf{Problem Identification:} Introduce problems that require understanding the Fourier transform and phase estimation, foundational concepts for more complex quantum algorithms.
+    \item \textbf{Algorithms Covered:}
+    \begin{itemize}
+        \item \textbf{Quantum Fourier Transform (QFT):} Learn the quantum analogue of the classical Fourier transform.
+        \item \textbf{Quantum Phase Estimation (QPE):} Apply QFT to estimate the eigenvalues of unitary operators.
+    \end{itemize}
+    \item \textbf{Simulation and Analysis:} Students will implement QFT and QPE on simulators, analyzing the accuracy and efficiency of these algorithms. Exercises will involve comparing quantum results with classical Fourier analysis.
+    \item \textbf{Project Execution:} Group projects will involve applying QPE to practical problems, such as estimating phases in optimization contexts. Students will work collaboratively to design efficient circuits and reduce error rates.
+    \item \textbf{Reflection and Iteration:} Post-project reflections will include discussions on optimization techniques and the challenges of implementing these algorithms on noisy quantum hardware.
+\end{itemize}
 
 \begin{itemize}
     \item \textbf{Algorithm:} Quantum Fourier Transform (QFT)
@@ -74,6 +146,18 @@ This roadmap outlines a series of quantum algorithms, organized from foundationa
 \end{itemize}
 
 \subsection{Module 4: Advanced Cryptographic Applications}
+\begin{itemize}
+    \item \textbf{Problem Identification:} Discuss the impact of quantum algorithms on solving complex optimization problems, with a focus on practical applications in industry and research.
+    \item \textbf{Algorithms Covered:}
+    \begin{itemize}
+        \item \textbf{Shor’s Algorithm:} Explore the implications of efficient integer factorization and its relevance to breaking cryptographic schemes.
+        \item \textbf{Quadratic Unconstrained Binary Optimization (Ising-QUBO):} Investigate how quantum computing can be applied to optimization problems formulated as Ising or QUBO models.
+    \end{itemize}
+    \item \textbf{Simulation and Analysis:} Students will implement Shor’s algorithm on quantum simulators, analyzing the resources needed and its impact on computational efficiency. For Ising-QUBO, students will learn how to model complex problems in a way that can be optimized using quantum annealers or gate-based quantum computers.
+    \item \textbf{Project Execution:} Final group projects will challenge students to apply Ising-QUBO models to real-world problems, such as supply chain optimization or network design. Students will experiment with formulating problems and using quantum solvers to achieve optimal solutions.
+    \item \textbf{Reflection and Iteration:} The course will conclude with individual reflections on the overall learning experience and the future of quantum optimization, encouraging students to think critically about the role of quantum computing in solving practical problems.
+\end{itemize}
+
 
 \begin{itemize}
     \item \textbf{Algorithm:} Shor's Algorithm
