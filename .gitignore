@@ -183,12 +183,16 @@ dmypy.json
 
 # Latex files
 *.aux
+*.bbl
+*.bcf
 *.blg
 *.idx
 *.ilg
 *.ind
+*.lof
 *.out
 *.pdf
+*.run.xml
 *.toc
 *.err
 **/auto/
