@@ -1,5 +1,17 @@
 \section{Introduction}
 
+Advances in quantum computing are regularly in the press these days \cite{google:willow:2024} with corresponding pronouncements
+of impending cataclysms \cite{ava-labs-c-founder-on-bitcoin-vulnerability}.  It is increasingly more important that new
+researchers from all backgrounds have the opportunity to engage with these new and exciting technologies, to understand the
+promise and limitations, the proven from the possible, and the hype from the reality.  By engaging students equally, there
+is hope that solutions to a broad spectrum of research areas will be accomplished.
+
+How best to engage students and researchers with quantum computing is the aim of this paper.  New quantum research papers are
+being released with seeming exponential growth.  And with the boom and bust cycles of quantum computing manufactures \cite{the-recent-bust}
+\cite{the-more-recent-boom} there are also more competing technologies vying for attention.
+
+
+
 \begin{quote}\itshape
 \textbf{\emph{Objective}}
 
@@ -19,3 +31,302 @@ To introduce the purpose, method, and justification for delivering the learning 
 
 \emph{Justification for Methods}: Justifying the educational methods for a rapidly evolving field like quantum computing requires carefully citing recent pedagogical research and technological advancements.
 \end{quote}\ignorespacesafterend
+
+
+Historical Context and Evolution:
+
+The survey traces the development of quantum algorithms from Deutsch's algorithm (1985) and Shor's algorithm (1994) to modern-day quantum primitives and applications.
+    Shor's algorithm is highlighted as the paradigm-shifting discovery, marking the transition from black-box quantum speedups to real-world applications.
+
+Exact vs. Heuristic Algorithms:
+
+    Exact Algorithms: These include Shor’s and Grover’s algorithms, where speedups are mathematically provable and apply to well-defined computational tasks.
+    Heuristic Algorithms: NISQ-era algorithms often inspired by classical techniques or physics-based intuition lack provable quantum advantage but offer potential for near-term applications (e.g., QAOA, VQE).
+
+Challenges in Quantum Advantage:
+
+    The survey emphasizes the difficulty of assessing quantum speedups for practical applications, given the need for:
+        End-to-end analyses of quantum algorithms.
+        Explicit accounting of classical pre- and post-processing.
+        Comparison with state-of-the-art classical algorithms.
+    Many proposed quantum applications remain underexplored, particularly in their integration into real-world workflows.
+
+Resource Requirements and Fault-Tolerance:
+
+    A major focus is on the overhead introduced by fault-tolerant quantum computing, including quantum error correction and the cost of implementing non-Clifford gates.
+    Resource estimates for leading quantum algorithms are contextualized with these fault-tolerance considerations.
+
+State of the Field:
+
+    The survey identifies gaps in "end-to-end" analyses for concrete applications, stressing the importance of aligning quantum capabilities with user-relevant tasks.
+
+Opportunities and Dynamic Landscape:
+
+It underscores the evolving interplay between quantum advancements (e.g., improved algorithms and hardware) and classical computing innovations, which continuously redefine the baseline for achieving quantum advantage.
+
+-----
+Comprehensive Classification Framework:
+
+    The text presents a structured methodology to classify quantum algorithms based on various criteria, such as the fundamental mathematical problem solved, the computational model used, and whether the algorithm is heuristic or proven.
+    This can directly support your project by providing a systematic way to organize and teach quantum algorithms in your syllabus.
+
+NISQ vs. LSQ Algorithms:
+
+    The distinction between algorithms designed for NISQ-era devices (e.g., QAOA, VQE) and those for LSQ systems (e.g., Shor’s algorithm) aligns well with your focus on the opportunities and challenges of transitioning from NISQ to LSQ.
+    Highlighting this distinction in your project would help students understand the limitations and potential of current quantum hardware.
+
+Exact vs. Heuristic Algorithms:
+
+    The discussion on exact algorithms, such as Shor’s and Grover’s, versus heuristic algorithms, like QAOA, emphasizes the lack of provable performance guarantees for many NISQ-era algorithms.
+    This distinction is crucial for teaching students the theoretical underpinnings and practical considerations of using quantum algorithms for cryptographic and optimization problems.
+
+Educational Applications:
+
+    The text suggests that its classification table and methodology can serve as a roadmap for graduate and Ph.D. students, lecturers, and researchers. This aligns with your objective to design a lesson plan that introduces students to quantum algorithms systematically.
+
+Applications and Real-World Relevance:
+
+    By linking algorithms to their application domains (e.g., machine learning, cryptography), the classification helps identify which quantum algorithms are most relevant for specific real-world problems.
+    This is particularly useful for your focus on cryptography and cryptanalysis applications, including solving problems like the Shortest Vector Problem (SVP) and attacks on Substitution-Permutation Networks (SPNs).
+
+
+    Sampling and Oracular Algorithms:
+
+    The examples of sampling algorithms (e.g., Boson Sampling) and oracular algorithms (e.g., Grover’s algorithm) can provide context for teaching specific types of quantum algorithms.
+
+    
+    ----
+
+
+    Foundational Background
+
+    Quantum Computing Fundamentals:
+        Describes qubits, superposition, entanglement, and interference, forming the basis for understanding quantum algorithms.
+        Highlights the distinct differences between classical and quantum computing, such as the ability of qubits to exist in superposition and the scalability challenges due to decoherence and noise.
+        Provides historical context with a focus on pioneers like Richard Feynman and David Deutsch, which aligns with your introduction section.
+
+    Relevance:
+        This content is useful for the introductory sections of your dissertation to set the stage for exploring quantum algorithms in cryptographic contexts.
+        Concepts like interference and entanglement can be tied directly to algorithms such as Grover's and Shor's.
+
+2. NISQ Era Challenges and Opportunities
+
+    NISQ Devices:
+        Defines the NISQ phase, emphasizing the challenges of scaling quantum computations due to noise and the lack of full error correction.
+        Discusses Shor’s introduction of quantum error correction, paving the way for fault-tolerant quantum computing.
+
+    Quantum Supremacy:
+        Highlights milestones such as Google's and IBM's achievements, while acknowledging limitations due to noise and scaling.
+        Discusses hybrid classical-quantum approaches as a transitional solution.
+
+    Relevance:
+        Directly aligns with your project's emphasis on the difference between exact and heuristic algorithms, as many NISQ-era algorithms fall into the heuristic category.
+        Provides context for teaching students about current hardware limitations and their impact on algorithm design and implementation.
+
+
+NISQ devices are transitional quantum computers with noise and limited scalability.
+
+Quantum supremacy claims by IBM, Xanadu, and Google.
+
+Challenges include decoherence, error correction, and scaling qubits.
+
+Applications in cryptography, optimization, machine learning, chemistry, and finance.
+
+Quantum simulators as tools for testing and developing algorithms.
+
+Hybrid classical-quantum machine learning models as emerging applications.
+
+3. Quantum Algorithms
+
+    Discussion of Algorithms:
+        Covers foundational algorithms like Shor’s and Grover’s, which demonstrate provable quantum speedups, alongside heuristic approaches designed for NISQ devices.
+        Highlights how these algorithms leverage quantum principles like superposition and entanglement for computational advantage.
+
+    Relevance:
+        A valuable resource for the algorithmic portion of your lesson plan, offering examples of both exact and heuristic algorithms.
+        Connects well with your aim to teach students about the mathematical models underpinning algorithms and their practical applications.
+
+4. Applications and Real-World Use Cases
+
+    Fields of Application:
+        Explores quantum computing’s applications in cryptography, optimization, chemistry, finance, and energy, showcasing its potential to address real-world challenges.
+        Includes discussions on quantum simulators and their role in prototyping algorithms.
+
+    Relevance:
+        Provides examples for your curriculum that tie quantum algorithms to practical use cases, particularly in cryptography and optimization.
+
+5. Educational Utility
+
+    Contributions to Teaching:
+        Highlights quantum circuits, gates, and measurement as building blocks for understanding quantum algorithms.
+        Discusses hybrid classical-quantum machine learning models, introducing students to cutting-edge developments.
+
+    Relevance:
+        Useful for designing structured lessons on quantum circuits and their role in algorithm design.
+        Introduces advanced concepts like hybrid models, which could appeal to postgraduate students aiming to combine quantum and classical approaches.
+
+Building Blocks of Quantum Circuits
+
+    Key Themes from Text:
+        Quantum gates (Hadamard, CNOT, etc.) and measurements as foundational elements.
+        Quantum circuits as representations of computational paths.
+        Examples of circuits implementing Shor’s and Grover’s algorithms.
+
+
+        ---
+        Historical Evolution of Quantum Computing
+
+Quantum computing has evolved from theoretical foundations to an exciting field with the potential to transform computation. Its origins trace back to the 1980s when pioneers like Richard Feynman proposed using quantum systems to simulate quantum phenomena, addressing the limitations of classical computers in modeling quantum mechanics. In 1985, David Deutsch formalized the concept of quantum computation, distinguishing programmable quantum computers from quantum simulators.
+
+The field gained significant momentum in 1994 with Shor’s algorithm, which demonstrated quantum computers' ability to factorize large numbers exponentially faster than classical algorithms. This breakthrough highlighted quantum computing's promise for solving real-world problems, especially in cryptography. Around the same time, algorithms like Grover’s search algorithm showed quadratic speedups for database searches, establishing a foundation for quantum algorithm research.
+
+Over the last three decades, the development of quantum algorithms has diversified. Exact algorithms, such as Shor’s and Grover’s, provide mathematically proven speedups for specific problems. However, the current focus has shifted towards heuristic algorithms, like the Quantum Approximate Optimization Algorithm (QAOA) and Variational Quantum Eigensolver (VQE), which are designed for Noisy Intermediate-Scale Quantum (NISQ) devices. These heuristic methods, inspired by classical principles and quantum phenomena, lack provable guarantees but hold promise for practical applications.
+NISQ vs. LSQ: Challenges and Promises
+
+The current era of quantum computing is defined by NISQ devices, which operate with limited qubits and significant noise. While these devices have demonstrated quantum supremacy for specialized problems, such as Google’s milestone in 2019, their practical applications are constrained by high error rates and a lack of scalability. Researchers are exploring hybrid quantum-classical methods to mitigate these limitations, but achieving reliable computation requires transitioning to Large-Scale Quantum (LSQ) systems.
+
+LSQ systems, characterized by millions of error-corrected qubits, represent the future of quantum computing. They promise to unlock the full potential of quantum algorithms, enabling breakthroughs in cryptography, optimization, and scientific simulations. However, the path to LSQ is fraught with challenges, including hardware scalability, error correction, and managing the complexity of quantum systems.
+Exact vs. Heuristic Algorithms
+
+    Exact Algorithms: These include Shor’s and Grover’s algorithms, which provide provable speedups for tasks like factoring and search. Their success underscores the power of quantum computing but also highlights its reliance on fault-tolerant hardware for implementation.
+
+    Heuristic Algorithms: NISQ-compatible methods like QAOA and VQE offer flexibility and adaptability but lack formal proofs of quantum advantage. They rely on empirical performance and are currently the focus of research in optimization, chemistry, and machine learning.
+
+This dichotomy illustrates the trade-offs between theoretical guarantees and practical feasibility, emphasizing the need for diverse approaches to algorithm design.
+Skills and Tools for Advancing Quantum Research
+
+To thrive in this rapidly advancing field, students and researchers require a broad palette of skills and toolsets:
+
+    Foundational Knowledge: A deep understanding of quantum mechanics, linear algebra, and classical computing.
+    Algorithmic Proficiency: Familiarity with both exact and heuristic quantum algorithms, their mathematical underpinnings, and real-world applications.
+    Practical Experience: Hands-on practice with quantum hardware, simulators, and emulators to bridge theoretical concepts with implementation challenges.
+    Interdisciplinary Awareness: Insights from fields like cryptography, optimization, and machine learning to contextualize quantum advancements.
+
+    As the field evolves, this diverse skillset will enable researchers to navigate the complexities of quantum computing and contribute to groundbreaking discoveries. By addressing the challenges of NISQ systems and harnessing the promise of LSQ, quantum computing holds the potential to revolutionize how we solve some of the world’s most pressing computational problems.
+
+
+    ---
+
+   Insights on Quantum Algorithms and Applications for Lesson Plan Alignment
+1. Foundational Algorithms
+
+These algorithms are essential for understanding quantum computing's basic principles and advantages.
+Shor’s Algorithm:
+
+    Application: Factoring large integers, computing discrete logarithms, and breaking RSA encryption.
+    Significance:
+        Exact algorithm with provable exponential speedup over classical methods.
+        Highlights quantum computing’s impact on cryptography and the necessity for post-quantum cryptographic methods.
+    Lesson Plan Focus:
+        Teach the mathematical foundation of Shor’s algorithm (modular arithmetic, quantum Fourier transform).
+        Emphasize its role in cryptography and its dependence on fault-tolerant quantum systems.
+
+Grover’s Algorithm:
+
+    Application: Unstructured search problems, including database search and cryptographic key searches.
+    Significance:
+        Quadratic speedup over classical brute-force search methods.
+        Versatile subroutine for many heuristic quantum algorithms.
+    Lesson Plan Focus:
+        Cover oracle construction and amplitude amplification.
+        Demonstrate its practical limitations (quadratic vs. exponential speedup).
+
+2. Heuristic Algorithms for NISQ Devices
+
+These algorithms are adaptable for near-term quantum systems but lack provable quantum advantage.
+Quantum Approximate Optimization Algorithm (QAOA):
+
+    Application: Optimization problems such as Max-Cut and scheduling.
+    Significance:
+        Designed for NISQ devices, with applications in logistics, finance, and supply chain management.
+        Combines quantum and classical optimization.
+    Lesson Plan Focus:
+        Teach how to encode problems into QUBO or Ising models.
+        Introduce parameterized quantum circuits and their optimization.
+
+Variational Quantum Eigensolver (VQE):
+
+    Application: Quantum chemistry, material science, and energy minimization problems.
+    Significance:
+        A hybrid algorithm that computes ground-state energies of molecular systems.
+        Highlights the use of quantum circuits for simulations in chemistry.
+    Lesson Plan Focus:
+        Cover variational principles and their implementation in quantum circuits.
+        Discuss classical-quantum feedback loops and error mitigation strategies.
+
+3. Specialized Applications
+
+Advanced use cases showcasing quantum computing’s potential in niche fields.
+Quantum Amplitude Estimation (QAE):
+
+    Application: Monte Carlo simulations, risk analysis in finance, and probability estimation.
+    Significance:
+        Builds on Grover’s algorithm to estimate amplitudes with quadratic speedup.
+        Central to quantum-enhanced statistical methods.
+    Lesson Plan Focus:
+        Introduce amplitude amplification techniques.
+        Demonstrate its use in finance (e.g., option pricing) and statistical problems.
+
+Quantum-Enhanced Long Short-Term Memory (LSTM):
+
+    Application: Sequence learning tasks in machine learning, including time-series forecasting and language modeling.
+    Significance:
+        Hybrid model combining classical LSTMs with quantum operations.
+        Demonstrates quantum computing’s role in advancing AI.
+    Lesson Plan Focus:
+        Explain the integration of quantum circuits in classical machine learning models.
+        Discuss potential advantages and current hardware limitations.
+
+4. Foundational Primitives and Subroutines
+
+These are building blocks for more complex algorithms.
+Quantum Phase Estimation (QPE):
+
+    Application: Subroutine for Shor’s algorithm, HHL algorithm, and QAE.
+    Significance:
+        Provides a mechanism to extract eigenvalues from unitary operations.
+        Enables tasks like solving linear equations and simulating quantum systems.
+    Lesson Plan Focus:
+        Teach the interplay between QPE and the quantum Fourier transform.
+        Use simple eigenvalue problems to demonstrate its functionality.
+
+Quadratic Unconstrained Binary Optimization (QUBO):
+
+    Application: Optimization problems across industries, from portfolio management to logistics.
+    Significance:
+        Universal representation for combinatorial optimization problems.
+        Maps directly to quantum annealers and QAOA circuits.
+    Lesson Plan Focus:
+        Teach students how to encode real-world problems into QUBO format.
+        Explore solutions using both classical and quantum solvers.
+
+5. Emerging Research and Real-World Impact
+
+These applications highlight the ongoing advancements in quantum computing.
+Shortest Vector Problem (SVP):
+
+    Application: Lattice-based cryptography and cryptanalysis.
+    Significance:
+        Central to post-quantum cryptography research.
+        Quantum algorithms like quantum annealing and QAE are being explored for solving SVP.
+    Lesson Plan Focus:
+        Introduce lattice problems and their cryptographic importance.
+        Discuss how quantum techniques could impact post-quantum cryptographic standards.
+
+Substitution-Permutation Networks (SPN):
+
+    Application: Cryptanalysis of symmetric encryption algorithms like AES.
+    Significance:
+        Demonstrates quantum computing’s relevance in analyzing modern cryptographic protocols.
+    Lesson Plan Focus:
+        Teach SPN structures and quantum methods for potential attacks.
+        Discuss the implications for symmetric cryptographic security.
+
+Lesson Plan Alignment
+
+By focusing on these algorithms and applications, the lesson plan can achieve the following:
+
+    Introduce Foundational Concepts: Teach the principles of quantum mechanics that underpin quantum algorithms (e.g., superposition, entanglement).
+    Develop Practical Skills: Provide hands-on experience with quantum simulators and SDKs for building circuits and implementing algorithms.
+    Bridge Theory and Application: Highlight real-world use cases in cryptography, optimization, and machine learning to demonstrate quantum computing’s potential.
+    Foster Critical Thinking: Discuss the limitations and challenges of heuristic algorithms and NISQ devices, preparing students for the evolving landscape of quantum computing.
