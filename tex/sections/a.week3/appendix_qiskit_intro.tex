@@ -11,7 +11,7 @@ And we will generally want an environment that allows us to run example code in 
  Using \href{https://conda.io/projects/conda/en/latest/user-guide/getting-started.html}{Conda}, our environment is created thus:
 
 \begin{listing}[!ht]
-\inputminted{bash}{tex/code/install_qiskit_conda.sh}
+\inputminted{bash}{code/install_qiskit_conda.sh}
 \caption{Setting up the QISKIT conda environment}
 \label{listing:1}
 \end{listing}
@@ -19,7 +19,7 @@ And we will generally want an environment that allows us to run example code in 
 Pip can also be used in an appropriate virtual environment:
 
 \begin{listing}[!ht]
-\inputminted{bash}{tex/code/install_qiskit_pip.sh}
+\inputminted{bash}{code/install_qiskit_pip.sh}
 \caption{Setting up the QISKIT venv/pip environment}
 \label{listing:2}
 \end{listing}
@@ -30,7 +30,7 @@ If we only run a emulator locally we don't need to setup an account with the \em
 access to an \href(https://docs.quantum.ibm.com/start/setup-channel){IBM Quantum Channel}.  We can get an \emph{API token} from our IBM Quantum Platform profile page and test the  connection with the following code:
 
 \begin{listing}[!ht]
-\inputminted{python}{tex/code/setup_ibm_service_channel.py}
+\inputminted{python}{code/setup_ibm_service_channel.py}
 \caption{Test connection to the Qiskit Runtime Service}
 \label{listing:3}
 \end{listing}

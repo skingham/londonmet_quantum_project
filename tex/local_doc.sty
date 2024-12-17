@@ -9,38 +9,63 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Packages and setup 
-\usepackage{ifpdf}
-\usepackage{ifxetex}
+\usepackage{iftex}
+%\usepackage{ifxetex}
 
 % General engine option settings and necessary packages
-\ifxetex
-  \usepackage{xltxtra} %includes fontspec, xunicode, etc. Details $ texdoc xltxtra
-\else \ifpdf
-  \usepackage{fontspec}
-  \pdfcompresslevel=9
-  \pdfoutput=1
-  \usepackage[T1]{fontenc}              % Use T1 fonts, with 8-bit encoding
-\fi\fi
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Setup fonts 
-\usepackage{fontawesome5}
-
-% Allow XeTeX to use opentype fonts  
-\ifPDFTeX
-  \usepackage[T1]{fontenc}    % Output font encoding for international characters
-  \usepackage[utf8]{inputenc} % Required for inputting international characters
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
+\ifXeTeX
+  %\usepackage{xltxtra} %includes fontspec, xunicode, etc. Details $ texdoc xltxtra
+\else \ifLuaTeX
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
+\else \ifPDFTeX
+  \pdfcompresslevel=9
+  \pdfoutput=1
+  \usepackage[T1]{fontenc}              % Use T1 fonts, with 8-bit encoding
+  \usepackage[T1]{fontenc}    % Output font encoding for international characters
+  \usepackage[utf8]{inputenc} % Required for inputting international characters
+  \usepackage{textcomp} % provide euro and other symbols
+\fi\fi\fi
 
-\ifxetex
-  % xltxtra already includes fontspec package for OpenType fonts
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Setup fonts 
+% This block selects new math, roman (serif), sans serif, and typewriter fonts.
+\usepackage[scaled=0.875]{helvet}       % ss - Helvetica
+%\renewcommand{\ttdefault}{lmtt}        % tt - Latin Modern
+\usepackage{courier}                    % tt - Courier
+% math & rm font - palatino 
+%\usepackage{palatino}                  % Palatino package is difficult to find
+%\usepackage[sc]{mathpazo}              % Math support with URW Palladio Palatino clone
+%\linespread{1.05}                      % Palatino needs more leading (space between lines)
+\usepackage{tgpagella}                  % TGPagella is a modified Palatino clone
+
+
+\ifXeTeX
+  % Allow XeTeX to use opentype fonts  
+  \usepackage{fontspec}
+  \usepackage{fontawesome5}
+  %\usepackage{xltxtra} %includes fontspec, xunicode, etc. Details $ texdoc xltxtra
   \defaultfontfeatures{Mapping=tex-text} 
-\fi
+  \setmainfont{TeX Gyre Pagella}        % On linux we don't have Palatino
+
+\else \ifLuaTeX
+  \usepackage{fontspec}
+  \usepackage{fontawesome5}
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
+\else \ifPDFTeX
+  \pdfcompresslevel=9
+  \pdfoutput=1
+  \usepackage[T1]{fontenc}              % Use T1 fonts, with 8-bit encoding
+  \usepackage[T1]{fontenc}    % Output font encoding for international characters
+  \usepackage[utf8]{inputenc} % Required for inputting international characters
+  \usepackage{textcomp} % provide euro and other symbols
+  \setmainfont{Palatino}               % This seems to get us close to pdflatex
+\fi\fi\fi
 
 % Define a new 'leo' style for the url package that will use a smaller font.
 \makeatletter
@@ -48,22 +73,6 @@
   \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
 \makeatother
 
-% Include useful fonts:
-% This block selects new math, roman (serif), sans serif, and typewriter fonts.
-\usepackage[scaled=0.875]{helvet}       % ss - Helvetica
-%\renewcommand{\ttdefault}{lmtt}        % tt - Latin Modern
-\usepackage{courier}                    % tt - Courier
-                                        % math & rm font - palatino 
-%\usepackage{palatino}                  % Palatino package is difficult to find
-%\usepackage[sc]{mathpazo}              % Math support with URW Palladio Palatino clone
-%\linespread{1.05}                      % Palatino needs more leading (space between lines)
-\usepackage{tgpagella}                  % TGPagella is a modified Palatino clone
-
-% Set the main font
-\ifxetex
-  \setmainfont{TeX Gyre Pagella}        % On linux we don't have Palatino
-  %\setmainfont{Palatino}               % This seems to get us close to pdflatex
-\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mathematical symbols, fonts and commands:
@@ -91,11 +100,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set up colours used in this doc
-\ifxetex
+\ifXeTeX
   \usepackage[usenames,dvipsnames]{xcolor}
-\else \ifpdf                            % Pdflatex cannot use xcolour def'd names
+
+\else \ifLuaTeX
+  \usepackage[usenames,dvipsnames]{xcolor}
+
+\else \ifPDFTeX                            % Pdflatex cannot use xcolour def'd names
   \usepackage{xcolor}
-\fi\fi
+
+\fi\fi\fi
+
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -105,21 +120,25 @@
 % if you use the 'epsfig' package instead of 'graphicx' you could use:
 %\usepackage[pdftex]{epsfig}
 %\epsfig{file=figure,width=\textwidth}
-\usepackage[inkscapeformat=png]{svg}
-\usepackage{graphicx}
-\graphicspath{ {tex/figures/} }
 
 \ifxetex
+  \usepackage[inkscapeformat=png,notransparent]{svg}
   \usepackage{graphicx}
-\else 
-  \ifpdf                            % Pdflatex cannot use xcolour def'd names
-    \usepackage[pdftex]{graphicx}
-    \pdfcompresslevel=9
-    \pdfoutput=1
-  \else
-    \usepackage[dvips,xdvi]{graphicx}
-  \fi
-\fi
+  \graphicspath{{./figures}}
+  %\usepackage{graphicx}
+  
+\else \ifluatex                            % Pdflatex cannot use xcolour def'd names
+  \usepackage[dvips,xdvi]{graphicx}
+  
+\else \ifpdf                            % Pdflatex cannot use xcolour def'd names
+  \usepackage[pdftex]{graphicx}
+  \pdfcompresslevel=9
+  \pdfoutput=1
+  
+\else
+  \usepackage[dvips,xdvi]{graphicx}
+  
+\fi \fi \fi
 
 
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
