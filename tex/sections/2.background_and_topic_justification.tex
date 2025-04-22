@@ -1,0 +1,94 @@
+\section{Background and Topic Justification}
+
+\begin{quote}\itshape
+	\textbf{\emph{Objective}}
+	Layout the justification for topic inclusions and exclusions in an essay format that also acts as a primer on quantum topic for lay readers.
+	Touch on studies that support effective pedagogic methods for delivering computing materials.
+\end{quote}\ignorespacesafterend
+
+
+\textbf{\emph{Statement}}
+
+
+The construction of a quantum computing syllabus for any cohort of students presents challenges. 
+The 
+
+\emph{
+Talk to the need for high-level understanding of a broad range of quantum topics 
+(e.g. being able to converse fluently around a broad range of quantum research areas and applications).
+And the need for technical mastery of particular quantum techniques 
+(e.g. problem solving using quantum algorithms)
+}
+
+There are many good overviews of where the subject is currently \cite{Preskill:2023}.
+
+\cite{Abhijith:2022}
+
+There are also many reviews and surveys on currency algorithm classes \cite{Arnault:2024} \cite{Jordan:2024} 
+
+\emph{
+Expound on the problem of the lack of mental models from non-quantum topics (eg universal gates for classical digital computing)
+that are all students will know.
+Show that the introduction of certain quantum ideas may require the fore-shadowing (? better term) of classical ideas 
+that are an analogue or antithesis of the quantum phenomenon (e.g no universal gates in quantum circuits).
+}
+
+\emph{
+	Introduce the concepts of analogue and digital quantum computing
+	How are they affected.  What are the benefits and drawbacks.
+}
+
+\emph{
+	Introduce the concepts of NISQ and FTQC
+	What is decoherence in a simple way
+}
+
+
+
+\subsection{How does Photonics Demonstrate this?}
+\index{Photonics:Overview}
+
+With a crowded arena of terms and technologies, how can we apply outcomes based approach to deliver effective learnings outcomes,
+and how, especially to cryptography students?
+
+Photonics poses interesting challenges and opportunities. 
+Is both one of the earliest \emph{cite{photonics}} practical quantum technologies 
+and an expensive one to set up research for \emph{cite{photonics:costs-of-research}}. 
+Yet it has easily demonstrates a number of quantum principles in a way which is easily explainable at an under-graduate science level.
+Early \emph{Quantum Key Distribution (QKD)}  \index{Quantum Key Distribution} used quantum properties of photons, 
+specifically photon polarisation - which can be demonstrated with polarised sunglasses - to develop the delivery of one-time pads 
+for secure communications.
+
+
+Further, the exposition of the QKD of randomly generated one time pads highlights another recent development
+where quantum randomness was demonstrated for the first time recently, using digital quantum computers and RCS
+[\href{google jpm 56 qubit QRNG}{https://scitechdaily.com/a-56-qubit-quantum-computer-just-did-what-no-supercomputer-can/}].
+
+
+\subsection{Where Fools Fear to Tread}
+
+As we see how the cryptographic lens allows us to see how analogue quantum phenomenon can be utilised in cryptographic key protocols,
+and the most successful realisation of the promise of digital quantum computing is neatly used to break the one-way functions of asymmetric cryptography,
+the temptation would be to look at post-quantum encryption schemes.  
+
+Why turn-away from cryptographic research areas and look at quantum algorithms more generally?
+The area of understanding new quantum algorithms, and reverse engineering classical algorithms \emph{cite{something}} is burgeoning.
+And the understanding if these new 
+
+Take, as an example, the \href{CRYSTAL-Dilithium NIST "Schnorr-like” lattice-based signature scheme}{https://csrc.nist.gov/CSRC/media/Presentations/crystals-dilithium-round-3-presentation/images-media/session-1-crystals-dilithium-lyubashevsky.pdf}.
+
+Schnorr's identification protocol \emph{cite{Schnorr:1990}} \href{is an example a zero-knowledge protocol}{https://cybersecurity.springeropen.com/articles/10.1186/s42400-023-00198-1} 
+that need to convince a verifier knows the discrete logarithm \emph{I may have misunderstood the last point}.
+The hardness assumptions are based on the computational problems of the \emph{Shortest Vector Problem (SVP)} 
+and \emph{Closest Vector Problem (CVP)}.  
+We have jumped from the understanding of quantum phenomenon and promise and pitfalls of quantum technologies to
+a specialised topic in mathematics \emph{what's the best description of the topics around SPV and ZK}.  
+These are interesting a challenging topics, but should be introduced in their own way.
+
+But moving forward, with the introductory course, into more general quantum algorithms that are not directly applicable to cryptography
+provided it's own benefits.
+Firstly is, the current generation of analogue quantum annealing computers \emph{cite or reference D-Wave} are being used to attempt
+to break certain \emph{Substitution-Permutation Network (SNP)} problems.
+This demonstrates that a working understanding of quantum annealing and QUBO solvers is something that is at least in our bailiwick.
+More simply, we don't know how the next generation of quantum algorithms could be used to attack encryption protocols, 
+so rounding out the programme by looking more generally at these algorithms is justified. 

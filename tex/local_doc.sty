@@ -82,7 +82,7 @@
 %\usepackage{amsmath,amssymb,amstext,amsbsy}
 %\usepackage{amstext}
 %\usepackage{amsbsy}
-%\usepackage{amsfonts}
+\usepackage{amsfonts}
 \numberwithin{equation}{section}
 
 % Other mathematical macros.
@@ -101,7 +101,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set up colours used in this doc
 \ifXeTeX
-  \usepackage[usenames,dvipsnames]{xcolor}
+  \usepackage[dvipsnames]{xcolor}
 
 \else \ifLuaTeX
   \usepackage[usenames,dvipsnames]{xcolor}
@@ -170,7 +170,12 @@
 %  \end{minipage}
 %}
 
-\usepackage[outputdir=pdf]{minted}
+% ! Package minted Error: Package option "outputdir" is no longer needed with min
+% ted v3+; the output directory is automatically detected for TeX Live 2024+, and
+% the environment variable TEXMF_OUTPUT_DIRECTORY can be set manually in other c
+% cases.
+%\usepackage[outputdir=pdf]{minted}
+\usepackage{minted}
 
 \usepackage{listings}
 % \lstset{language=Java, caption=Descriptive Caption Text, label=DescriptiveLabel} 

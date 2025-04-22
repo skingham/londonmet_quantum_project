@@ -5,6 +5,7 @@ This makefile requires GNU Make.
 endif
 
 export TEXINPUTS=.:./tex//:
+export TEXMF_OUTPUT_DIRECTORY=./pdf
 
 PDF_DIR := pdf
 TEX_DIR := tex
@@ -22,17 +23,21 @@ RPT_NAME := 21014912_msc_quantum_dissertation
 
 PDF_FILES := \
 	21014912_msc_project_proposal.pdf \
+	21014912_msc_quantum_dissertation_2.pdf \
 	$(RPT_NAME).pdf
 
 RPT_TEX_SRCS := \
 	tex/21014912_msc_quantum_dissertation.tex \
 	tex/sections/0.abstract.tex \
 	tex/sections/1.introduction.tex \
+	tex/sections/1.introduction_2.tex \
 	tex/sections/2.survey_and_comparative_analysis.tex \
+	tex/sections/2.background_and_topic_justification.tex \
 	tex/sections/3.algorithm_roadmap.tex \
 	tex/sections/4.learning_outcomes.tex \
 	tex/sections/5.conclusion.tex \
 	tex/sections/a.week1.tex \
+	tex/sections/a.syllabus_flow.tex \
 	tex/sections/a.outreach.tex
 
 TEX_SRCS := $(shell find $(TEX_DIR) -maxdepth 3 -type f -regex ".*\.tex")
@@ -60,8 +65,8 @@ $(PDF_DIR)/%.ind:
 	$(LATEX) $(LATEX_FLAGS) $*.tex
 	$(MKIDX) $(MKIDX_FLAGS) $(PDF_DIR)/$*.idx
 
-$(PDF_DIR)/%.pdf: $(TEX_DIR)/%.tex $(PDF_DIR)/%.bbl $(PDF_DIR)/%.ind
-	$(LATEX) $(LATEX_FLAGS) $<
+$(PDF_DIR)/%.pdf: $(TEX_DIR)/%.tex $(RPT_TEX_SRCS) $(PDF_DIR)/%.bbl $(PDF_DIR)/%.ind
+	$(LATEX) $(LATEX_FLAGS) $< ; (rc=$$? && [[ $$rc == 0 ]] && echo "OK")
 
 $(PDF_DIR)/$(RPT_NAME).pdf: $(RPT_TEX_SRCS) $(PDF_DIR)/$(RPT_NAME).bbl $(PDF_DIR)/$(RPT_NAME).ind
 	$(LATEX) $(LATEX_FLAGS) $(TEX_DIR)/$(RPT_NAME).tex ; (rc=$$? && [[ $$rc == 0 ]] && echo "OK")
