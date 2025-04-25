@@ -1,0 +1,439 @@
+%------------------------------------------------------------------------------%
+%
+%
+%------------------------------------------------------------------------------%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document and encoding 
+\documentclass[11pt,a4paper]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Local fonts, styles, packages, and references.
+\usepackage{local_doc}
+%\usepackage{jupyter}
+
+\addbibresource{references.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title info
+\author{Stuart Kingham: ID 21014912}
+\title{21014912 MSc Dissertation}
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{document}
+	\doublespacing
+	
+	\begin{titlepage}
+		\topskip0pt
+		\vspace*{\fill}
+		\begin{center}
+			\vspace*{1cm}
+			
+			{\LARGE CT7P01 MSc Project}
+			
+			
+			\vspace*{1cm}
+			{\large \textbf{Preparing Cryptographers for the Quantum Era}}
+			
+			\vspace{0.2cm}
+			{\large Discussion points}
+			
+			%\vspace{1.5cm}
+			
+			\vfill
+			
+			\textbf{Stuart Kingham: ID 2101491}
+			
+			\vfill
+			
+			\vspace{0.8cm}
+			
+			%\includegraphics[width=0.4\textwidth]{university}
+			
+			Supervisor: Graham Taylor-Russel \\
+			MSc in Cryptography \\
+			School of Computing and Digital Media\\
+			London Metropolitan University\\
+			\date{\today}
+			%Jan 06, 2025
+			
+		\end{center}
+		\vspace*{\fill}
+	\end{titlepage}
+	
+	\pagebreak
+	
+	%\input{sections/0.abstract}
+	
+	\newpage
+	
+	\singlespacing 
+	\tableofcontents
+	\listoffigures
+	%\listoftables
+	\newpage
+	
+	\doublespacing
+	\pagenumbering{roman}
+	\pagenumbering{arabic}
+	
+
+\section{syllabus outline}
+
+	Continuing our discussion on the syllabus outline, the source \cite{Wong:2011} "wong\_2011\_Outcome-based-teaching-and-learning-in-computer\_8-W82.pdf" 
+	offers insights into curriculum design from an \emph{outcome-based teaching and learning (OBTL)} perspective, 
+	which would heavily influence the creation of a syllabus.
+	
+	According to the paper, an \emph{outcome-based approach (OBA)} to curriculum design focuses on what students are expected to learn and be able to do upon completion of a program or course, rather than solely on what the teacher intends to teach. This philosophy would be central to outlining a syllabus.
+	
+	The paper provides an example of an OBA curriculum design for a \emph{Higher Diploma in Computer Studies}. This example highlights several key components that would be reflected in a detailed syllabus:
+	
+	\begin{itemize} 
+	\item \emph{Objectives} The program design starts with clearly stated \emph{Concentration Objectives} and \emph{Curricular Objectives}, as well as more specific objectives for graduates. These objectives set the overall direction for the program and individual courses, and learning outcomes within a syllabus would directly contribute to achieving these broader goals.
+	
+	\item \emph{Course Components:} The curriculum outlines the \emph{courses to be taken and their major contents descriptions}. A syllabus for each course would expand on these descriptions, detailing the specific topics to be covered.
+	
+	\item \emph{Teaching and Learning Activities:} The program emphasises the use of various \emph{teaching methods} such as lectures, tutorials, seminars, case studies, guest talks, and projects. A syllabus would specify which of these activities will be used for each topic or module, providing students with a clear understanding of how they will learn the material. The aim is to create an active learning environment where students can apply their knowledge.
+	
+	\item \emph{Learning Outcomes:} The paper stresses that \emph{learning outcome statements should reflect what students are expected to be able to do at the end of the learning period}. A well-designed syllabus would include specific and measurable learning outcomes for each module or topic, guiding both the teaching and the assessment. The paper even provides examples of how to write effective learning outcomes using action verbs.
+	
+	\item \emph{Assessment:} Although the example doesn't detail course-level assessments, the discussion on OBA mentions \emph{outcome-based assessment}, which focuses on measuring whether students have achieved the stated learning outcomes. A syllabus would outline the assessment methods (e.g., projects, assignments, exams) and how they align with the learning outcomes.
+	
+	\end{itemize}
+	
+	The paper also briefly mentions the use of a system called \emph{PACOS (Program and Courses Outcomes System)} to ensure that course learning outcomes align with the program's ultimate objectives. This highlights the interconnectedness that an outcome-based syllabus would have with the broader curriculum goals.
+	
+	In essence, when developing a syllabus within an outcome-based framework, the focus shifts from simply listing topics to be taught, to clearly defining what students should be able to achieve, and how the teaching and assessment methods will facilitate and measure that achievement.
+	
+\section{Topic One}
+
+Quantum Foundations and Hardware
+
+\subsection{Overview}
+
+	\begin{itemize} 
+
+	\item 1.1 Basic quantum computing history (e.g., Feynman, Deutsch)
+Reference: Feynman (1982) "Simulating Physics with Computers"; Deutsch (1985) "Quantum theory, the Church-Turing principle and the universal quantum computer."
+
+	\item 1.2 Quantum Computing Overview
+
+	Classical vs. quantum computing
+	
+	Superposition, entanglement, measurement, quantum bits vs classical bits
+	
+	Recommended: Nielsen \& Chuang (2010), Chapters 1–2.
+
+	\item 1.3 The Qubit: Representations and Realizations
+
+	Bloch sphere, quantum state vectors, coherence/decoherence
+	
+	Hardware: superconductors, ion traps, quantum dots, initial photonic systems
+	
+	Recommended: Preskill (2018); Monroe et al. (2021); Arute et al. (2019)
+	
+	\item 1.4 Modern Photonic Quantum Machinery
+
+	Photonic qubits, single-photon detection, integrated photonic circuits
+	
+	Industry examples: PsiQuantum, ORCA Computing
+	
+	Recommended: Rudolph (2017); Bartolucci et al. (2023)
+
+\end{itemize}
+
+
+Critique:
+
+While the topics covered in this section seem fundamental and provide a good overview of quantum computing foundations and hardware, several areas could be enhanced from an OBTL perspective
+
+	\begin{itemize}
+		
+	\item Lack of Explicit Learning Outcomes: The current outline primarily lists topics. According to Wong and Cheung, an outcome-based approach emphasises explicit statements of what students will be expected to be able to do after completing this section. The syllabus should clearly articulate the knowledge and skills students will gain.
+
+	\item Limited Connection to Practical Applications: While industry examples are mentioned in 1.4, the overall section could better integrate the theoretical concepts with the practical use cases explored in the NQCC hackathon. The report highlights various applications across sectors like healthcare, energy, finance, and telecommunications, solved using different quantum hardware.
+
+	\item Implicit Assessment: The outline doesn't suggest how the learning in this section will be assessed. In an OBA framework, assessment should measure whether students have achieved the stated learning outcomes.
+
+	\item High-Level Hardware Overview: While different hardware types are mentioned (superconductors, ion traps, etc.), the level of detail and the connection to their specific strengths and weaknesses for different types of problems (as hinted at in the hackathon report
+) could be more explicit. For instance, the report notes the usefulness of quantum annealers for optimisation problems.
+
+	\item No Mention of Ethical Considerations: The NQCC hackathon in 2023 specifically asked participants to consider responsible and ethical quantum computing (REQC). This foundational section could briefly introduce the societal impact and ethical considerations of quantum technologies.
+
+\end{itemize}
+
+Proposed Changes:
+
+To strengthen this section using an outcome-based approach and connect it more effectively with practical applications and ethical considerations, I propose the following changes:
+
+	\begin{itemize}	
+
+	\item Add Specific Learning Outcomes: For each subsection (1.1 to 1.4), clearly define what students should know or be able to do upon completion. Use action verbs that are measurable, as suggested in "wong\_2011\_Outcome-based-teaching-and-learning-in-computer\_8-W82.pdf". For example:
+
+1.1 Basic quantum computing history: "Students will be able to describe the key contributions of Feynman and Deutsch to the field of quantum computing."
+
+1.2 Quantum Computing Overview: "Students will be able to compare and contrast classical and quantum computing, explain the principles of superposition, entanglement, and measurement, and differentiate between classical and quantum bits."
+
+1.3 The Qubit: "Students will be able to represent qubit states using the Bloch sphere and quantum state vectors, explain the concepts of coherence and decoherence, and identify the basic working principles of different quantum computing hardware platforms (superconductors, ion traps, quantum dots, photonic systems)."
+
+1.4 Modern Photonic Quantum Machinery: "Students will be able to describe the properties of photonic qubits and single-photon detection, explain the concept of integrated photonic circuits, and provide examples of companies utilising photonic quantum computing (e.g., PsiQuantum, ORCA Computing)."
+
+	\item Integrate Practical Use Cases from the NQCC Hackathon: When discussing each fundamental concept or hardware type, briefly refer to relevant use cases from the hackathon report. For example:
+
+When discussing optimisation in 1.2, mention Team 2 (route optimisation in healthcare), Team 3 (unit commitment for electricity grid), Team 7 (vehicle routing), Team 9 (network routing), and Team 10 (vaccination centre location).
+
+When discussing different hardware in 1.3, mention which platforms were used by different teams (e.g., D-Wave for annealing, IBMQ, IonQ, OQC for gate-based
+).
+
+When discussing photonic systems in 1.4, you could highlight that ORCA Computing was a provider at the hackathon.
+
+	\item Suggest Preliminary Assessment Methods: Even in the syllabus outline, you could briefly hint at how the learning in this section might be assessed (e.g., short quizzes on basic concepts, brief explanations of hardware types, conceptual questions linking theory to hackathon use cases). This aligns with the OBA principle that assessment should be aligned with learning outcomes.
+
+	\item Expand Hardware Discussion with Respect to Problem Types: When introducing different hardware, briefly mention the types of problems they are generally suited for based on the insights from the hackathon. For instance, highlight that quantum annealers are often used for combinatorial optimisation problems, as seen with multiple teams using D-Wave.
+	
+	\item Introduce Responsible and Ethical Quantum Computing (REQC): Consider adding a brief subsection (e.g., 1.5) introducing the potential societal impact of quantum computing and the importance of ethical considerations, aligning with the focus on REQC in the NQCC hackathon. 
+\end{itemize}
+
+	
+	This could lead into more detailed discussions later in the syllabus.
+	
+By incorporating these changes, section one of your syllabus will move towards a more explicit outcome-based structure, clearly indicating what students will learn and connecting the foundational knowledge to real-world applications and ethical considerations, as demonstrated in the NQCC Quantum Hackathon. This will provide a clearer roadmap for students and facilitate more effective teaching and assessment.
+
+\section{Lack of integrating Curriculum}
+
+When describing the motivation for developing this syllabus, I want to start by highlighting how, as Wong et. al. state, that each course should fulfil a part of a program curriculum.  In preparing this quantum course, we can try to build on learning outcomes from other program units, e.g. data science, cryptography, coding theory, and cyber-security, but a challenge is that there is no guarantee that each student has taken that unit, or that they all have had exposures to certain analogues or mental models, that would aid in the delivery of new quantum computing concepts.  External to the program, there is equally, no clear cut quantum curriculum that can be used to manage outcomes.  Even the various nomenclatures used in reference books mean that concepts may not be clear when the students are given reading materials.   In the context of Wong's Outcome based teaching and learning, can you reflect these problems back to me in a way that demonstrates the issues.
+
+Okay, let's reflect on the challenges you've identified in developing this quantum computing syllabus, specifically in the context of Section 1 (Quantum Foundations and Hardware) and drawing on the principles of Outcome-Based Teaching and Learning (OBTL) discussed in the "wong\_2011\_Outcome-based-teaching-and-learning-in-computer\_8-W82.pdf" source and the practical context from the "NQCC\_Quantum-Hackathon-2023\_Technical-report.pdf".
+
+You've highlighted several crucial points that directly impact the implementation of an outcome-based approach:
+
+
+\begin{itemize}	
+
+\item 1.
+Connecting Course Outcomes to Program Curriculum: As Wong and Cheung state, the OBTL framework suggests that all course learning outcomes should point to the ultimate objective outcomes in the program studies.
+
+You aim to build on learning outcomes from other program units like data science, cryptography, coding theory, and cybersecurity. However, you face the significant challenge that there is no guarantee that each student has taken these specific units, or that they have equivalent foundational knowledge or mental models. This directly impedes the OBTL goal of setting clear, measurable expectations for what students should be able to do upon completing your quantum course. If students arrive with varied levels of prerequisite knowledge, achieving uniform learning outcomes becomes inherently difficult, making it harder to confirm that the course is contributing to higher-level program objectives in a consistent way.
+
+\item 2. Absence of a Standardised Quantum Curriculum: A core challenge in applying OBTL is the need for explicit statements of what students will be expected to be able to do. Wong and Cheung discuss the importance of defining learning outcomes and mention frameworks like Bloom's taxonomy, although noting they aren't always a perfect fit for computer science. For a field as rapidly evolving and interdisciplinary as quantum computing, you point out the problem: there is no clear-cut quantum curriculum that can be used to manage outcomes. This lack of a widely agreed-upon structure and set of expected competencies across different programs makes it hard to benchmark, align, and clearly define the learning outcomes for your course in a universally understood way. The diverse applications explored in the NQCC hackathon report—spanning optimisation, machine learning, and simulation across various sectors using different hardware types
+—further illustrate the breadth and lack of a single, narrow focus in the field, contributing to the difficulty in standardising curriculum.
+
+\item 3. Inconsistent Nomenclature: You note that even the various nomenclatures used in reference books mean that concepts may not be clear when the students are given reading materials. This issue directly conflicts with the OBTL principle of clearly communicating expectations to students. 
+
+If the language used to describe fundamental concepts or techniques varies significantly between resources, it can create confusion, hinder understanding, and make it harder for students to confidently demonstrate that they have achieved a specific learning outcome, regardless of how well that outcome is defined in terms of action verbs.
+
+\end{itemize}
+
+These issues collectively demonstrate the practical difficulties in fully implementing the OBTL framework for a subject like quantum computing. While the ideal is to clearly state what students should know or be able to do
+, define appropriate teaching and learning activities, and align assessment methods to measure these outcomes, the fluidity of the field, the varied student backgrounds, and the lack of standardised resources present significant hurdles in creating the kind of specific, measurable, and tightly coupled syllabus that the OBTL approach advocates for. Wong and Cheung themselves acknowledge the challenges computer science faculty face in defining objectives and assessing outcomes within this framework, noting that many are "not originally trained in techniques for setting up objectives and measuring outcomes". Your experience highlights that these challenges are amplified in a cutting-edge, multidisciplinary area like quantum computing.
+
+\section{Example Curriculum}
+
+Wong gives an example of an OBA curriculum design.  My aim is to deliver, concisely, a set of toolkits that will allow a student to engage with the application of quantum algorithms in a novel context, and to have enough exposure to practical limitations and research directions, to be confident in understanding limitations, and to engage with advanced practitioners on new directions when moving from NISQ to FTQC.  What concentraion objectives, curricular objectives, course components and learning activities can you infer from this?
+
+Okay, let's infer the elements of an Outcome-Based Teaching and Learning (OBTL) curriculum for your quantum computing course, drawing on the structure and examples provided by Wong and Cheung and reflecting your specific aims in the context of challenges like varied student backgrounds and the emerging nature of the field, as illustrated by the NQCC hackathon.
+
+Based on Wong and Cheung's approach to designing a sub-degree Computer Studies program
+and your goal to deliver toolkits for novel applications, foster understanding of limitations, and enable engagement with advanced practitioners on the NISQ to FTQC transition, here are some potential Concentration Objectives, Curricular Objectives, Course Components, and Teaching and Learning Activities:
+
+\subsection{Inferred Elements}
+
+for Your Quantum Computing Course Curriculum (following Wong \& Cheung's structure):
+
+\subsubsection{Concentration Objectives (Aims):}
+
+Drawing from Wong and Cheung's aims to develop ability in design/development/support, provide basic knowledge for adaptation to new tech, include relevant disciplinary knowledge, and foster independent thought/creativity:
+
+
+\begin{itemize}	
+
+\item To develop students' ability in applying quantum algorithms and software to formulate computational solutions for novel problems
+, contributing to the advancement of quantum computing applications.
+
+\item To provide students with fundamental knowledge in quantum foundations, hardware, and algorithms
+that allows them to adapt to and engage with new technological developments in this rapidly evolving field.
+
+\item To provide students with knowledge regarding the current technical capabilities and limitations of quantum computing platforms
+, as well as awareness of potential applications across various sectors and the importance of responsible and ethical considerations.
+
+\item To increase students' ability and confidence for independent exploration of quantum computing use cases and creative problem-solving.
+
+\end{itemize}	
+
+
+\subsubsection{Curricular Objectives:}
+
+Translating Wong and Cheung's curricular objectives regarding project design/management, adaptability, fundamental knowledge for progression, communication, and awareness of broader issues to your quantum context:
+
+\begin{itemize}	
+	
+\item To provide students with the knowledge and practical techniques required to formulate and prototype computational solutions
+for problems potentially addressable by quantum computing, fostering skills applicable to future careers in this domain.
+
+\item To provide students with professional training in quantum computing so that they may possess the ability to adapt to different quantum computing platforms (e.g., gate-based, annealing)
+and software environments (SDKs).
+
+\item To equip students with the fundamental knowledge of quantum algorithms and their application
+to enable them to engage with advanced concepts, understand the challenges of the NISQ era, and prepare for the transition to fault-tolerant quantum computing (FTQC).
+
+\item To promote students' ability to communicate technical concepts and practical limitations of quantum computing solutions
+, and develop awareness in responsible and ethical implications.
+
+\end{itemize}	
+
+\subsubsection{Course Components}
+
+Mapping Wong and Cheung's approach of starting with fundamental building blocks and moving to more advanced/professional concepts and projects
+to your quantum course:
+
+\begin{itemize}	
+
+\item Fundamental Quantum Concepts: Introduction to qubits, superposition, entanglement, and quantum gates as the key building blocks.
+
+\item Quantum Programming Toolkits: Formal introduction to quantum programming languages and SDKs (e.g., Qiskit, Pennylane, Classiq, D-Wave Ocean SDK, Amazon Braket SDK)
+, shifting emphasis from basic concepts to practical application and industry-standard tools.
+
+\item Key Quantum Algorithms: Study of relevant algorithms (e.g., HHL, VQE, QAOA)
+that represent core techniques.
+
+\item Application Domains and Use Cases: Exploration of how quantum computing could be applied to problems in optimisation, machine learning, and simulation
+, using examples inspired by real-world or industry use cases.
+
+\item Hardware and Limitations: Discussion of different quantum hardware modalities
+, the characteristics and limitations of Noisy Intermediate Scale Quantum (NISQ) devices, including noise, connectivity, and the need for error mitigation.
+
+\item Future Directions: Introduction to concepts related to Fault-Tolerant Quantum Computing (FTQC) and current research challenges.
+
+\item Practical Projects: Assigning projects where students apply the learned toolkits to formulate solutions for a given problem, commensurate with their level of competence. This could involve testing solutions on emulators and/or real hardware where possible.
+
+\end{itemize}	
+
+\subsubsection{Teaching and Learning Activities:} 
+
+Adapting Wong and Cheung's emphasis on active learning, practice, problem-solving, industry exposure, and projects
+to your quantum context, incorporating activities seen in the NQCC hackathon:
+
+\begin{itemize}	
+
+\item Interactive Lectures: Introduce and explain quantum concepts, algorithms, hardware types, limitations, and ethical considerations, encouraging student questions and discussion.
+
+\item Tutorials/Labs: Provide hands-on practice with quantum programming using SDKs, running small programs on emulators or available hardware, clarifying misconceptions through discussion.
+
+\item Case Study Analysis: Examine and analyse industry-provided use cases
+, discussing the problem formulation and the challenges encountered when attempting quantum solutions. The NQCC hackathon technical summaries could serve as concrete examples here.
+
+\item Guest Talks/Industry Engagement: Invite researchers and practitioners from the quantum computing industry to share up-to-date knowledge, discuss real-world applications, current capabilities, limitations, and future prospects (NISQ to FTQC).  This mirrors the role of mentors and providers in the hackathon.
+
+\item Projects/Team Work/Exercises: Engage students in projects or exercises that require applying and integrating the knowledge and skills learned.
+ This could involve designing and coding solutions for simplified use cases, exploring different hardware options, analysing results in the context of NISQ limitations, and presenting their findings. Team-based activities can facilitate peer-to-peer learning.
+
+\item Problem-Solving Sessions: Develop students' ability to formulate quantum approaches to computational problems.
+
+\item Discussions on Responsible Innovation: Engage students in considering the societal impact and ethical implications of quantum computing applications.
+
+\end{itemize}	
+
+By structuring your syllabus development around these elements, you can align your course with the OBTL framework, clearly stating what students should be able to do by the end. The challenges you mentioned (varied backgrounds, lack of standard curriculum, inconsistent nomenclature) become factors to address within these activities and components (e.g., providing foundational review, carefully curating consistent reading materials, using varied activities to accommodate different learning styles and prior exposure, providing extra support for those without specific prerequisites) rather than reasons not to adopt an outcome-focused approach. The NQCC report serves as a valuable real-world illustration of the types of practical engagement and problem-solving that can be integrated into the curriculum and activities.
+
+\subsection{Utilising Existing non-quantum experience}
+
+I would like to make a few points, and then have you reflect those into your last response.  With our department there are no quantum experts, and even for to purposes of delivering my core thesis, that we can develop and include a quantum unit in our masters program, will need me to explain certain quantum concepts in my paper, and I would like to use natural quantum analogies that mathematics and computer science professors will understand, to bring them along with my idea. For example, quantum computational basis states for qudits, form a discrete alphabet, like code-words in classical coding theory. Quantum error correction builds on classical coding ideas like repetition codes and hamming codes.  Quantum fourier transforms naturally uncover periods used in integer factorization, many quantum algorithms can be understood as linear algebra and tensor products, and quantum machine learning has direct classical machine learning antecedents.  Can we utilize existing capabilities in the department to add value in this work
+
+Integrating these insights into the previously outlined OBTL framework will indeed strengthen the proposal for a quantum unit in your Master's program, particularly given the lack of in-house quantum experts and the need to build understanding among colleagues in mathematics and computer science.
+Your aim to use natural quantum analogies that mathematics and computer science professors will understand is a key strategy for bridging the knowledge gap and leveraging existing departmental strengths. This approach can be explicitly woven into the curriculum design across the Concentration Objectives, Curricular Objectives, Course Components, and Teaching and Learning Activities.
+Here’s how your points reflect into the inferred OBTL structure:
+
+\subsubsection{1. Concentration Objectives (Aims):}
+
+\begin{itemize}	
+	
+\item The original objective "To provide basic knowledge in quantum foundations, hardware, and algorithms that allows them to adapt to and engage with new technological developments"
+can be reinforced by explicitly stating that this foundational knowledge will be built upon existing strengths in mathematics and computer science.
+
+\item The aim "to increase students' ability and confidence for independent exploration of quantum computing use cases and creative problem-solving"
+is directly supported by teaching through familiar analogies, making the 'novel context' more accessible by relating it back to known principles.
+
+\end{itemize}	
+
+
+\subsubsection{2. Curricular Objectives:}
+
+\begin{itemize}	
+
+\item The objective "To provide students with the knowledge and practical techniques required to formulate and prototype computational solutions for problems potentially addressable by quantum computing"
+can be framed as applying quantum toolkits [as per your aim] by building upon their existing understanding of computational problem-solving frameworks from classical computing and mathematics.
+
+\item The objective "To equip students with the fundamental knowledge of quantum algorithms and their application to enable them to engage with advanced concepts, understand the challenges of the NISQ era, and prepare for the transition to fault-tolerant quantum computing (FTQC)"
+is made more achievable by first grounding the quantum concepts in familiar mathematical and computational terms. This provides a more solid platform for understanding the complexities of NISQ devices and the requirements for FTQC, such as error correction. The NQCC hackathon report clearly highlights the challenges and limitations encountered when trying to run solutions on current NISQ hardware
+, reinforcing the need for students to understand these practical constraints alongside the theoretical potential.
+
+\end{itemize}	
+
+\subsubsection{3. Course Components:}
+
+\begin{itemize}	
+	
+\item Fundamental Quantum Concepts: This component
+can be explicitly structured to introduce qubits, superposition, entanglement, and quantum gates using the suggested analogies.
+ 
+Qudits and basis states as a discrete alphabet/code-words: Introduce computational basis states in terms of discrete symbols or states familiar from coding theory.
+
+Quantum error correction building on classical coding: Explain quantum error correction concepts (like the need for redundancy and error detection/correction) by drawing parallels to classical repetition codes or Hamming codes.
+
+Quantum algorithms via linear algebra and tensor products: Frame quantum algorithms and circuit operations primarily as linear algebra and tensor products, concepts deeply familiar to both mathematics and computer science students. The HHL algorithm
+, for example, is a quantum linear solver, a concept readily understandable from a numerical linear algebra perspective.
+
+\item Key Quantum Algorithms: When discussing algorithms like VQE or QAOA
+, connect them to classical optimisation techniques where possible. For HHL or QSVT
+, emphasise their roots in linear algebra. Shor's algorithm, while likely too complex to implement on NISQ, can be introduced by highlighting the Quantum Fourier Transform's role in period finding, linking it to classical Fourier analysis used in signal processing or algorithms.
+
+\item Application Domains and Use Cases: Present use cases (like optimisation, ML, simulation)
+by first describing the classical problem formulation before introducing the quantum approach. This allows students to see the quantum method as an alternative or enhancement to familiar classical techniques, such as vehicle routing problems or solving linear systems.
+
+\item Hardware and Limitations (NISQ): 
+
+Discuss NISQ limitations
+in a way that relates back to the properties of the quantum state and operations introduced earlier. Noise, limited connectivity, and coherence times are physical realities that break the ideal mathematical picture – comparing ideal (emulated) results to hardware results, as done in the hackathon
+, provides concrete examples of these limitations.
+
+\item Future Directions (FTQC): Introduce FTQC concepts, including the need for more sophisticated error correction, explicitly building on the classical coding analogies used earlier. Discussing the resources (e.g., number of physical qubits per logical qubit, as noted in the context of HHL implementation
+) needed for FTQC helps ground the transition in concrete terms.
+
+\end{itemize}	
+
+
+\subsubsection{4. Teaching and Learning Activities:}
+
+\begin{itemize}	
+	
+\item Interactive Lectures/Tutorials: These are ideal venues to introduce quantum concepts using the suggested analogies. 
+
+A mathematics professor could potentially lead a session on the linear algebra of quantum states and gates, while a computer science professor could discuss computational complexity or classical algorithm antecedents.
+
+\item Problem-Solving Sessions: Design problems that require students to translate between classical problem formulations and quantum ones, explicitly using the analogies and mathematical/CS structures they are familiar with
+.
+
+\item Projects/Team Work: Assign projects where students must apply quantum toolkits (SDKs)
+to problems, requiring them to draw on their classical problem-solving skills for aspects like problem formulation, data encoding, result analysis, and classical-quantum hybrid approaches. This mirrors the hackathon experience where teams tackled industrially relevant use cases using available tools and expertise. The team-based nature of hackathons
+also facilitates peer-to-peer learning, which is crucial when introducing new concepts.
+
+\item Case Study Analysis: Analyse the NQCC hackathon use cases
+and their summaries, focusing on how the teams attempted to map the classical problems onto quantum hardware, the algorithms used, and the limitations encountered. Explicitly discuss how the problems (e.g., optimisation, simulation, ML) relate to classical problem domains and the challenges specific to the quantum implementation. The reports on specific use cases detail the problem types and the attempted quantum solutions
+, offering concrete examples of problem formulation and the practical issues faced.
+
+\item Guest Talks/Industry Engagement: Invite speakers who can discuss how quantum computing builds on existing technical fields and the practical challenges of moving from NISQ to FTQC. This provides real-world context for the transition and the skills needed.
+
+\end{itemize}	
+
+By explicitly integrating the use of analogies and highlighting the connections to mathematics and classical computer science throughout these elements, you can effectively leverage the existing intellectual capital of your department. This approach makes the quantum material less daunting, demonstrates its relevance within their established fields, and provides a clear pathway for faculty and students to engage with the application, limitations, and future directions of quantum computing using a toolkit-based methodology, much like the hands-on, problem-focused approach demonstrated by the NQCC hackathon.
+	
+	\printindex
+	
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
