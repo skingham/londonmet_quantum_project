@@ -1,0 +1,747 @@
+\section{Introduction to Quantum Computing Syllabus Outline}
+
+%\emph{Section 3 then lays out those topics in a forward-flow syllabus,  mapping topics onto specific, measurable learning outcomes.}
+
+%There are many good overviews of where the subject is currently \cite{Preskill:2023}.
+
+%\cite{Abhijith:2022}
+
+%There are also many reviews and surveys on currency algorithm classes \cite{Arnault:2024} \cite{Jordan:2024} 
+
+%\emph{
+%	Expound on the problem of the lack of mental models from non-quantum topics (eg universal gates for classical digital computing)
+%	that are all students will know.
+%	Show that the introduction of certain quantum ideas may require the fore-shadowing (? better term) of classical ideas 
+%	that are an analogue or antithesis of the quantum phenomenon (e.g no universal gates in quantum circuits).
+%}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Unit 1: Quantum Foundations and Hardware}
+
+%We present an introduction to the field of quantum computing. 
+%We do this by setting out the historic origins and the fundamental concepts that distinguish it from classical computation.
+%The unit introduces qubits and quantum gates, and looks briefly at the physical systems used to realise them.
+%We aim to build in intuition and background to build the mathematical formalism introduced in subsequent units.
+
+%A gentle introduction seeks to highlight why quantum computation is special.
+%By understanding a little about how we create quantum particles and exotic quantum states, 
+%the student should feel more confident in the more abstract concepts introduced as the unit progresses.
+
+Learners need a shared vocabulary—qubits, gates and physical realisations—before they can tackle algorithms or cryptographic threats. 
+A brief historical sketch and a tour of today’s hardware ground the abstract mathematics that follows.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Quantum Computing History}
+
+\emph{Purpose}: show that quantum computing arose from the practical question raised by Feynman,  "how do we simulate quantum physics?", 
+and evolved through Deutsch to modern NISQ devices.
+
+%This unit draws on Preskill's paper \citetitle{Preskill:2023} \cite{Preskill:2023} (2023)
+%and Feynman's \citetitle{Feynman:1986} (1986) \cite{Feynman:1986}, 
+%to provide a historical context and initial motivation for quantum computing.
+
+%Feynman introduces intuitively why quantum systems cannot be simulated efficiently by classical computers.
+%He does this through the description of analogue simulation of physical quantum systems, 
+%and so allows the student so see the contrast with digital quantum information processing with qubits and gates.
+%A discussion on Deutsch's contributions - \citetitle{Deutsch:1985} \cite{Deutsch:1985} (1985) - offers context on this.
+
+\emph{Key message}: classical computers struggle to model quantum systems; quantum hardware was conceived to close that gap.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{The Qubit: Representations and Realizations}
+
+\emph{Purpose}: define the qubit as a two-level quantum system and introduce the vector/Bloch-sphere picture.
+
+%We introduced the qubit by talking about two-level quantum systems.
+%Using examples of photons, trapped ions, quantum dots, superconducting quantum systems, 
+%introduce the \emph{vector-state} representation and \emph{bloch-spheres}.
+%Whilst talking about quantum states, we can introduce \emph{qudits}, such as \emph{qutrits} and \emph{quarts}.
+%Drawing from $q$-ary linear code, we demonstrate the higher cardinality of three- and four-level quantum systems,
+%and show that there is no loss in expressiveness in using the qubit abstraction.
+
+%Introduce concepts of \emph{superposition}, \emph{no-cloning} and \emph{entanglement} in one and two qubit systems.
+%Through this, introduce the \emph{Dirac} notation along side \emph{binary strings} and \emph{vector notation}
+%as representations of superposition and entangled states.
+%Use vector spaces and block spheres as a natural way of understanding a single qubit system.
+%Measurement of computational basis states are discussed.
+
+%We can use the introduction, and a high level, to demonstrate how quantum phenomenon can be manifested through physical systems.
+%This can be as simple as using a set of polarising filters to see the ?? paradox.  
+%The setup for photons to describe entanglement is straight forward, 
+%but we can describe technique for ions and highlight how experimental physics is moving the industry forward 
+%by reading \href{http://scienceblogs.com/principles/2009/07/07/entanglement-by-accident/}{Monroe on accidental ion entanglement}.
+
+\emph{Key message}: superposition, no-cloning and entanglement distinguish qubits from bits, 
+yet all can be expressed in familiar linear-algebra terms. 
+Higher-level qudits exist but do not expand computational power beyond the qubit abstraction.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Quantum Machinery}
+
+\emph{Purpose}: orient students within the hardware landscape—analogue simulators, annealers, photonic devices and gate-based processors.
+
+%Give examples of the major categories of quantum computing:
+%\begin{itemize}
+%	\item Analogue Quantum Simulators; specialised setups to gain insights into strongly correlated matter (condensed-matter models, spin states).
+%	\item Analogue QUBO annealers, such as D-Wave: Fixed Ising form solvers with flexibility over in scalar parameters.
+%	\item Digital photonics, such as PsiQuantum: single-photon and time-bin approaches, uses in communications.
+%	\item Digital gate based systems: typically super-conducting and trapped-ions technologies for general computing applications.
+%\end{itemize}
+
+%Examples of where natural advantages of certain technologies, such as photonics for quantum communication 
+%and quantum cryptography and key distribution can be discussed.
+
+%Photonics poses interesting challenges and opportunities. 
+%Is both one of the earliest \emph{cite{photonics}} practical quantum technologies 
+%and an expensive one to set up research for \emph{cite{photonics:costs-of-research}}. 
+%Yet it has easily demonstrates a number of quantum principles in a way which is easily explainable at an under-graduate science level.
+%Early \emph{Quantum Key Distribution (QKD)}  \index{Quantum Key Distribution} used quantum properties of photons, 
+%specifically photon polarisation - which can be demonstrated with polarised sunglasses - to develop the delivery of one-time pads 
+%for secure communications.
+
+%Further, the exposition of the QKD of randomly generated one time pads highlights another recent development
+%where quantum randomness was demonstrated for the first time recently, using digital quantum computers and RCS
+%[\href{https://scitechdaily.com/a-56-qubit-quantum-computer-just-did-what-no-supercomputer-can/}{google jpm 56 qubit QRNG}].
+
+%Looking at the physical implementation of quantum systems, we will see certain advantages of different quantum particles
+%with respect to  \emph{noise}, \emph{decoherence} and \emph{gate fidelity}.
+%This brings into scope the topics of near-term \emph{NISQ} vs the holy-grail of \emph{FTQC}, 
+%laying the ground work for the introduction of quantum error correction schemes.
+
+\emph{Key message}: different technologies excel in different niches 
+(e.g. photonics for communications, superconducting qubits for general algorithms), 
+and noise considerations motivate the distinction between NISQ and future fault-tolerant machines.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Outcomes}
+By the end of Unit 1, students can:
+\begin{itemize}
+	\item \emph{Explain} Feynman’s simulation argument and its significance for quantum computation.
+	\item \emph{Contrast} classical and quantum computing using the state-space (exponential) argument.
+	\item \emph{Identify} the major hardware platforms and discuss their practical trade-offs.
+	\item \emph{Describe} at least one experimental set-up that manifests superposition or entanglement (e.g. polarised photons).
+\end{itemize}
+
+\subsubsection{Reference Materials}
+\begin{itemize}
+	\item \citeauthor{Preskill:2023} \citetitle{Preskill:2023}.
+	\item \citeauthor{Feynman:1986} \citetitle{Feynman:1986}.
+	\item \citeauthor{Nielsen:2010} \citetitle{Nielsen:2010} ch. 1.
+	\item \citeauthor{Lipton:2021} \citetitle{Lipton:2021} ch. 14 (qudits).
+	\item \citeauthor{Monroe:2021} \citetitle{Monroe:2021}.
+	\item Vendor white papers (D-Wave/quantum annealing), PsiQuantum/photonics, ORCA/fibre optics).
+	%\item ORCA White Paper: "Quantum computing using optical fibre components" [ORCA, 2022, company website/documentation]
+	\item Light-hearted primer: Chad Orzel, \href{https://chadorzel.com/?cat=4}{How to Teach Physics to Your Dog}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Unit 2: Quantum Computation, Gates and Circuits}
+
+This unit presents the foundational mathematical skill sets needed to describe and apply gates to effect computations. 
+Students now translate the physical intuition from Unit 1 into the mathematical grammar of quantum computing
+(linear algebra, postulates, gates and simple circuits) so that every later algorithmic idea has a precise formal scaffold.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Linear Algebra}
+
+\emph{Purpose}: supply the indispensable toolkit of vector spaces, inner products, matrix operators and tensor products,
+and using the qubit as a running example.
+
+\emph{Learning}:
+\begin{itemize}
+	\item Express single- and multi-qubit states as column vectors.
+
+	\item Identify Hermitian, unitary and Pauli operators and explain why unitarity $\iff$ reversibility.
+
+	\item Compute simple tensor products and eigen-decompositions with pen-and-paper and NumPy.
+\end{itemize}
+
+%We mostly follow \citeauthor{Nielsen:2010} chapter 2 \cite{Nielsen:2010}, 
+%but reference other papers where they bring conciseness \cite{Ekert:1996} \cite{Abhijith:2022}.
+
+%We start by recapping single- and dual-qubit vector states, 
+%and give the generalization of \emph{quantum registers} used in quantum computing. 
+
+%* Bases and linear independence
+%* Linear Operators as Matrices
+%* Pauli Matrices
+%* Interproducts
+%* Eigenvectors and eigenvalues
+%* Adjoints and Hermitian Operatorss:  $U^{\dagger}$ is both the inverse and the transpose-conjugate; multiplying restores  the identity. 
+%* Tensor Products
+%* Operator functions
+%* Commutator and anti-commutator
+%* Polar and singular value decompositions
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Quantum Postulates}
+
+\emph{Purpose}: anchor the algebra to the four standard postulates, 
+emphasising Postulates 2 and 3 as the dynamical core and Postulate 4 as the blueprint for composite systems.
+
+\emph{Learning}:
+\begin{itemize}
+	\item State each postulate in one sentence.
+	\item Explain how unitary time evolution and projective measurement coexist.
+	\item Give a short explanation of why the Toffoli gate is the reversible AND analogue.
+\end{itemize}
+
+%	Most modern texts (e.g., Nielsen \& Chuang) frame non-relativistic quantum mechanics around four core postulates. 
+%	Two describe \textbf{states} and \textbf{composite systems}, 
+%	while the other two govern \textbf{dynamics} on how a state changes with time or under measurement.
+	
+%\emph{Foundational Postulates}
+%\begin{itemize}
+%	\item \textbf{Postulate 1:} A quantum state is a vector in Hilbert space.
+%	\item \textbf{Postulate 4:} Composite systems are described by the tensor product of individual system spaces.
+%\end{itemize}
+	
+%These two postulates set the stage, but they do not directly govern dynamical evolution.
+	
+%	\emph{Postulates Governing Dynamics}
+%	\begin{table}[h]
+%		\centering
+%		\renewcommand{\arraystretch}{1.2}
+%		\begin{tabular}{|c|l|l|l|}
+%			\hline
+%			\textbf{\#} & \textbf{Postulate} & \textbf{What it says} & \textbf{Why it’s “dynamics”} \\
+%			\hline
+%			\textbf{2. Unitary Time Evolution} & If a system is isolated during the interval \( t_0 \to t \), its state vector evolves by a \textbf{unitary} operator \( U(t,t_0) \). In the Schrödinger picture: & \( U(t,t_0) = \exp\!\bigl[-\,iH(t-t_0)/\hbar\bigr] \), where \( H \) is the system’s Hermitian Hamiltonian. & This gives the reversible, deterministic law (Schrödinger equation) for how amplitudes flow—analogous to Newton’s laws for classical trajectories. \\
+%			\hline
+%			\textbf{3. Measurement (Projective Version)} & Measuring an observable \( M \) with eigenvalues \( \{m_k\} \) and projectors \( \{P_k\} \) produces outcome \( m_k \) with probability \( p_k=\langle\psi|P_k|\psi\rangle \). After measurement, the system jumps to: & \( P_k|\psi\rangle/\sqrt{p_k} \). & This is the \textbf{non-unitary} dynamical rule that accounts for interaction with a detector and explains why we observe definite outcomes despite quantum interference. \\
+%			\hline
+%		\end{tabular}
+%		\caption{Postulates governing dynamics in quantum mechanics}
+%	\end{table}
+%	\emph{Summary}
+%	Postulate 2 provides the continuous, reversible evolution between measurements, while Postulate 3 supplies the stochastic, irreversible update during measurement. Together, they form the complete dynamical framework of standard quantum theory.
+
+%Classical irreversible gates: 
+%* Show truth table of AND. Ask: can you recover the inputs from the output? No! Information is lost.
+%* Introduce the Toffoli gate (adds a third control bit to keep reversibility).
+
+%Qubit and unitarity rule
+%* Define qubit $|psi\rangle = \alpha |0\rangle + \beta |1\rangle⟩$.
+%* State "Quantum mechanics says evolution is linear and norm-preserving $\Rightarrow$ matrices must be unitary."
+
+%Unitary $\iff$ reversible
+%* Prove quickly: $U^\dag$ is both the inverse and the transpose-conjugate; multiplying restores the identity.
+
+%Circuit as factorisation
+%* Stack three 2×2 matrices; note the product is still unitary.
+%* Draw the same gates in reverse order with daggers = inverse circuit.
+
+%Non-unitary aspirations
+%* "We want to multiply by a real-valued data matrix or Hamiltonian—those aren’t unitary."
+
+%Block-encoding mechanics
+%* Add one ancilla qubit initialised to $|0\rangle$.
+%* Show that controlling on the ancilla embeds $A/\alpha$ in the top-left corner of the full matrix.
+%* Stress the scaling factor αα and the success-probability interpretation.
+
+%%Teaser of downstream uses
+%%* Mention HHL, QSVT, quantum kernels: "All call a block-encoding as a subroutine."
+%%* End with the mantra: "Circuits implement unitaries; block-encodings let those unitaries secretly carry the matrices we care about."
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\emph{Why Irreversibility shows up in practice}
+%
+%1. Measurement - Projective measurement applies a non-unitary "collapse" operator. 
+%Information about the phase relations among amplitudes is discarded, so you cannot un-measure a generic outcome.
+%
+%2. Open systems / decoherence - Coupling to an environment causes the joint evolution (system + bath) to stay unitary, 
+%but the reduced stat0e of the system alone evolves under a completely-positive trace-preserving (CPTP) map, 
+%which is generally not invertible. 
+%Apparent irreversibility is just the price of ignoring the environment’s qubits.
+%
+%\emph{Superdense Coding}
+%
+%* Bell states and EPR
+%
+%\emph{Density Operator}
+%
+%\emph{Schmidt decomposition and purifications}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Basic Gates \& Operations}
+
+\emph{Purpose}: expound on the universal gate set and develop the circuit picture.
+
+Learning cues
+\begin{itemize}
+	\item Build a three-gate circuit (e.g. H–CNOT–Z) and predict output probabilities.
+	\item Describe the no-cloning theorem’s impact on quantum communications.
+	\item Run a simple circuit in Qiskit or Cirq and verify results against theory.
+\end{itemize}
+
+%\textbf{Concepts Covered}:
+%\begin{itemize}
+%	\item Bra-ket notation and state representation; a way of writing vectors in a 2-D vector space: $|v \rangle \in \mathbb{C}^2$
+%	\index{Bra-ket Notation}
+%	\item Matrix transformations of quantum states and gates
+%	\item Basic gates: Pauli (X, Y, Z), Hadamard (H), CNOT, Phase shifts, and controlled gates
+%	\item Principle of reversibility: quantum operations as unitary transformations, implications for circuit construction, contrast to classical irreversibility.
+%	\item No-Cloning theorem: proofs and intuitive reasoning, consequences for quantum communication and cryptography.
+%\end{itemize}
+
+
+%\textbf{Workshops}:
+%\begin{itemize}	
+%	\item IBM Qiskit (core gate library, interactive circuit composer)
+%	\item Google Cirq (custom gate implementation, visualizations)
+%\end{itemize}
+
+%\begin{itemize}
+%	\item Original no-cloning paper: Wootters \& Zurek, "A Single Quantum Cannot Be Cloned," Nature, 1982, doi:10.1038/299802a0
+%	\item Explanation of reversibility: \citeauthor{Nielsen:2010}, Quantum Computation and Quantum Information (Chapter 4, sections on unitarity and reversibility).
+%\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Tensor Mathematics and Circuit Composition}
+
+\emph{Purpose}: show how small gates scale to multi-qubit registers via tensor products and controlled operations.
+
+\emph{Learning}:
+\begin{itemize}
+	\item Rewrite a controlled-U gate as a block matrix.
+	\item Decompose a two-qubit gate into single-qubit rotations and CNOTs (by lookup or SDK).
+\end{itemize}
+
+%\textbf{Workshop SDKs/Platforms}:
+%\begin{itemize}
+%	\item IBM Qiskit Composer (interactive drag-and-drop circuit composer)
+%	\item Google Cirq tutorials (introductory lab exercises)
+%	\item Julia QML/Yao.jl; automatic differentiation (fast simulations, tensor-network circuits, tensor operations)
+%	\item Pennylane: automatic differentiation  (tensor circuit building, differentiable programming)
+%\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{NISQ Devices and Error Correction Codes}
+
+\emph{Purpose}: connect the perfect matrix circuit model to noisy hardware and introduce the idea of logical (encoded) qubits.
+
+\emph{Learning}:
+\begin{itemize}
+	\item Simulate a bit-flip error and show how a three-qubit repetition code detects it.
+	\item Articulate the difference between NISQ error-mitigation and full fault tolerance.
+\end{itemize}
+
+%We recap the NISQ devices introduction from Preskill and look at error correction.
+%We describe the use of logical qubits constructed from physical qubits. 
+%We follow this will quantum error correction to demonstrate theoretical and practical solutions to noise and decoherence.
+%Surface and colour stabiliser codes can be explained diagrammatically (hence topological protection),
+% and as well as demonstrating on paper how single phase-flip and bit flip errors can be caught an corrected, 
+% we can demonstrate this using SDKs.
+
+
+%\textbf{Workshop SDKs/Platforms}:
+
+%\begin{itemize}
+%	\item IBM Quantum Experience (real-device demonstrations, noise simulations)
+%	\item Google Cirq (customizable noise models)
+%\end{itemize}
+
+%\begin{itemize}
+%	\item IBM Qiskit Noise Simulator (interactive noise examples)
+%	\item IBM Qiskit Ignis (specialized quantum error correction toolkit)
+%	\item Google Cirq (topological code simulations, custom circuit design)
+%	\item (Additional tool): Stim (Google's specialized quantum error correction simulator)
+%\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Outcomes}
+By the end of Unit 2, students can:
+\begin{itemize}
+	\item \emph{Represent} quantum states in bra-ket, column-vectors, Bloch-sphere co-ordinates form.
+	\item \emph{Apply} single- and two-qubit unitary gates and compute resulting state vectors.
+	\item \emph{Explain} the four quantum postulates and illustrate each with a direct example.
+	\item \emph{Assemble} and run a short circuit on a cloud simulator, interpreting the measurement statistics.
+	\item \emph{Demonstrate} how a simple error-correction code protects against a single-qubit error.	
+\end{itemize}
+
+\subsubsection{Reference Materials}
+\begin{itemize}
+	\item \citeauthor{Nielsen:2010} \citetitle{Nielsen:2010}, ch. 2.
+	\item Watrous, J. 2018, "The Theory of Quantum Information", ch. 2 (concise linear-algebra review)
+	\item Wootters \& Zurek, "A Single Quantum Cannot Be Cloned," Nature, 1982. %Wootters \& Zurek, "A Single Quantum Cannot Be Cloned," Nature, 1982, doi:10.1038/299802a0
+	\item IBM Qiskit, Google Cirq \& Pennylane tutorials for hands-on practice.
+	\item \citeauthor{Abhijith:2022} \citetitle{Abhijith:2022}
+	\item \citeauthor{Ekert:1996} \citetitle{Ekert:1996}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Unit 3: Quantum Algorithms and Classical Cryptography}
+
+Students now see why quantum computing matters to cryptography:
+a handful of core algorithms, most famously Shor's and Grover's, break or undermine real-world protocols. 
+This cements the linear-algebra skills from Unit 2 and prepares students for the algorithmic blocks used in Unit 4.
+
+%Use Shor's original paper as a motivating example for the ideas that were perfected subsequent to his paper:
+%\begin{itemize}
+%	\item Period finding as Quantum algorithm
+%	\item Modular arithmetic as state preparation
+%	\item Quantum phase estimation for modular multiplication and exponentiation 
+%	\item Hidden Subgroup Problem in terms a eigenvalue (or phase) of a unitary operator
+%	\item The unitary as an Oracle-like Component
+%	\item Amplitude Amplification
+%\end{itemize}
+
+%We then look at some subsequent algorithms that developed these ideas, building confidence with circuit complexity in preparation for more
+%complex building blocks and algorithms in unit-4.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Classical Cryptography Problems}
+
+\emph{Purpose}: Review the number theory tasks (factorisation, discrete logs, subset-sum) 
+that underpin certain cryptographic protocols, so that the impact of quantum-speed-ups is clear.
+
+%sUnderstand the mathematical underpinnings of hidden-subgroup problems, and their broader application.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Deutsch–Jozsa and Simon’s Algorithms}
+
+\emph{Purpose}: introduce the hidden-subgroup paradigm in its simplest forms; 
+students practise reading small circuits and interpreting their algebraic output.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Quantum Phase Estimation (QPE) and modular arithmetic}
+
+\emph{Purpose}: show that QPE is the work-horse subroutine behind Shor and many later algorithms; 
+modular multiplication provides the concrete oracle.
+
+%\textbf{Workshop SDKs/Platforms}:
+%\begin{itemize}
+%	\item IBM Qiskit (QFT tutorials, modular exponentiation implementations)
+%	\item Pennylane (QFT example notebooks)
+%\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Quantum Fourier Transform (QFT)}
+
+\emph{Purpose}: link the Fourier basis to period-finding 
+and demonstrate a compact circuit that students can simulate.
+
+%Understand QFT, the Fourier basis using qubit representations. Demonstrate using Fourier basis and transform for arithmatic.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Putting it all Together with Shor's Algorithm}
+
+\emph{Purpose}: assemble the earlier blocks 
+(state preparation, modular arithmetic, QFT)
+into the complete quantum attack on RSA.
+
+%\textbf{Workshop SDKs/Platforms}:
+%\begin{itemize}
+%	\item IBM Qiskit (detailed practical implementations, interactive tutorials)
+%	\item Pennylane (modular arithmetic circuits)
+%\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Grover’s Algorithm}
+
+\emph{Purpose}: contrast \emph{amplitude-amplification} (AA) speed-ups with exponential ones; 
+reinforce oracles, reflection operators and the role of noise in NISQ devices.
+
+%We present a Grover notebook using IBM QISKIT to demonstrate building the unitary Oracle
+%and running this with the built in \emph{Grover Operator}.
+
+%We take the opportunity to use noisy backend simulators to observer the effects of noise.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Outcomes}
+
+By the end of Unit 3, students can:
+\begin{itemize}
+	\item \emph{Explain} how Shor’s and Grover’s algorithms threaten current public-key and symmetric schemes.
+
+	\item \emph{Map} each algorithm to its core building blocks (state preparation, oracle, QFT/QPE, amplitude amplification).
+
+	\item \emph{Implement} a small instance of Shor’s or Grover’s algorithm on a simulator and interpret the results.
+
+	\item \emph{Discuss} the practical trade-offs of state preparation on-chip versus hybrid classical–quantum approaches in the NISQ era.
+\end{itemize}
+
+%\begin{itemize}
+%	\item describe intuitively the problems of state preparation
+%	\item look at the trade-off of computing states internally on a quantum system vs hybrid classical-quantum system, and the difficulties the NISQ bring to this.
+%\end{itemize}
+
+\subsubsection{Reference Materials}
+\begin{itemize}
+	\item \citeauthor{Lipton:2021} \citeauthor{Lipton:2021}, ch x, y, \& z.
+	\item \citeauthor{Nielsen:2010} \citeauthor{Nielsen:2010}
+	\item \citeauthor{Shor:1997} \citetitle{Shor:1997}
+	\item \citeauthor{Grover:1996} \citetitle{Grover:1996}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Unit 4: Advanced Quantum Algorithms}
+
+Having mastered core algorithms, students now meet the techniques that dominate current research
+(matrix inversion, polynomial singular-value transforms, quantum optimisation and hybrid workflows)
+so they can read, reproduce and extend state-of-the-art results:
+
+\subsubsection{Quantum Matrix Inversion (with HHL)}
+
+\emph{Purpose}: show how a quantum computer can invert a sparse, well-conditioned matrix
+ exponentially faster than classical algorithms—subject to data-loading and read-out caveats.
+ 
+%The Harrow-Hassidim-Lloyd (HHL) \cite{Harrow:2009} \cite{Lipton:2021} algorithm is an important piece of work, 
+%designed to solve the Quantum Linear System Problem (QLSP). 
+%QLSP can be understood by considering the classical Linear System Problem (LPS) where we seek a vector $x$
+%to satisfy the set of linear equations $Ax = b$.  QLSP takes  a sparse, well-conditioned matrix  $A$ 
+%and vector $b$, encoded as quantum states, and produces a quantum state $\lvert x\rangle$ as a solution.  
+%Solving this problem requires a quantum matrix inversion, which HHL provides.
+
+%This algorithm, although seminal, leaves a number of challenges to overcome before the quantum speed-up of the 
+%matrix inversion can be taken advantage of.  The first is that recovering the full classical description of the 
+%vector $x$ from the quantum state can be computationally expensive and add significant overhead.
+
+%The second we raise is the problem of \emph{Quantum Random Access Memory} (QRAM) 
+%and practical issues in providing fast QRAM and loading large amounts of classical data.  
+%This subject comes up in another advanced technique, block encoding.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Block Encoding \& Quantum Singular-Value Transformation (QSVT)}
+
+\emph{Purpose}: present block encoding as the universal trick for hiding non-unitary matrices inside unitaries, 
+and QSVT as the "polynomial filter" that subsumes Grover, Hamiltonian simulation and HHL.
+
+%We take a high-level approach to QSVT as it is mathematically challenging to present, involving Chebyshev polynomials,
+%quantum signal processing and a good amount of linear-algebra bookkeeping.
+
+%The core idea \emph{Block-Encoding} (BE) is that, if you can hide a non-unitary matrix $A$ inside of a matrix 
+%This core technique of BE comes up a lot in modern quantum algorithms, and it should be presented.  
+%Building on the concepts from Grover's AA, QPE, and Hamiltonian simulation, we present the motivation 
+%and the pattern of the solution.  
+%Indeed, the analogy of the QSVT as a digital filter acting on frequency components, should bolster earlier work with phases.
+
+%\emph{Outcome}:
+%\begin{itemize}
+%	\item Understand QSVT as polynomial singular-value transformations via controlled phase sequences.
+%	\item Identify Grove and Hamiltonian simulation as special cases.
+%	\item Describe an \emph{unitary control register} as block-encoding \emph{plus} an ancilla qubit.
+%	\item Run a prepared QSVT circuit on a toy, low-degree, matrix and verify the singular values.
+%\end{itemize} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Quantum Optimisation Pathways}
+
+\begin{table}[ht]
+	\centering
+	%\renewcommand{\arraystretch}{1.2}
+	\begin{tabular}{|p{5cm}p{9.5cm}|}
+		\hline
+		\textbf{Sub-topic} & \textbf{Why} \\
+		\hline
+		\textbf{Quantum Annealing \& QUBO (D-Wave)} & Demonstrates hardware tailored to Ising/optimization problems and contrasts analogue with gate-model approaches. \\
+		\hline
+		\textbf{Gate-model Optimisation (QAOA / VQE)} & Shows how variational circuits tackle the same problems on NISQ gate-based devices. \\
+		\hline
+		\textbf{Graph Algorithms} & Concrete optimization tasks (Max-Cut, colouring) that map neatly to both annealing and QAOA. \\
+		\hline
+	\end{tabular}
+	\caption{Comparison of Quantum Optimization Techniques}
+\end{table}
+
+%\textbf{Workshop SDKs/Platforms}:
+%\begin{itemize}
+%	\item Pennylane (smooth classical-to-quantum transition tutorials)
+%	\item Julia QML/Yao tutorials (high-performance QML simulations)
+%\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Quantum Annealing and D-Wave Systems}
+
+%\textbf{Workshop SDKs/Platforms}:
+
+%\begin{itemize}
+%	\item D-Wave Leap (Quantum annealing experiments, practical QUBO solutions)
+%\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Quantum Unconstrained Binary Optimization (QUBO)}
+
+%We introduce Ising and QUBO models for quantum annealing.  
+%Problems that are typically tackled with theses models are discussed, 
+%principally optimisation problems, Hamiltonians, and energy landscapes of quantum chemistry.
+
+%\textbf{Workshop SDKs/Platforms}:
+%\begin{itemize}
+%	\item D-Wave Leap platform (directly implement optimization problems)
+%	\item Pennylane (variational quantum algorithms for optimization)
+%	\item Google Cirq (QAOA tutorials)
+%\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Quantum Algorithms for Graph Problems}
+
+%* Graph coloring
+%* max-cut
+%* shortest path problems
+
+%\textbf{Workshop SDKs/Platforms}:
+
+%\begin{itemize}
+%	\item Google Cirq (QAOA for MaxCut, detailed graph problems examples)
+%	\item D-Wave Leap (Ising models, graph optimization problems)
+%\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Quantum Machine Learning (QML)}
+
+\emph{Purpose}: connect kernel methods and variational classifiers to practical anomaly detection (OC-SVM), 
+illustrating a full hybrid workflow from data encoding to classical post-processing.
+
+%\emph{ML Primer}
+%\begin{itemize}
+%	\item Kernels
+%	\item SVM math
+%	\item Anomaly-detection metrics
+%\end{itemize}
+
+%\emph{Quantum Kernels \& Feature Maps}
+%\begin{itemize}
+%	\item Swap-test
+%	\item Fidelity estimation
+%	\item Expressivity vs noise
+%\end{itemize}
+
+%\emph{ Quantum OC-SVM Workflow}
+%\begin{itemize}
+%	\item Data-encoding circuits
+%	\item Kernel-matrix build on hardware (QVM or real)
+%	\item Classical QP (CVXOPT / LIBSVM) for support vectors
+%	\item Hybrid inference loop; noise-mitigation hacks
+%\end{itemize}
+
+%\emph{Variational Classifiers \& Quantum Neural Nets}
+%
+%\emph{Hands-on Lab 3}
+%\begin{itemize}
+%	\item Pennylane (best QSVM wrappers)
+%	\item Julia QML for high-performance simulations
+%	\item Implement OC-SVM in Pennylane
+%	\item Test against classical scikit-learn
+%\end{itemize}
+
+%\begin{itemize}
+%	\item Pennylane (core QML package, variational circuits, quantum neural nets)
+%	\item Julia Quantum ML/QML.jl (efficient QML experiments, classical-quantum hybrid models)
+%	\item TensorFlow Quantum (Cirq-based, optional for broader ML integrations)
+%\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Hybrid Classical-Quantum Systems}
+
+\emph{Purpose}: teach students to treat the QPU as a remote accelerator within 
+a larger data pipeline—mirroring how real projects are executed in the NISQ era.
+
+%Unit treats a quantum device as a remote accelerator via hybid-jobs api.
+%Exercises reinforce core quantum ideas—state preparation, measurement statistics, error mitigation.
+
+%The analogy: similarly to GPU or ML cloud resources (PyTorch, AWS SageMaker) 
+%quantum processes are an external call from the Python code to accelerate 
+%an specific loop, while local processing handles the data wrangling, optimisation, logging, etc.
+
+%\begin{itemize}
+%	\item rationale behind the use of hybrid classical-quantum computing in the NISQ era
+%	\item Swap test; measurement statistics
+%	\item Error mitigation
+%	\item error budgets
+%	\item Parameter-shift rule; unitarity	
+%\end{itemize}
+
+%\emph{diagram: loop of [ ETL/Feature engineer -> circuit generation/SDK -> Quantum execution (QPU/sim)]}
+
+%\textbf{Topics}
+%\begin{itemize}
+%	\item Kernel estimation: OC-SVM kernel loop
+%	\item Variational Quantum Algorithms (VQAs) workflows: 
+%	Frame VQAs (like QAOA or VQE) as prime examples of the hybrid paradigm, 
+%	highlighting the classical optimisation loop and the quantum circuit execution/measurement step; 
+%	VQE or QAOA on Braket Hybrid Jobs; 
+%	\item Data pipeline walk through ETL-to-QPU pipeline
+%\end{itemize}
+
+%\textbf{Outcomes}
+%\begin{itemize}
+%	\item Architect a pipeline that ingests classical time-series, invokes a quantum kernel routine, and performs classical optimisation.
+%	\item Quantify shot noise and latency, choosing batch sizes and iteration counts that respect cloud-QPU quotas.
+%	\item Deploy a simple hybrid job on either AWS Braket or IBM
+%	\item Classic/Quantum performance 
+%\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Outcomes}
+
+By the end of Unit 4, students can:
+\begin{itemize}
+	\item \emph{Explain} the high-level steps of HHL and identify its data-loading bottlenecks.
+	
+	\item \emph{Describe} block encoding and state how QSVT extends Grover and Hamiltonian simulation.
+	
+	\item \emph{Choose} an appropriate optimisation strategy (annealer vs QAOA) for a given QUBO or graph problem.
+	
+	\item \emph{Implement} a simple quantum kernel OC-SVM on a cloud platform and benchmark against a classical baseline.
+	
+	\item \emph{Architect} a hybrid workflow that balances shot cost, latency and classical compute.
+\end{itemize}
+
+\subsubsection{Reference Materials}
+\begin{itemize}
+	\item \citeauthor{Lipton:2021} \citetitle{Lipton:2021}
+	\item \citeauthor{Harrow:2009} \citetitle{Harrow:2009}
+	\item \citeauthor{Abhijith:2022} \citetitle{Abhijith:2022}
+	\item \citeauthor{Dalzell:2023} \citetitle{Dalzell:2023}
+	\item Low \& Chuang, "Hamiltonian Simulation by Uniform Spectral Amplification" (for block encoding).
+	\item Farhi et al., "A Quantum Approximate Optimization Algorithm."
+	\item \citeauthor{Havlicek:2019} \citetitle{Havlicek:2019}
+\end{itemize}
+
+(Hands-on: D-Wave Leap docs, AWS Braket hybrid jobs, Qiskit Runtime, PennyLane QSVT demo notebooks.)
+
+\subsection{Quantum SDKs and Platforms}
+
+As we have walked through the syllabus, we have elided the quantum SDK platforms relevant for each topic.
+Here is a summary of the systems that are either easily installed to run local and cloud based simulations, 
+access real quantum hardware, or used for circuit analysis in our subject areas.
+
+\begin{table}[ht]
+	\centering
+	%\renewcommand{\arraystretch}{0.2}
+	\begin{tabular}{|p{2.8cm}|p{7cm}|p{4cm}|}
+		\hline
+		\textbf{SDK / Platform} & \textbf{Primary Strength} & \textbf{Ideal Course Sections} \\
+		\hline
+		IBM Qiskit & Most beginner-friendly; rich gate-model library and free cloud back-ends. & Units 1–3 (foundations, gates, Shor/Grover labs) \\
+		\hline
+		Google Cirq & Highly customisable circuits with strong pedagogical resources; integrates with TensorFlow Quantum. & Units 2–4 (intermediate algorithms, QAOA, QML) \\
+		\hline
+		Pennylane & Native hybrid workflows and automatic differentiation for variational circuits.L & Unit 4 (QSVT demo, OC-SVM lab) \\
+		\hline
+		D-Wave Leap & Turn-key quantum annealer for Ising / QUBO optimisation. & Unit 4 (annealing and graph-optimisation topics) \\
+		\hline
+		ORCA  & Photonic hardware case studies for communications and QKD. & Unit 1 (hardware landscape) \\
+		\hline
+		Julia QML / Yao.jl & High-performance simulation and research-grade QML tooling. & Unit 4 (advanced QML experiments) \\
+		\hline
+	\end{tabular}
+	\caption{Comparison of SDKs for Quantum Computing}
+	\label{tab:quantum_sdk_comparison}
+\end{table}
