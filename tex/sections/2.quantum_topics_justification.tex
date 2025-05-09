@@ -1,23 +1,62 @@
 \section{Quantum Topics Justification}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Motivation \& Teaching Strategy}
 
-As meaningful introductory course into quantum computation, we must maximise the leverage of 
- classical competencies and existing curriculum components whilst respecting the varied backgrounds of our students.  
-Cloud based quantum facilities now make practical skills attainable, 
-however the field is still dominated by algebraic notations and intricate physical calculus. 
+Central to an OBTL approach is to ask "what does the student need to be able to do?". 
+There is no lack of introductory quantum materials, university course syllabi and online courses available \cite{Ekert:2000}\cite{Abhijith:2022}\cite{Lipton:2021},  
+yet exploring every corridor in the labyrinth of quantum topics is not possible within a single module.
+Instead we can focus on competencies that matter.
+
+We should reasonably expect that the student be able to accomplish a range of tasks such as:
+\begin{itemize}
+	\item Explain why and where quantum computers can gain advantage over classical algorithms.
+	\item Digest literature by having a familiarity with the standard notations and nomenclatures (Dirac bra-kets, circuit diagrams, complexity metrics).
+	\item Assess the suitability of different quantum hardware platforms (superconducting, trapped‑ion, photonic, annealing) and highlighting their strengths and weaknesses for different classes of problems.
+	\item Demonstrate proficiency with some of the current generation of quantum SDKs.
+	\item Gain a mastery over a set of algorithmic building blocks (e.g. state preparation, Quantum Fourier Transform, amplitude amplification) and deploy them on simulated, and preferably real,
+	 quantum devices.
+	\item Produce meaningful analysis by applying these skills to a novel problem and interpreting the results critically.
+\end{itemize}
+
+Drilling into the last point and working backwards, we ask: 
+How can we construct focused content that enables students new to quantum computing to master a compact set of 
+building blocks with wide applicability, equipping them to tackle more advanced applications
+within the limits of an introductory course?
+
+In this section we walk through a set of foundational quantum topics needed to understand, 
+and reconstruct, Peter Shor's quantum algorithm for integer factorisation and discrete logarithms.
+As we do this, we show how undergraduate-level mathematics and computer-science knowledge 
+illuminate how Shor demonstrated the exponential speed up of a classically known algorithm.
+
+We then pull apart his quantum algorithm to reveal the concepts it showcases 
+(state preparation, modular arithmetic, the Quantum Fourier Transform, and amplitude amplification) 
+each of which has since been generalised into more advanced quantum building blocks that are now used 
+across a variety of quantum algorithms.  
+Mastering these core concepts provides a toolkit to analyse 
+a wider range of beasts in the "quantum zoo"\cite{Jordan:2024}.
+
+The third step in our justification is to walk through a case-study
+and back-map the skills required to produce a novel piece of analysis 
+to the building-block concepts already identified.
+
+That mapping yields the specific learning outcomes and topic list that is used 
+to build our syllabus outline in the next section, thereby providing a clear justification for each topic's inclusion.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A meaningful introductory course in quantum computation must maximise the leverage of 
+existing classical competencies whilst respecting the varied backgrounds of its students.  
+Cloud-based quantum facilities now make hands-on and practical skills attainable; 
+nevertheless the field is still steeped in algebraic notations and intricate physical calculus. 
 To engage a wider community of engineers and mathematicians,
-we need to present only the core concepts and mathematical tools required to implement quantum algorithms.
+we focus on the core concepts and mathematical tools required to implement quantum algorithms,
+rather than exhaustive theory.
 
-\emph{cite Abhijith to make the point of this mindset and available material}
-
-Through a cryptographic lens we see how analogue quantum phenomenon underpin key-distribution protocols,
-and how the most celebrated realisation of digital quantum computing, in Shor's algorithm, 
-breaks the one-way functions of asymmetric cryptography.
-The temptation often leads straight to post-quantum encryption schemes, 
-but we must first understand the quantum side clearly.  
+Viewed through a cryptographic lens we see how analogue quantum phenomenon underpin key-distribution protocols,
+while Shor's celebrated digital quantum algorithm famously breaks the one-way functions of asymmetric cryptography.
+The temptation may be to pivot to the study of post-quantum encryption schemes, 
+but we must first understand the quantum computation mechanisms clearly.  
 
 %Why turn-away from cryptographic research areas and look at quantum algorithms more generally?
 %The area of understanding new quantum algorithms, and reverse engineering classical algorithms \emph{cite{something}} is burgeoning.
@@ -52,30 +91,29 @@ but we must first understand the quantum side clearly.
 %\emph{This can be aided by leveraging core competencies within the existing curriculum; 
 %	presenting a lot of algorithms will have analogies within disciplines already being presented.}
 
-Because students enter with different backgrounds, we cannot assume shared mental models; 
-we therefore start from fundamentals but move quickly.
-Many quantum algorithms have direct analogues in topics already taught across the programme:
+Because students enter with varied backgrounds, we cannot assume shared mental models; 
+we therefore start from fundamentals but advance quickly.
+Many quantum techniques map directly onto material already covered at the undergraduate level:
 
 \begin{itemize}
-	\item Quantum Machine learning techniques $\leftarrow$ linear‑algebra / kernel methods
-	\item Post-quantum cryptography $\leftarrow$ number theory, lattice maths
-	\item Quantum key distribution $\leftarrow$ information‑theory concepts
+	\item \emph{Quantum Machine learning techniques} $\leftarrow$ linear‑algebra / kernel methods
+	\item \emph{Post-quantum cryptography} $\leftarrow$ number theory, lattice maths.
+	\item \emph{Quantum key distribution} $\leftarrow$ information‑theory concepts.
 \end{itemize}
 
-The aim of this section is to look at a practical quantum topic that a new student may be motivate to investigate;
-for example quantum kernels in \emph{One-Class Support Vector Machines} (OC-SVMs) used for anomaly detection.
-From deconstructing it, we look to reveal precisely what a student must master.
-But some mathematics of quantum computation are non‑negotiable 
-and we should visit some technical topics first with-out being pedagogic.
+\emph{Can cite Schuld \& Petruccione for quantum ML; Bernstein \& Lange for post‑quantum cryptography}
 
-%\subsubsection{Leveraging Classical Competencies}
+To illustrate this bridging strategy, we choose a concrete problem that is likely to motivate newcomers:
+quantum kernels for \emph{One-Class Support Vector Machines} (OC-SVMs) used for anomaly detection.
+By deconstructing this application, we look to reveal precisely the skills a student must master.
+But some mathematical tools of quantum computation (Dirac notation, tensor products, unitary evolution)
+are non‑negotiable and must be introduced early, though without excessive pedagogy.
 
-The topic was contrived to demonstrate several points,
-one being that delivery of the quantum syllabus should draw on other competencies
-that the student and programme curriculum provide.
-
-The student should feel capable of being able to apply the core quantum principals to novel situations.  
-The example here is of using a concepts of time and space complexities to estimate quantum computing resources.
+This example also underscores the broader point that
+effective delivery should draw on competencies already present in the curriculum.
+Students should feel confident that they can apply core quantum principals to novel situations.  
+The example that will be presented here is of applying familiar notions of time and space complexities 
+to estimate quantum-resource requirements.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,10 +134,14 @@ Starting with some mental models of quantum information and how it is distinct f
 and refreshing some linear algebra, matrix manipulation and polar notations will be needed.  
 %We don't need to go into in-depth in descriptions of the main quantum particles, but 
 
-We begin with physical examples of physical two‑level quantum systems, 
-where out quantum particles have wtwo distinct states, such as a photon's horizontal or vertical polarization of its electromagnetic field, 
-the electrons up or down spin state, and the trapped ion's high or low energy state.
-And we can imagine we have some physical quantum machinery that is able to control the state of these particles.
+We begin with physical intuition of two‑level quantum systems, where a quantum particle has two distinct states:
+\begin{itemize}
+	\item A photon with horizontal or vertical polarization of its electromagnetic field.
+	\item An electron with up or down spin state.
+	\item A trapped ion with a ground or excited energy state.
+\end{itemize}
+
+Laboratory apparatus can prepare and manipulate  the state of these particles.
 This mental model gives a base for the core abstraction of quantum information and computation.
 
 \begin{figure}[ht]
@@ -114,16 +156,20 @@ These simple two level quantum systems have two states that we can label $\lvert
 "horizontal" or "vertical", "up" or "down", "ground" or "excited".
 We can then draw an analogy between a digital bit in a classical computer that has the states $0$ or $1$.
 What is different about the information being manipulated in these two systems?
-In a digital system we have a switch that we can flip from one state to another.
-In quantum systems have something like a hi-fi balance knob that we can have either state,
-or a mixed combination of the two.
 
-In this framing, we have an amplitude, $\alpha$ and $\beta$, for each state, 
-and the combined particle state is the vector $\lvert\psi\rangle = \alpha \lvert0\rangle + \beta \lvert1\rangle$.
-Our system two level quantum system is a \emph{qubit} and it can be in a \emph{superposition} of the two states.
+In a digital system we have a switch that we can flip the bit of information from one state to another.
+
+In the quantum system, our quantum bit, or \emph{qubit}, behaves more like a hi-fi balance knob 
+that can be fully in one state or the other, or a mixed, linear, combination of the two states.
+This \emph{superposition} of states allows the qubit to encode multiple possibilities simultaneously, 
+
+And this underpins the speed‑ups achieved by certain quantum algorithms\cite{Nielsen:2010}.
+In this framing, two-level quantum system has an amplitude  $\alpha$ and $\beta$  for each of the states,
+and the combined particle state is the vector: 
+$$\lvert\psi\rangle = \alpha \lvert0\rangle + \beta \lvert1\rangle $$
 
 Graphically we can represent the combined state of these two special orthogonal \emph{computational basis states} 
-as a point on a unit circle in a regular Euclidean space, which is a generalisation of a \emph{Hilbert space}.  
+as a point on a unit circle in a regular Euclidean space, a generalisation of which is a \emph{Hilbert space}.  
 
 \begin{figure}[ht] 
 	\begin{adjustbox}{center}
@@ -133,8 +179,8 @@ as a point on a unit circle in a regular Euclidean space, which is a generalisat
 	\label{fig:2d_hilbert_space}
 \end{figure}
 
-We can in many cases think of $\alpha$ and $\beta$ as real numbers, but for they complex numbers, 
-so this qubit space is described mathematically as a two-dimensional complex 
+We can in many cases think of $\alpha$ and $\beta$ as real numbers, but as they are complex numbers, 
+this qubit space is described mathematically as a two-dimensional complex 
 Hilbert space $\mathcal{H} : \mathbb{C}^2$ \cite{Preskill:2023} \cite{Nielsen:2010}.
 
 
@@ -142,7 +188,7 @@ Hilbert space $\mathcal{H} : \mathbb{C}^2$ \cite{Preskill:2023} \cite{Nielsen:20
 \subsubsection{Measurement \& Probability (Born rule)}
 
 Limited Information from Measurement: A single measurement of an $n$-qubit state yields only $n$ bits of classical data, 
-revealing only a \enquote{meager shadow} of the underlying quantum state \cite{Preskill:2023}.
+revealing only a \enquote{meagre shadow} of the underlying quantum state \cite{Preskill:2023}.
 
 
 Once we disturb this state $\lvert\phi\rangle$ by measuring our quantum particle, 
@@ -158,7 +204,7 @@ So these co-ordinates $\alpha$ and $\beta$ have to obey certain rules,
 such as $\lvert\alpha\lvert^2 + \lvert\beta\lvert^2 = 1$; 
 the final measurement of our photon guaranteed to be either "horizontal" or "vertical".
 
-Because the $\lvert\alpha\lvert^2 + \lvert\beta\lvert^2 = 1$, we can effectively write our qubit state as \cite{Nielsen:2010}
+As $\lvert\alpha\lvert^2 + \lvert\beta\lvert^2 = 1$, we can effectively write our qubit state as \cite{Nielsen:2010}
 $$\lvert\psi\rangle = cos \frac{\theta}{2} \lvert0\rangle + e^{i\varphi} sin \lvert1\rangle $$
 
 The numbers $\theta$ and $\varphi$ define a point on a three dimensional \emph{Bloch sphere} 
@@ -171,6 +217,7 @@ that is useful initially for visualising a qubit state.
 	\caption{Bloch sphere representation of a qubit }
 	\label{fig:bloch_sphere}
 \end{figure}
+(copyright Nielsen \& Chuang \cite{Nielsen:2010})
 
 At later stages these can be developed into an understanding the benefits and difficulties each 
 realisation of a quantum system.
@@ -191,7 +238,8 @@ $$ \lvert \psi'\rangle = U \lvert \psi \rangle, \quad U^{\dagger} U = I$$
 
 represents the notion that applying an operator twice leaves us in the initial state.
 
-Unitary gates are therefore \textbf{reversible}, unlike many classical logic gates. [Consider moving Toffoli example here for continuity.]
+Unitary gates are therefore \textbf{reversible}, unlike many classical logic gates. 
+%[Consider moving Toffoli example here for continuity.]
 
 
 We will define more exactly what a quantum circuit is, 
@@ -222,18 +270,17 @@ as one large unitary transformation, taking our initial quantum state into our d
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Entanglement \& Tensor Products}
 
-Not all, arbitrary, transformations are valid (irreversible ones especially, and we will touch on that later).
+Not all, arbitrary, transformations are valid (irreversible ones especially, and we will touch on that later)
 and an application of entanglement in super-dense coding that is a good model to covering ground quickly \cite{Nielsen:2010}
 
 %\href{https://www.forbes.com/sites/chadorzel/2017/02/28/how-do-you-create-quantum-entanglement/}{how-do-you-create-quantum-entanglement}
 
-\emph{Quantum Registers}
-
-In quantum computing a \emph{quantum register} is a system of  \cite{Lipton:2021} (p140).
+%\emph{Quantum Registers}
+%In quantum computing a \emph{quantum register} is a system of  \cite{Lipton:2021} (p140).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Noise, Decoherence \& Error Correction}
+%\subsubsection{Noise, Decoherence \& Error Correction}
 
 %\emph{Estimating Gates and Circuit Depth}
 
@@ -257,27 +304,30 @@ The ubiquity of Shor's algorithm for integer factorisation and finding discrete 
 interestingly means that we need a wide range of supporting methods early.  
 This paper demonstrates several major building blocks that are reused across subsequent algorithms.
 
-Shor implements an existing, classical, Sch\"{o}nhage-Strassen fast multiplication algorithm.
-This uses a Fourier transform, to find order of a function.  
-When factoring $M = pq$, $p$ and $q$ being distinct prime numbers,
-we can define a function $f_x(a) = (x^a mod M)$, which because of the modular arithmetic, is periodic.
-That is, given $r' = (p-1)(q-1)$, $x^{a+r'} mod M) = x^a mod M$ because, as p and q are prime, 
-from the Chinese Remainder Theorem, $x^{p-1} \equiv 1 mod p$ and  $x^{q-1} \equiv 1 mod q$.
-So the function has a minimal period $r$ that divides $r'$.  
-To find the smallest integer $r$ such that $x^r = 1 mod M$, 
-we show that $f_x(0),..., f_x(r-1)$ are distinct.  
 At this point we just need to note that after implementing the modular exponentiation,
-Shor uses a $Quantum Fourier Transform$ (QFT) to find the period of the function \cite{Shor:1996}. 
+Shor uses a \emph{Quantum Fourier Transform} (QFT) to find the period of the function \cite{Shor:1997}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{State Preparation \& QRAM Issues}
 
 Shor's algorithm demonstrates the main quantum computation stages \cite{Nielsen:2010}:
 
-Encoding classical data into quantum states efficiently can be non-trivial, 
+The problem of encoding classical data into quantum states efficiently is known to be potentially non-trivial \cite{Tavakoli:2015}, 
 sometimes requiring circuits whose complexity scales with the classical data size, despite the memory compression in qubits
 
 \subsubsection{Fourier / Phase Estimation}
+
+Shor implements an existing, classical, Sch\"{o}nhage-Strassen fast multiplication algorithm.
+This uses a Fourier transform  to find the order of a function.  
+
+When factoring $M = pq$, $p$ and $q$ being distinct prime numbers,
+we can define a function $f_x(a) = (x^a\;mod\;M)$, which because of the modular arithmetic, is periodic.
+That is, given $r' = (p-1)(q-1)$, we have $x^{a+r'}\;mod\;M = x^a\;mod\;M$, and so (because p and q are prime)  
+from the Chinese Remainder Theorem, $x^{p-1} \equiv 1\;mod\;p$ and  $x^{q-1} \equiv 1\;mod\;q$.
+
+So the function has a minimal period $r$ that divides $r'$.  
+To find the smallest integer $r$ such that $x^r = 1\;mod\;M$, 
+we show that $f_x(0),..., f_x(r-1)$ are distinct.  
 
 With integer factorization, it is easy to verity is necessary to boost the probability of success \cite{Lipton:2021}.
 Shor's algorithm succeeds with a probability of less than one.
@@ -348,7 +398,7 @@ made their approach infeasible on the full dataset.
 Promising work has been done to reduce the time-complexity of the evaluation of the Gram matrix, 
 by \citeauthor{Kolle:2023} \cite{Kolle:2023}, using randomised measurements and variable subsampling.
 
-The aim of the studedent's paper would be to investigate whether quantum kernel OC-SVM algorithms are practical 
+The aim of the student's paper would be to investigate whether quantum kernel OC-SVM algorithms are practical 
 given our reliance of NISQ machinery.
 It is well known that these devices have the constraints of having only limited number of qubit to represent model state,
 and that they introduce errors that constrain the complexity and depth of circuits that they can run \cite{Preskill:2018}.
@@ -359,7 +409,6 @@ achieved below threshold quantum error correction \cite{Google:Willow:2024}, the
 (1) reanalyse the training and inference times by Kyriienko assuming the performance stated in Google's research;
 (2) assess whether the new hardware could be used to apply the OC-SVM algorithm to the P\"{o}utre paper dataset
 and to estimate for the training and inference times.
-
 
 Many sources emphasise the importance of "end-to-end" analysis when evaluating quantum \cite{Dalzell:2023} \cite{Morales:2025}
 algorithms, including classical and quantum overheads (state preparation, measurement, error mitigation),
@@ -376,7 +425,7 @@ bring up an interesting point that may not be obvious from the abstract.
 Their technique is to apply only the kernel transform using quantum techniques, 
 not to generate, or embed, the Gram matrix in a quantum vector state.
 The constructing the Gram matrix, as well as the autoencoder, use classic computing systems. 
-And as in Shor's original quantum paper on discrete logarithms and factoring \cite{Shor:1996},
+And as in Shor's original quantum paper on discrete logarithms and factoring \cite{Shor:1997},
 this is an example of a hybrid classical-quantum computing system \cite{Preskill:2023}.
 
 There are commercial realities \emph{(and skills shortages anecdotally from workshop I went to)}
@@ -389,18 +438,19 @@ There are parallels to the engineering challenges of \emph{Extract, Transform, L
 in classical machine learning data pipelines and GPU workflows.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Exposure to Commercial Platforms}
+\subsubsection{Exposure to Commercial Hybrid Pipeline Platforms}
 
-\emph{Commercial offerings are available, so there are options to fold practical experience into the course options.
-	Hybrid processing pipelines examples; would need to introduce products (move to a later part of this section on SDKs)}
+Commercial offerings are available to support hybrid and pipelines platforms for quantum solutions.
+We have options to fold practical experience into the course delivery.
 
+Some Hybrid processing pipelines examples are:
 \begin{itemize}
 	\item \href{https://docs.aws.amazon.com/braket/latest/developerguide/braket-what-is-hybrid-job.html}
 	{AWS Braket Hybrid jobs}
 	\item \href{https://pennylane.ai/qml/demos/tutorial_quantum_transfer_learning}
 	{Pennylane hybrid Quantum Transfer Learning example}
 	\item \href{https://ml2quantum.com/2020/05/22/zapata-orquestra/}
-	{Zapata Orquestra; I haven't looked into yet}
+	{Zapata Orquestra's Quantum-Enabled Workflows}
 	\item \href{https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/0.16/runtime-service
 	}{IBM Qiskit Runtime allows an aspect or orchestration}
 \end{itemize}
@@ -416,18 +466,29 @@ Hamiltonian matrices describing a desired evolution, and general data vectors, a
 If we want to run our Netflix recommender system in our brave new, fully quantum (none of this hybrid rubbish), world,
 how do we keep the physics happy, whilst computing the matrix we actually want?
 
-Without going into the details, but typically by introducing additional quantum registers, or \emph{ancillas}, 
-there is a more advanced technique called \emph{Block Encoding} (BE) that can embed a, possibly non-unitary, matrix $A$ 
-into a larger unitary $U$ \cite{Low:2017}.
+Without needing to understand the deeper mathematical formulation, 
+there is a more advanced technique called \emph{Block Encoding} (BE) 
+that can embed a, possibly non-unitary, matrix $A$ into a larger unitary $U$ \cite{Low:2017}.
+And this is typically achieved by introducing additional quantum registers, or \emph{ancillas}, 
 
 $$
 U = \begin{bmatrix} A & \ast \\ \ast & \ast \end{bmatrix}
 $$
 
-\emph{There is probably not much use here to introduce other precursor 
-algorithms, such as the original \emph{Quantum Linear System Solver} (QLSS) by \citeauthor{Harrow:2009} \cite{Harrow:2009},
-or to look at the history of block encoding from Berry, Childs, Cleve, Kothari and others, 
-showing that you can simulate sparse Hamiltonians by writing them as linear combinations of short unitaries,
-or looking at other more wide spread applications \emph{cite 2018 Gilyen, Su, Low \& Wiebe} 
-via Quantum Singular Value Transformation (QSVT) 
-where they apply lblock encoding with signal processing techniques, developing a single unifying technique} 
+An earlier foundational precursor algorithm for the technique is 
+the original \emph{Quantum Linear System Solver} (QLSS) by \citeauthor{Harrow:2009} \cite{Harrow:2009}.
+
+The history of block encoding has been detailed by Berry, Childs, Cleve, Kothari and others, 
+and they show that you can simulate sparse Hamiltonians by writing them as linear combinations 
+of short unitaries.
+
+Looking at other more wide spread applications, 
+there is also Quantum Singular Value Transformation (QSVT) \emph{Gilyen, Su, Low \& Wiebe} (2018),
+where they apply block encoding with signal processing techniques, developing a single unifying technique.
+
+\subsection{Justification Wrap Up}
+
+In this section we have identified the major topic areas to include in our syllabus overview.
+
+In the next section we collect the topics identified into subject units, with stated purposes for each topic,
+and sets of learning outcomes for each unit, to guide the creation of the complete syllabus materials.
