@@ -1,7 +1,9 @@
 \section{Quantum Topics Justification}
 
-%\emph{Assume no background and teach the core concepts and maths from the ground up}
-\subsection
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Motivation \& Teaching Strategy}
+
 As meaningful introductory course into quantum computation, we must maximise the leverage of 
  classical competencies and existing curriculum components whilst respecting the varied backgrounds of our students.  
 Cloud based quantum facilities now make practical skills attainable, 
@@ -66,6 +68,15 @@ From deconstructing it, we look to reveal precisely what a student must master.
 But some mathematics of quantum computation are non‑negotiable 
 and we should visit some technical topics first with-out being pedagogic.
 
+%\subsubsection{Leveraging Classical Competencies}
+
+The topic was contrived to demonstrate several points,
+one being that delivery of the quantum syllabus should draw on other competencies
+that the student and programme curriculum provide.
+
+The student should feel capable of being able to apply the core quantum principals to novel situations.  
+The example here is of using a concepts of time and space complexities to estimate quantum computing resources.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Foundational Topics}
@@ -78,9 +89,8 @@ and there is a balance between gaining mastery of these necessary skills and cas
 %Nielsen, on the other hand, introduce the concepts of quantum behaviour, the mathematical constructs needed to model these,
 %and an application of entanglement in super-dense coding that is a good model to covering ground quickly \cite{Nielsen:2010}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Quantum Information and State Spaces}
+\subsubsection{Qubits \& State Spaces}
 
 Starting with some mental models of quantum information and how it is distinct from classical information
 and refreshing some linear algebra, matrix manipulation and polar notations will be needed.  
@@ -129,7 +139,11 @@ Hilbert space $\mathcal{H} : \mathbb{C}^2$ \cite{Preskill:2023} \cite{Nielsen:20
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Probabilistic Measurement}
+\subsubsection{Measurement \& Probability (Born rule)}
+
+Limited Information from Measurement: A single measurement of an $n$-qubit state yields only $n$ bits of classical data, 
+revealing only a \enquote{meager shadow} of the underlying quantum state \cite{Preskill:2023}.
+
 
 Once we disturb this state $\lvert\phi\rangle$ by measuring our quantum particle, 
 we will either see it in one of these basis states, states that we can measure and observe; 
@@ -152,17 +166,17 @@ that is useful initially for visualising a qubit state.
 
 \begin{figure}[ht] 
 	\begin{adjustbox}{center}
-		\includegraphics[width=0.3\textwidth, inner]{figures/blocksphere-nielsen-and-chuang-toc-and-chapter1-nov00.png}
+		\includegraphics[width=0.3\textwidth, inner]{figures/blochsphere-nielsen-and-chuang-toc-and-chapter1-nov00.png}
 	\end{adjustbox}
-	\caption{Block sphere representation of a qubit }
-	\label{fig:block_sphere}
+	\caption{Bloch sphere representation of a qubit }
+	\label{fig:bloch_sphere}
 \end{figure}
 
 At later stages these can be developed into an understanding the benefits and difficulties each 
 realisation of a quantum system.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Matrix Notations and Unitary Transformations}
+\subsubsection{Unitary Dynamics \& Gate Model}
 
 If we know that the two vectors encoding these two basis states of our vector space are
 $$\lvert0\rangle = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \quad \textrm{and} \quad \lvert1\rangle = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$$
@@ -194,9 +208,9 @@ $$|\psi'\rangle = U|\psi\rangle$$
 
 Unitary transforms are invertible by their \emph{conjugate transpose} $U^\dag$.  
 Applying the conjugate transpose, we end up where we started, 
-which is the same as applying the identity matrix $\mathbb{I}$ to our state, leaving the state unchanged:
+which is the same as applying the identity matrix $I$ to our state, leaving the state unchanged:
 
-$$UU^\dag = \mathbb{I}$$
+$$UU^\dag = I$$
 
 The practical upshot is that all transforms applied to our quantum state $|\psi\rangle$ has to be a unitary transform.
 And that every tiny step in an evolving quantum system can be run backwards exactly.
@@ -206,49 +220,28 @@ as one large unitary transformation, taking our initial quantum state into our d
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Entanglement}
+\subsubsection{Entanglement \& Tensor Products}
 
 Not all, arbitrary, transformations are valid (irreversible ones especially, and we will touch on that later).
 and an application of entanglement in super-dense coding that is a good model to covering ground quickly \cite{Nielsen:2010}
 
 %\href{https://www.forbes.com/sites/chadorzel/2017/02/28/how-do-you-create-quantum-entanglement/}{how-do-you-create-quantum-entanglement}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Quantum Registers and Tensor Products}
+\emph{Quantum Registers}
 
 In quantum computing a \emph{quantum register} is a system of  \cite{Lipton:2021} (p140).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Projective measurement, Born rule}
+\subsubsection{Noise, Decoherence \& Error Correction}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Decoherence vs interference}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{NISQ and FTQC; Fidelity and Quantum Error Correction}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Limited Information from Measurement: A single measurement of an $n$-qubit state yields only $n$ bits of classical data, 
-revealing only a \enquote{meager shadow} of the underlying quantum state \cite{Preskill:2023}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Noise and Decoherence}
-%\cite{Morales:2025}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Estimating Gates and Circuit Depth}
+%\emph{Estimating Gates and Circuit Depth}
 
 %\emph{Note: the paper used QISKIT quantum simulator.  The paper has the shot count, but can we see the noise applied?}
 
-%describe shot count; shot noise and statistical error—kernel variance shows up directly in OC-SVM decision boundaries.
+%describe shot count; shot noise and statistical error-kernel variance shows up directly in OC-SVM decision boundaries.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Primitives to Support Quantum Kernel Computations}
 
 %Now we look at the quantum kernel computation itself.  
@@ -258,10 +251,11 @@ revealing only a \enquote{meager shadow} of the underlying quantum state \cite{P
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{What Can we take from Shor}
+\subsection{Core Algorithmic Primitives}
 
 The ubiquity of Shor's algorithm for integer factorisation and finding discrete logarithms,
 interestingly means that we need a wide range of supporting methods early.  
+This paper demonstrates several major building blocks that are reused across subsequent algorithms.
 
 Shor implements an existing, classical, Sch\"{o}nhage-Strassen fast multiplication algorithm.
 This uses a Fourier transform, to find order of a function.  
@@ -273,21 +267,17 @@ So the function has a minimal period $r$ that divides $r'$.
 To find the smallest integer $r$ such that $x^r = 1 mod M$, 
 we show that $f_x(0),..., f_x(r-1)$ are distinct.  
 At this point we just need to note that after implementing the modular exponentiation,
-Shor uses a $Quantum Fourier Transform$ (QFT) to find the period of the function \cite{Shor:1994}. 
+Shor uses a $Quantum Fourier Transform$ (QFT) to find the period of the function \cite{Shor:1996}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Quantum Computing Stages}
+\subsubsection{State Preparation \& QRAM Issues}
 
 Shor's algorithm demonstrates the main quantum computation stages \cite{Nielsen:2010}:
 
-\begin{enumerate}
-	\item Data/State preparation: 
-	
-	\item Unitary transformation/Computation:
-	
-	\item Measurement: 
-	
-\end{enumerate}
+Encoding classical data into quantum states efficiently can be non-trivial, 
+sometimes requiring circuits whose complexity scales with the classical data size, despite the memory compression in qubits
+
+\subsubsection{Fourier / Phase Estimation}
 
 With integer factorization, it is easy to verity is necessary to boost the probability of success \cite{Lipton:2021}.
 Shor's algorithm succeeds with a probability of less than one.
@@ -312,6 +302,9 @@ closer to 1.
 
 %We can view the modular \cite{Dalzell:2023}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Block Encoding \& QSVT}
+
 This is in contrast to Block-encoding, 
 helps define certain ideas that are needed to engage with quantum computing as $C = U_1 .. U_n$. 
 The core insight being that classical computing can be realised by quantum machinery, 
@@ -319,14 +312,8 @@ not by making the classical computational reversible (boolean functions can be m
 but by admitting that the dynamics of a subsystem with a quantum system can be non-unitary.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{State Preparation}
-
-Encoding classical data into quantum states efficiently can be non-trivial, 
-sometimes requiring circuits whose complexity scales with the classical data size, despite the memory compression in qubits
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Investigation into an Application of Quantum Computation}
+\subsection{Case‑Study Back‑Mapping}
 
 In a recent paper, \citetitle{Poutre:2024}, \citeauthor{Poutre:2024} \cite{Poutre:2024} use a modified 
 \emph{Large Language Model} (LLM) \emph{Transformer} auto-encoder architecture to 
@@ -374,16 +361,6 @@ achieved below threshold quantum error correction \cite{Google:Willow:2024}, the
 and to estimate for the training and inference times.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Leveraging Classical Competencies}
-	
-The topic was contrived to demonstrate several points,
-one being that delivery of the quantum syllabus should draw on other competencies
-that the student and programme curriculum provide.
-
-The student should feel capable of being able to apply the core quantum principals to novel situations.  
-The example here is of using a concepts of time and space complexities to estimate quantum computing resources.
-
 Many sources emphasise the importance of "end-to-end" analysis when evaluating quantum \cite{Dalzell:2023} \cite{Morales:2025}
 algorithms, including classical and quantum overheads (state preparation, measurement, error mitigation),
 to assess the feasibility and potential quantum advantage of these solutions.  
@@ -399,7 +376,7 @@ bring up an interesting point that may not be obvious from the abstract.
 Their technique is to apply only the kernel transform using quantum techniques, 
 not to generate, or embed, the Gram matrix in a quantum vector state.
 The constructing the Gram matrix, as well as the autoencoder, use classic computing systems. 
-And as in Shor's original quantum paper on discrete logarithms and factoring \cite{Shor:1994},
+And as in Shor's original quantum paper on discrete logarithms and factoring \cite{Shor:1996},
 this is an example of a hybrid classical-quantum computing system \cite{Preskill:2023}.
 
 There are commercial realities \emph{(and skills shortages anecdotally from workshop I went to)}

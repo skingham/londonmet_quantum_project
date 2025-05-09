@@ -139,7 +139,8 @@
   \usepackage[dvips,xdvi]{graphicx}
   
 \fi \fi \fi
-\usepackage[export]{adjustbox}
+\usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+\adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
 
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
@@ -327,11 +328,11 @@ title=\lstname                  % show the filename of files included with \lsti
 \setlength{\textheight}{241.4mm}
 \setlength{\textwidth}{150mm}
 \setlength{\columnsep}{10mm}
-\setlength{\topmargin}{-5.4mm}
+\setlength{\topmargin}{-15.4mm}
 \setlength{\headheight}{17.0mm}
 \setlength{\footskip}{8.0mm}
 \setlength{\headsep}{0.0mm}
-\setlength{\oddsidemargin}{17.6mm}
+\setlength{\oddsidemargin}{5mm}
 \setlength{\evensidemargin}{17.6mm}
 
 \usepackage{parskip}
