@@ -1,3 +1,36 @@
-\section{Reflection on Content Delivery}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Project Reflection}
 
-Section 5 reflects on the delivering early iterations of the syllabus to actual students.
+The development of this paper has been quite intricate.  
+%An implied assertion of this paper that learning quantum computing techniques 
+%is both rewarding and not as difficult as may be supposed.
+It rests on the assertion that learning quantum‑computing techniques 
+is not only rewarding, but less forbidding than commonly assumed.
+My experience, as my own understanding of quantum information and computation matured during this project, 
+has reinforced this view; although pulling together a coherent teaching plan has been a challenge.
+
+Three realisations have helped crystallise the final approach and content:
+\begin{enumerate}
+\item \emph{Make background assumptions explicit}: 
+During the delivery of a tutorial on single qubit transforms and their related gates,
+when noting that any arbitrary unitary operator can be decomposed 
+into a set of single-qubit gates plus the two-qubit controlled-NOT (CNOT) gate \cite{Nielsen:2010},
+the analogy failed when I compared this to the universality of NAND and NOR gates 
+in the construction of classical logic gates \cite{Wikipedia:UniversalLogicGates}.
+It demonstrated to me that the introduction material needs to be self-contained,
+supplying all foundational material.
+
+\item \emph{Practising what I preach}: This fed into the realisation that, 
+although the paper advocates Outcome‑Based Teaching and Learning (OBTL), 
+I wasn't embracing this, centring on content not outcomes.  
+This realisation helped reorient both the tutorial content to focus on explicit learning objectives,
+and to simplify the syllabus outline to become a clear map from foundations to the programme goal \cite{Wong:2011}.
+
+\item \emph{Shor as a centrepiece}: Whilst refactoring all the material that I'd collected, 
+that second realisation allowed me to see that one of those earliest papers, by Peter Shor, 
+embodied many core quantum building blocks that later research generalised and developed into new and exciting techniques. 
+Shor (along with Grover) also provides natural talking points for hybrid computing, the limitations of NISQ devices, 
+and architectural decisions taken when delivering end-to-end quantum solutions.  
+Shor's integer factorisation algorithm, itself, becomes an analogue for more advanced quantum computing techniques
+and centrepiece for an introductory programme.
+\end{enumerate}
