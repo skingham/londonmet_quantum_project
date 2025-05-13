@@ -12,17 +12,17 @@
 
 In a few short decades quantum computing has evolved from Richard Feynman's a theoretical reflections on quantum simulation 
 \cite{Feynman:1986} and David Deutsche's early proposals for universal quantum computation \cite{Deutsch:1985} 
-to a \href{https://quantumconsortium.org/stateofthequantumindustry2025}{multi-billion dollar industry}.
-The technology is looking set to reshape fields ranging \href{https://blog.google/technology/research/google-quantum-computer-real-world-applications/}
-{from drug discovery and advanced materials to financial security and national infrastructure},
-and it has already prompted the US National Institute of Standards and Technology (NIST) to reformulate cryptographic standards for a post‑quantum world \cite{NIST:2022}. 
+to a multi-billion dollar industry\cite{QuantumConsortium:2025}.
+The technology is looking set to reshape fields ranging from drug discovery and advanced materials 
+to financial security and national infrastructure \cite{Google:Applications},
+and it has already prompted the US National Institute of Standards and Technology (NIST) to reformulate cryptographic standards for a post-quantum world \cite{NIST:2022}. 
 
 Cryptographic and cyber-security professionals have been on the frontline of these developments.
-When Peter Shor published his quantum algorithm for integer factorisation and discrete‑logarithm extraction in the 1990's\cite{Shor:1997},
+When Peter Shor published his quantum algorithm for integer factorisation and discrete-logarithm extraction in the 1990's\cite{Shor:1997},
 he ushered in the possibility of \emph{quantum supremacy};
 the capacity for quantum computers to solve certain problems that are practically impossible for classical computers.
 
-In the near-term, researchers improving \emph{noisy intermediate‑scale quantum} (NISQ) devices 
+In the near-term, researchers improving \emph{noisy intermediate-scale quantum} (NISQ) devices 
 (where high error rates and modest qubit counts still constrain circuit depth) 
 are still seeking to demonstrate \emph{quantum advantage} in areas such as quantum chemistry, 
 quantum cryptography and \emph{quantum machine learning} (QML).   
@@ -33,12 +33,12 @@ As we move towards \emph{fault tolerant quantum computers} (FTQCs)
 (machines large and robust enough to execute fully fledged, unconstrained quantum algorithms)
 %(that can scale to the size and complexity to run unconstrained quantum algorithms)
 cryptographers are also focused on the parallel development of \emph{quantum key distribution} (QKD) 
-and secure \emph{quantum‑secure communication protocols}.
+and secure \emph{quantum-secure communication protocols}.
 
 Quantum algorithms are also inspiring the design of improved classical algorithms 
 and so are of wider interest to computer-science researchers.  
 Ewin Tang demonstrated this two-way street;
-while researching purported quantum advantage in a published quantum‑machine‑learning recommender‑system algorithm,
+while researching purported quantum advantage in a published quantum-machine-learning recommender-system algorithm,
 Tang crafted a purely classical algorithm with comparable performance \cite{Tang:2019}.
 
 Quantum algorithms are inherently dual-use, capable of accelerating scientific breakthroughs whilst also introducing novel threats. 
@@ -46,8 +46,8 @@ Consequentially, there is an ethical and social imperative to ensure that quantu
 rather than being concentrated in a small number of corporate or geopolitical silos.
 
 Providing equitable and responsible access to practical quantum-algorithm technology and training
-- envisioned in the UK Government's "\href{https://www.gov.uk/government/publications/national-quantum-strategy?lang=en-gb}{UK National Quantum Strategy}" -
-should (must) be a priority for educators and policy makers. 
+- envisioned in the UK Government's \emph{"National Quantum Strategy"} \cite{Ukgov:NQS} -
+should be a priority for educators and policy makers. 
 
 The challenge, then, is to design and deliver robust syllabi that empower diverse talent pools to 
 participate in, and critically evaluate, the evolution of quantum technologies, 
@@ -67,9 +67,9 @@ we can shorten the conceptual ramp-up that newcomers face when tackling quantum 
 
 Such programmes will also accelerate innovation; 
 fresh perspectives coupled with quantum tools can address pressing problems in health, energy and sustainability,
-while advancing the Governments mission \textbf{for the UK to be a leading quantum-enabled economy (cite this)}.
+while advancing the Governments mission for the UK to be a leading quantum-enabled economy\cite{Ukgov:NQS}.
 
-The question must be asked as to how to fast‑track a new generation of \emph{quantum‑literate} professionals; 
+The question must be asked as to how to fast-track a new generation of \emph{quantum-literate} professionals; 
 people who can harness the technology responsibly and while recognising its limitations.
 %If they are to be able to converse fluently around range of quantum research areas and applications,
 %researchers from a broad range of research areas should be be
@@ -77,7 +77,7 @@ This paper argues that the most effective route is to leverage existing expertis
 tailoring a learning pathway that delivers quantum skills to a broad range of researchers and students.
 Cloud-based access to real quantum hardware and powerful simulators, as well as SDKs that can develop deployable quantum-algorithms, 
 have made quantum tools sufficiently cheap and ubiquitous enough that 
-well‑designed syllabus can serve as a realistic springboard into the coming quantum revolution.
+well-designed syllabus can serve as a realistic springboard into the coming quantum revolution.
 
 %\enquote{
 %	The construction of a quantum computing syllabus for any cohort of students presents challenges. 
@@ -96,20 +96,20 @@ The principles of \emph{Outcome-Based Teaching and Learning} (OBTL) provide an a
 effective computing courses share several traits:
 \begin{itemize}
 	\item \emph{Clear, precise learning outcomes} that state exactly what students should be able to do; for example, "formulate and run a quantum circuit that solves a specified problem".
-	\item \emph{Alignment of teaching activities and assessment with those outcomes}: a quantum‑computing syllabus must emphasise hands‑on practice on cloud platforms.
-	\item \emph{Explicit mapping of course outcomes to programme‑level goals}, ensuring the quantum unit both builds on existing modules and contributes meaningfully to an integrated degree.
-	\item \emph{Foundation‑first delivery}: for cohorts with mixed backgrounds, teaching must begin at the basics and scaffold up to advanced concepts relevant to industry.
-	\item \emph{Outcome‑based assessment} that provides timely, constructive feedback on the competencies that matter.
+	\item \emph{Alignment of teaching activities and assessment with those outcomes}: a quantum-computing syllabus must emphasise hands-on practice on cloud platforms.
+	\item \emph{Explicit mapping of course outcomes to programme-level goals}, ensuring the quantum unit both builds on existing modules and contributes meaningfully to an integrated degree.
+	\item \emph{Foundation-first delivery}: for cohorts with mixed backgrounds, teaching must begin at the basics and scaffold up to advanced concepts relevant to industry.
+	\item \emph{Outcome-based assessment} that provides timely, constructive feedback on the competencies that matter.
 \end{itemize}
 
 By following these guidelines, this dissertation will argue that a learning-outcomes-driven, rather than a content-first, syllabus 
 offers the most achievable platform for delivering quantum-computing course 
 that can equip a diverse student body with practical skills while reinforcing the broader aims of a modern computing curriculum. 
 By focussing on what the student is expected to learn and demonstrate, we can leverage existing strengths 
-in cryptography, cyber‑security and data science within other departmental modules
+in cryptography, cyber-security and data science within other departmental modules
  
 The core of this work is delivered in two parts.  
-Section 2 proposes, and justifies, a core set of quantum‑computing topics.
+Section 2 proposes, and justifies, a core set of quantum-computing topics.
 %This will be achieved by asking what skill sets would be needed by a student of quantum computing in order to tackle an reasonable research project.  
 %and reverse engineering the knowledge needed to support this hypothetical report.
 We identify the skills a student would need to have to undertake a realistic research project 
@@ -124,15 +124,15 @@ Where such bridges are not feasible, we signpost the additional groundwork that 
 Section 3 constructs the syllabus flow from first principles. 
 %As we do this we attempt to anchor the topics to concrete accessible learning outcomes.
 %These outcomes should build solid mental models for quantum computing, 
-While basing the design on a single outlook risks over‑fitting to its specifics, 
+While basing the design on a single outlook risks over-fitting to its specifics, 
 we mitigate this by anchoring each topic to clear, accessible learning outcomes.
 %and provide topics that give students confidence to engage with the quantum computing community.  
-These outcomes are intended to build robust mental models and give students the confidence to engage with the wider quantum‑computing community. 
+These outcomes are intended to build robust mental models and give students the confidence to engage with the wider quantum-computing community. 
 %This last point is helped by OBA as, instead of asking what quantum material should we teach, asks, what must graduates be able to do.
 Crucially, OBTL reframes the question from "What quantum material shall we cover?" to "What must graduates be able to do?"
 %The flip-side of the risk of our over-fitting course outcomes is the fear of including too much.  
 %Focusing on the student's end-state capabilities, we identify only the prerequisite knowledge and skills, pruning everything else. 
-To avoid the equal and opposite danger of scope‑creep, we include only the prerequisite knowledge and skills needed to meet those outcomes, pruning everything else.
+To avoid the equal and opposite danger of scope-creep, we include only the prerequisite knowledge and skills needed to meet those outcomes, pruning everything else.
 
 %The paper is organized as follows.  
 %Section 2 reverse engineers a quantum computing final project on

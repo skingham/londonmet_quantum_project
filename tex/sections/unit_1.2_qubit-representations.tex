@@ -1,0 +1,147 @@
+    \hypertarget{unit-1.2-qubit-representations}{%
+\section{Jupyter Notebook Unit 1.2: Qubit
+Representations}\label{unit-1.2-qubit-representations}}
+
+\hypertarget{learning-outcomes}{%
+\subsection*{Learning Outcomes}\label{learning-outcomes}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Install and introduction to IBM QISKIT SDK
+\item
+  Analogue vs gate-based quantum computing
+\item
+  Qubit superposition
+\item
+  Bra-ket notation
+\item
+  Bloch Sphere
+\end{enumerate}
+
+    \hypertarget{qubit-superposition}{%
+\subsection*{Qubit Superposition}\label{qubit-superposition}}
+
+Imagine a single qubit as the smallest unit of quantum information,
+similar to a classical bit---but with a twist. Instead of being just 0
+or 1, a qubit can be in a \textbf{superposition} of both. We write this
+state using \textbf{bra-ket notation}, which is a convenient way to
+represent quantum states. For a qubit, we might write:
+
+\[
+|\psi\rangle = \alpha|0\rangle + \beta|1\rangle
+\]
+
+where \(|0\rangle\) and \(|1\rangle\) are the two basic states, and
+\(\alpha\) and \(\beta\) are complex numbers that tell us how much of
+each state is present. These numbers must satisfy the condition
+\(|\alpha|^2 + |\beta|^2 = 1\) (this is called normalization) because
+they represent probabilities.
+
+    Now, to visualize this abstract state, we use the \textbf{Bloch sphere}.
+Think of the Bloch sphere as a globe where every point on its surface
+represents a possible state of the qubit. Here's how it works:
+
+\begin{itemize}
+\tightlist
+\item
+  The \textbf{north pole} of the sphere represents the state
+  \(|0\rangle\).
+\item
+  The \textbf{south pole} represents the state \(|1\rangle\).
+\item
+  Any point on the surface between these poles corresponds to a unique
+  superposition of \(|0\rangle\) and \(|1\rangle\).
+\end{itemize}
+
+The angles on the Bloch sphere (often labeled \(\theta\) and \(\phi\))
+describe the complex coefficients \(\alpha\) and \(\beta\). In simple
+terms, they tell us the ``direction'' of our qubit state on the sphere,
+which in turn tells us the probabilities of measuring the qubit in the
+\(|0\rangle\) or \(|1\rangle\) state.
+
+In summary: - \textbf{Bra-ket notation} (\(|\psi\rangle\)) is a compact
+way to describe quantum states. - A qubit state is a combination (or
+superposition) of \(|0\rangle\) and \(|1\rangle\). - The \textbf{Bloch
+sphere} is a visual tool that helps us picture these states as points on
+a sphere, making it easier to understand how qubits can be both 0 and 1
+at the same time.
+
+This framework gives you the language and visualization needed to
+explore more advanced quantum computing concepts.
+
+    \hypertarget{plot-a-bloch-sphere}{%
+\subsection*{Plot a Bloch Sphere}\label{plot-a-bloch-sphere}}
+
+Looking at the
+\href{https://www.ibm.com/account/reg/us-en/signup?formid=urx-19776}{IBM
+visualisation documentation} we can visualise a single Qubit state.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{qiskit}\PY{n+nn}{.}\PY{n+nn}{visualization} \PY{k+kn}{import} \PY{n}{plot\PYZus{}bloch\PYZus{}vector}
+
+\PY{n}{plot\PYZus{}bloch\PYZus{}vector}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{title}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{New Bloch Sphere}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{1}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_1.2_qubit-representations_4_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+\PY{k+kn}{from} \PY{n+nn}{qiskit}\PY{n+nn}{.}\PY{n+nn}{visualization} \PY{k+kn}{import} \PY{n}{plot\PYZus{}bloch\PYZus{}vector}
+ 
+\PY{c+c1}{\PYZsh{} You can use spherical coordinates instead of cartesian.}
+\PY{n}{plot\PYZus{}bloch\PYZus{}vector}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{o}{/}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,} \PY{n}{coord\PYZus{}type}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{spherical}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{2}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_1.2_qubit-representations_5_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \hypertarget{plot-a-bloch-sphere-for-multiple-qubits}{%
+\subsection*{Plot a Bloch sphere for multiple
+Qubits}\label{plot-a-bloch-sphere-for-multiple-qubits}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{qiskit} \PY{k+kn}{import} \PY{n}{QuantumCircuit}
+\PY{k+kn}{from} \PY{n+nn}{qiskit}\PY{n+nn}{.}\PY{n+nn}{quantum\PYZus{}info} \PY{k+kn}{import} \PY{n}{Statevector}
+\PY{k+kn}{from} \PY{n+nn}{qiskit}\PY{n+nn}{.}\PY{n+nn}{visualization} \PY{k+kn}{import} \PY{n}{plot\PYZus{}bloch\PYZus{}multivector}
+ 
+\PY{n}{qc} \PY{o}{=} \PY{n}{QuantumCircuit}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+\PY{n}{qc}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+\PY{n}{qc}\PY{o}{.}\PY{n}{x}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+ 
+\PY{n}{state} \PY{o}{=} \PY{n}{Statevector}\PY{p}{(}\PY{n}{qc}\PY{p}{)}
+\PY{n}{plot\PYZus{}bloch\PYZus{}multivector}\PY{p}{(}\PY{n}{state}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{3}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_1.2_qubit-representations_7_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+

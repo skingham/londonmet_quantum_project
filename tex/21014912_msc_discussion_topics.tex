@@ -81,61 +81,61 @@
 
 \section{Note on Analogue Quantum Computing}
 
-The user wants to understand the difference between two types of systems. One is analogue quantum simulators, like cold atom or trapped ion systems, simulating models like the Ising or Hubbard model. The other is D-Wave's quantum annealers, which solve QUBO problems using parameterized solvers. The primary difference lies in the control parameters and how the Hamiltonian is mapped—D-Wave fits QUBO onto the Ising model, while analogue systems emulate physical Hamiltonians directly. I'll answer using LaTeX for precision, sticking with the established style.
+The user wants to understand the difference between two types of systems. One is analogue quantum simulators, like cold atom or trapped ion systems, simulating models like the Ising or Hubbard model. The other is D-Wave's quantum annealers, which solve QUBO problems using parameterized solvers. The primary difference lies in the control parameters and how the Hamiltonian is mapped-D-Wave fits QUBO onto the Ising model, while analogue systems emulate physical Hamiltonians directly. I'll answer using LaTeX for precision, sticking with the established style.
 
-\subsubsection{Analogue Quantum Simulators vs.\ D‑Wave‐style QUBO Annealers}
+\subsubsection{Analogue Quantum Simulators vs.\ D-Wave‐style QUBO Annealers}
 
 \paragraph{Core Distinction}
 \begin{itemize}
-	\item \textbf{Analogue quantum simulation} seeks to \emph{mimic the dynamics} of a target Hamiltonian $H_{\text{target}}$ by engineering a controllable device whose \emph{native Hamiltonian} $H_{\text{device}}(\boldsymbol{\lambda})$ approximates it for some knob setting $\boldsymbol{\lambda}^\star$.  The output of interest is typically time‑dependent correlation functions or phase diagrams of many‑body systems (e.g.\ Fermi–Hubbard, lattice gauge theories).
-	\item \textbf{D‑Wave QUBO machines} implement a \emph{parameterised Ising Hamiltonian}
+	\item \textbf{Analogue quantum simulation} seeks to \emph{mimic the dynamics} of a target Hamiltonian $H_{\text{target}}$ by engineering a controllable device whose \emph{native Hamiltonian} $H_{\text{device}}(\boldsymbol{\lambda})$ approximates it for some knob setting $\boldsymbol{\lambda}^\star$.  The output of interest is typically time-dependent correlation functions or phase diagrams of many-body systems (e.g.\ Fermi-Hubbard, lattice gauge theories).
+	\item \textbf{D-Wave QUBO machines} implement a \emph{parameterised Ising Hamiltonian}
 	\[
 	H_{\text{QUBO}} = \sum_i h_i \sigma_i^z + \sum_{i<j} J_{ij}\,\sigma_i^z\sigma_j^z,
 	\]
-	whose ground state encodes a quadratic‐unconstrained binary optimization (QUBO) instance.  The goal is to \emph{find a low‑energy bitstring}, not to replicate real‑world physics.
+	whose ground state encodes a quadratic‐unconstrained binary optimization (QUBO) instance.  The goal is to \emph{find a low-energy bitstring}, not to replicate real-world physics.
 \end{itemize}
 
 \paragraph{Practical Axis‐By‐Axis Contrast}
 \begin{enumerate}
 	\item \textbf{Scientific objective}  
 	\begin{itemize}
-		\item \emph{Analogue sim}: Obtain quantitative insight into strongly correlated matter; validate condensed‑matter models; benchmark quantum field theories.  
-		\item \emph{QUBO annealer}: Heuristic optimiser for logistics, ML hyper‑tuning, finance portfolios; physics of the device is merely a computational means to an end.
+		\item \emph{Analogue sim}: Obtain quantitative insight into strongly correlated matter; validate condensed-matter models; benchmark quantum field theories.  
+		\item \emph{QUBO annealer}: Heuristic optimiser for logistics, ML hyper-tuning, finance portfolios; physics of the device is merely a computational means to an end.
 	\end{itemize}
 	
 	\item \textbf{Hamiltonian flexibility}  
 	\begin{itemize}
-		\item \emph{Analogue sim}: Limited but \emph{physics‑faithful}.  Tunable lattices, interaction ranges, dimensionality—but still bounded by hardware (e.g.\ Rydberg array geometry).  
-		\item \emph{QUBO annealer}: Fixed Ising form; flexibility only in scalar weights $h_i$, $J_{ij}$.  Any higher‑order terms must be gadgetised, bloating qubit count.
+		\item \emph{Analogue sim}: Limited but \emph{physics-faithful}.  Tunable lattices, interaction ranges, dimensionality-but still bounded by hardware (e.g.\ Rydberg array geometry).  
+		\item \emph{QUBO annealer}: Fixed Ising form; flexibility only in scalar weights $h_i$, $J_{ij}$.  Any higher-order terms must be gadgetised, bloating qubit count.
 	\end{itemize}
 	
 	\item \textbf{Control schedule}  
 	\begin{itemize}
-		\item \emph{Analogue sim}: Often a quench or slow parameter sweep; aims to follow the natural time‑evolution of $H_{\text{target}}$.  
+		\item \emph{Analogue sim}: Often a quench or slow parameter sweep; aims to follow the natural time-evolution of $H_{\text{target}}$.  
 		\item \emph{QUBO annealer}: Adiabatic schedule $H(s)=A(s)H_{\text{init}}+B(s)H_{\text{QUBO}}$ with $s\in[0,1]$; user can tweak $A,B$ profiles but not structure.
 	\end{itemize}
 	
-	\item \textbf{Read‑out \& verification}  
+	\item \textbf{Read-out \& verification}  
 	\begin{itemize}
-		\item \emph{Analogue sim}: Site‑resolved fluorescence (cold atoms), state‑selective shelving (ions), or scattering probes.  Validation is non‑trivial; often requires cross‑checks with numerics on small instances.  
-		\item \emph{QUBO annealer}: Binary samples measured in the $\sigma^z$ basis; solution quality gauged by classical post‑processing; quantum advantage still contested.
+		\item \emph{Analogue sim}: Site-resolved fluorescence (cold atoms), state-selective shelving (ions), or scattering probes.  Validation is non-trivial; often requires cross-checks with numerics on small instances.  
+		\item \emph{QUBO annealer}: Binary samples measured in the $\sigma^z$ basis; solution quality gauged by classical post-processing; quantum advantage still contested.
 	\end{itemize}
 	
 	\item \textbf{Error landscape}  
 	\begin{itemize}
-		\item \emph{Analogue sim}: Decoherence competes with desired dynamics; no error correction but some regimes exhibit many‑body localisation‐like robustness.  
-		\item \emph{QUBO annealer}: Thermal noise, control error, and biased freeze‑out compromise adiabaticity; scaling of the minimum gap with problem size remains the bottleneck.
+		\item \emph{Analogue sim}: Decoherence competes with desired dynamics; no error correction but some regimes exhibit many-body localisation‐like robustness.  
+		\item \emph{QUBO annealer}: Thermal noise, control error, and biased freeze-out compromise adiabaticity; scaling of the minimum gap with problem size remains the bottleneck.
 	\end{itemize}
 	
 	\item \textbf{Computational universality}  
 	\begin{itemize}
-		\item \emph{Analogue sim}: \emph{Not} universal in the circuit‑model sense; each device targets a Hamiltonian class.  
-		\item \emph{QUBO annealer}: Equivalent to \emph{adiabatic} quantum computing only if one can arbitrarily engineer $H(t)$ and suppress noise—conditions far from present D‑Wave hardware.
+		\item \emph{Analogue sim}: \emph{Not} universal in the circuit-model sense; each device targets a Hamiltonian class.  
+		\item \emph{QUBO annealer}: Equivalent to \emph{adiabatic} quantum computing only if one can arbitrarily engineer $H(t)$ and suppress noise-conditions far from present D-Wave hardware.
 	\end{itemize}
 \end{enumerate}
 
-\paragraph{Take‑away for Practitioners}
-\emph{Analogue simulators} are bespoke microscopes for quantum matter; \emph{QUBO annealers} are purpose‑built optimisation engines.  Both live in the NISQ swamp—neither offers fault tolerance—but they inhabit opposite ends of the “physics‑faithful vs.\ computation‑oriented” spectrum.  Confusing the two risks overselling hardware capabilities (marketing loves that move); keep your benchmarking metrics, validation protocols, and expectations strictly aligned with the device’s native Hamiltonian.
+\paragraph{Take-away for Practitioners}
+\emph{Analogue simulators} are bespoke microscopes for quantum matter; \emph{QUBO annealers} are purpose-built optimisation engines.  Both live in the NISQ swamp-neither offers fault tolerance-but they inhabit opposite ends of the “physics-faithful vs.\ computation-oriented” spectrum.  Confusing the two risks overselling hardware capabilities (marketing loves that move); keep your benchmarking metrics, validation protocols, and expectations strictly aligned with the device’s native Hamiltonian.
 
 \section{Digital Quantum Systems: Photonic vs Gate}
 
@@ -146,90 +146,90 @@ To make sure I provide accurate information, I should look up the latest updates
 
 The differences between photonic and trapped-ion quantum systems revolve around a few key points, like qubit implementation, operation environment (vacuum vs temperature), gate mechanism (measurement-based vs laser pulses), connectivity, and gate speed. I'll include factors like coherence, error sources, scaling challenges, and cooling needs, as well as considerations for footprint and the systems' maturity. I can compile all this into a neat LaTeX format, using either a table or enumerated list. This gives a comprehensive, easy-to-read comparison.
 
-\subsubsection{Digital Photonic vs.\ Trapped‑Ion Gate–Based Quantum Computers — A Skeptical Fly‑over}
+\subsubsection{Digital Photonic vs.\ Trapped-Ion Gate-Based Quantum Computers - A Skeptical Fly-over}
 
 \begin{description}
 	\item[Qubit Embodiment]
 	\begin{itemize}
-		\item \textbf{Photonics} — single‑photon time‑bin or dual‑rail modes carried in silicon or III–V waveguides; room‑temperature operation.  Qubits propagate at (nearly) light speed; no idle decoherence, but loss is fatal.  Recent prototypes: Xanadu’s 12‑qubit \emph{Aurora}.:contentReference[oaicite:0]{index=0}
-		\item \textbf{Trapped ions} — hyperfine or Zeeman levels of ${}^{171}\mathrm{Yb}^+$, ${}^{40}\mathrm{Ca}^+$, etc., confined in RF or surface traps under ultra‑high‑vacuum.  Natural multi‑second $T_1/T_2$, but motional heating and laser phase noise nibble away at fidelity.  Flagship: Quantinuum H2 (56 fully connected qubits).:contentReference[oaicite:1]{index=1}
+		\item \textbf{Photonics} - single-photon time-bin or dual-rail modes carried in silicon or III-V waveguides; room-temperature operation.  Qubits propagate at (nearly) light speed; no idle decoherence, but loss is fatal.  Recent prototypes: Xanadu’s 12-qubit \emph{Aurora}.:contentReference[oaicite:0]{index=0}
+		\item \textbf{Trapped ions} - hyperfine or Zeeman levels of ${}^{171}\mathrm{Yb}^+$, ${}^{40}\mathrm{Ca}^+$, etc., confined in RF or surface traps under ultra-high-vacuum.  Natural multi-second $T_1/T_2$, but motional heating and laser phase noise nibble away at fidelity.  Flagship: Quantinuum H2 (56 fully connected qubits).:contentReference[oaicite:1]{index=1}
 	\end{itemize}
 	
 	\item[Native Gate Mechanism]
 	\begin{itemize}
-		\item \textbf{Photonics:} Fusion / beam‑splitter + phase‑shifter networks build cluster states; computation proceeds via adaptive measurements (measurement‑based QC).  Deterministic two‑qubit gates remain probabilistic without multiplexing and loss‑tolerant codes.
-		\item \textbf{Ions:} Laser‑driven Mølmer–Sørensen or light‑shift gates; all‑to‑all connectivity within a trap zone; mid‑circuit measurement and qubit reuse already demonstrated on H2.
+		\item \textbf{Photonics:} Fusion / beam-splitter + phase-shifter networks build cluster states; computation proceeds via adaptive measurements (measurement-based QC).  Deterministic two-qubit gates remain probabilistic without multiplexing and loss-tolerant codes.
+		\item \textbf{Ions:} Laser-driven Mølmer-Sørensen or light-shift gates; all-to-all connectivity within a trap zone; mid-circuit measurement and qubit reuse already demonstrated on H2.
 	\end{itemize}
 	
 	\item[Gate Speed]
 	\begin{itemize}
-		\item \textbf{Photonics:} Picosecond optical delays but effective clock governed by detector latency ($\mathcal{O}(10$–$100\,$ns)).  Throughput bottleneck is photon‑source repetition and feed‑forward electronics.
-		\item \textbf{Ions:} $\sim\!10$–$100\;\mu$s per two‑qubit gate — five orders of magnitude slower in wall‑clock, but operations are high‑fidelity and deterministic.
+		\item \textbf{Photonics:} Picosecond optical delays but effective clock governed by detector latency ($\mathcal{O}(10$-$100\,$ns)).  Throughput bottleneck is photon-source repetition and feed-forward electronics.
+		\item \textbf{Ions:} $\sim\!10$-$100\;\mu$s per two-qubit gate - five orders of magnitude slower in wall-clock, but operations are high-fidelity and deterministic.
 	\end{itemize}
 	
 	\item[Fidelity Snapshot (2025 claims)]
 	\begin{itemize}
-		\item \textbf{Photonics:} $\ge \!99.9\%$ single‑qubit, $>99\%$ two‑qubit on wafer‑scale silicon photonics (PsiQuantum internal data).:contentReference[oaicite:2]{index=2}  System‑level loss and detector dark counts remain the weak links.
-		\item \textbf{Ions:} $99.997\%$ single‑qubit, $99.87\%$ two‑qubit on Quantinuum H2; record gate fidelities in any platform.:contentReference[oaicite:3]{index=3}
+		\item \textbf{Photonics:} $\ge \!99.9\%$ single-qubit, $>99\%$ two-qubit on wafer-scale silicon photonics (PsiQuantum internal data).:contentReference[oaicite:2]{index=2}  System-level loss and detector dark counts remain the weak links.
+		\item \textbf{Ions:} $99.997\%$ single-qubit, $99.87\%$ two-qubit on Quantinuum H2; record gate fidelities in any platform.:contentReference[oaicite:3]{index=3}
 	\end{itemize}
 	
 	\item[Connectivity \& Scaling Argument]
 	\begin{itemize}
-		\item \textbf{Photonics:} Chips can be wafer‑tiled and linked via fibre with negligible crosstalk; genuine room‑temperature “data‑centre” vision.  Scaling hinges on bright, indistinguishable photon sources and on‑chip loss $<\!0.1\,$dB/cm — not solved yet.
-		\item \textbf{Ions:} All‑to‑all within a trap, but scaling beyond $\sim\!100$ ions per chain requires shuttling or photonic inter‑connects (modular architecture).  Mechanical fragility and vacuum footprint are non‑trivial.
+		\item \textbf{Photonics:} Chips can be wafer-tiled and linked via fibre with negligible crosstalk; genuine room-temperature “data-centre” vision.  Scaling hinges on bright, indistinguishable photon sources and on-chip loss $<\!0.1\,$dB/cm - not solved yet.
+		\item \textbf{Ions:} All-to-all within a trap, but scaling beyond $\sim\!100$ ions per chain requires shuttling or photonic inter-connects (modular architecture).  Mechanical fragility and vacuum footprint are non-trivial.
 	\end{itemize}
 	
 	\item[Error Landscape]
 	\begin{itemize}
-		\item \textbf{Photonics:} Loss dominates; phase noise from thermo‑optic drift; detector jitter.  Error‑correcting proposals rely on fusion‑based cluster states with $\sim\!10^{3}$ physical photons per logical qubit.
-		\item \textbf{Ions:} Depolarising errors from laser fluctuations and motional decoherence; electric‑field noise scales badly as traps miniaturise.
+		\item \textbf{Photonics:} Loss dominates; phase noise from thermo-optic drift; detector jitter.  Error-correcting proposals rely on fusion-based cluster states with $\sim\!10^{3}$ physical photons per logical qubit.
+		\item \textbf{Ions:} Depolarising errors from laser fluctuations and motional decoherence; electric-field noise scales badly as traps miniaturise.
 	\end{itemize}
 	
 	\item[Operational Overheads]
 	\begin{itemize}
-		\item \textbf{Photonics:} Cryogenic SNSPDs, precise phase stabilisation, and massive classical feed‑forward; nonetheless, no dilution fridge.
-		\item \textbf{Ions:} Ultra‑high‑vacuum chambers, multi‑wavelength laser systems, RF drive electronics, micro‑fabricated trap chips — complexity grows super‑linearly with qubit number.
+		\item \textbf{Photonics:} Cryogenic SNSPDs, precise phase stabilisation, and massive classical feed-forward; nonetheless, no dilution fridge.
+		\item \textbf{Ions:} Ultra-high-vacuum chambers, multi-wavelength laser systems, RF drive electronics, micro-fabricated trap chips - complexity grows super-linearly with qubit number.
 	\end{itemize}
 	
-	\item[Use‑Case Posture (2025)]
+	\item[Use-Case Posture (2025)]
 	\begin{itemize}
-		\item \textbf{Photonics:} Promising for fault‑tolerant networking and photonic quantum repeaters; universal digital QC still at proto‑stage (12‑qubit Aurora).
+		\item \textbf{Photonics:} Promising for fault-tolerant networking and photonic quantum repeaters; universal digital QC still at proto-stage (12-qubit Aurora).
 		\item \textbf{Ions:} Leading NISQ algorithms today (randomised benchmarking, chemistry) and first logical qubits projected by 2027.:contentReference[oaicite:4]{index=4}
 	\end{itemize}
 \end{description}
 
 \medskip
-\noindent\emph{Bottom line:} Photonics offers the seductive scalability of semiconductor fabs and room‑temperature optics, but is currently throttled by loss and non‑determinism.  Trapped‑ion rigs deliver textbook‑grade gates today, yet wrestle with glacial speed and a hardware zoo of lasers and vacuum gear.  Betting on either platform without scrutinising these trade‑offs is venture‑capital theatre, not engineering.  For syllabus purposes, highlight \emph{why} each limitation matters when students later benchmark algorithms like QFT or QSVT under realistic noise and timing budgets.
+\noindent\emph{Bottom line:} Photonics offers the seductive scalability of semiconductor fabs and room-temperature optics, but is currently throttled by loss and non-determinism.  Trapped-ion rigs deliver textbook-grade gates today, yet wrestle with glacial speed and a hardware zoo of lasers and vacuum gear.  Betting on either platform without scrutinising these trade-offs is venture-capital theatre, not engineering.  For syllabus purposes, highlight \emph{why} each limitation matters when students later benchmark algorithms like QFT or QSVT under realistic noise and timing budgets.
 
 
 \section{Syllabus attempt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Unit 1 — Quantum Foundations \& Hardware}
+\subsection{Unit 1 - Quantum Foundations \& Hardware}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Unit Overview}
-This opening unit sets the intellectual stage: why quantum computation is \emph{not} just faster classical processing dressed up in fancy notation, but a qualitatively different paradigm rooted in superposition, interference, and entanglement.  We move from the historical provocations of Feynman and Deutsch, through the minimal mathematics of single–qubit state vectors, to a reality‑check tour of contemporary hardware (superconducting, trapped‑ion, photonic).  The goal is to build solid conceptual intuition \emph{before} the linear‑algebra machinery arrives in Unit 2.
+This opening unit sets the intellectual stage: why quantum computation is \emph{not} just faster classical processing dressed up in fancy notation, but a qualitatively different paradigm rooted in superposition, interference, and entanglement.  We move from the historical provocations of Feynman and Deutsch, through the minimal mathematics of single-qubit state vectors, to a reality-check tour of contemporary hardware (superconducting, trapped-ion, photonic).  The goal is to build solid conceptual intuition \emph{before} the linear-algebra machinery arrives in Unit 2.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Why It Matters}
+\paragraph{Why It Matters}
 \begin{itemize}
-	\item \textbf{Cognitive framing.}  Students trained in data‑science and crypto carry strong classical mental models; dismantling those early prevents cargo‑cult coding later on.
-	\item \textbf{Hardware‑aware coding.}  NISQ era devices leak, decohere, and mis‑gate.  A sober understanding of physical qubits and cross‑talk is essential for writing algorithms that survive reality.
+	\item \textbf{Cognitive framing.}  Students trained in data-science and crypto carry strong classical mental models; dismantling those early prevents cargo-cult coding later on.
+	\item \textbf{Hardware-aware coding.}  NISQ era devices leak, decohere, and mis-gate.  A sober understanding of physical qubits and cross-talk is essential for writing algorithms that survive reality.
 	\item \textbf{Risk perspective.}  For cryptographers, Shor’s algorithm is an existential threat only if scalable qubits materialise.  A candid hardware survey shows how far (or close) that threat really is.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Intended Learning Outcomes (ILOs)}
-By the end of Unit 1, a student will be able to:
+By the end of Unit 1, a student will be able to:
 \begin{enumerate}
 	\item \textbf{Explain} the historical motivation for quantum computation and contrast it with the Turing model.
-	\item \textbf{Describe} and \textbf{diagram} single‑qubit states on the Bloch sphere, including global versus relative phase.
-	\item \textbf{Evaluate} the practical trade-offs of leading hardware platforms (superconducting, trapped-ion, photonic, neutral‑atom) using publicly reported coherence, gate‑fidelity, and qubit-connectivity data.
-	\item \textbf{Implement} basic one- and two-qubit gate sequences on a cloud SDK (e.g.\ IBM Qiskit, Xanadu PennyLane) and \textbf{interpret} backend noise reports.
-	\item \textbf{Critically assess} vendor marketing claims versus published benchmark numbers (e.g. Xanadu’s \emph{Aurora} photonic prototype, PsiQuantum’s wafer‑scale roadmap).
+	\item \textbf{Describe} and \textbf{diagram} single-qubit states on the Bloch sphere, including global versus relative phase.
+	\item \textbf{Evaluate} the practical trade-offs of leading hardware platforms (superconducting, trapped-ion, photonic, neutral-atom) using publicly reported coherence, gate-fidelity, and qubit-connectivity data.
+	\item \textbf{Implement} basic one- and two-qubit gate sequences on a cloud SDK (e.g.\ IBM Qiskit, Xanadu PennyLane) and \textbf{interpret} backend noise reports.
+	\item \textbf{Critically assess} vendor marketing claims versus published benchmark numbers (e.g. Xanadu’s \emph{Aurora} photonic prototype, PsiQuantum’s wafer-scale roadmap).
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -238,24 +238,24 @@ By the end of Unit 1, a student will be able to:
 	\item \textbf{1.1 History \& Conceptual Sparks}
 	\begin{itemize}
 		\item Feynman’s 1981 simulation argument; Deutsch’s universal quantum computer (1985).
-		\item Pop‑science to precision: from double‑slit lore to Hilbert‑space formality.
-		\item Reading: Nielsen–Chuang §1.1–1.3; Preskill (``40 Years Later’’, 2023) §1.
+		\item Pop-science to precision: from double-slit lore to Hilbert-space formality.
+		\item Reading: Nielsen-Chuang §1.1-1.3; Preskill (``40 Years Later’’, 2023) §1.
 	\end{itemize}
 	\item \textbf{1.2 Qubits, Gates, and Minimal Math}
 	\begin{itemize}
-		\item Dirac notation crash‑course; $\ket{0}$, $\ket{1}$, $\alpha\ket{0}+\beta\ket{1}$ with $\lvert\alpha\rvert^{2}+\lvert\beta\rvert^{2}=1$.
-		\item Bloch sphere and single‑qubit rotations; CNOT for entanglement.
-		\item Lab: build a ``hello‑world’’ Bell‑state circuit on cloud hardware, pull calibration data, dissect error rates.
-		\item Reading: Nielsen–Chuang §2.1–2.4; Lipton §1 (vectors, bras \& kets).
+		\item Dirac notation crash-course; $\ket{0}$, $\ket{1}$, $\alpha\ket{0}+\beta\ket{1}$ with $\lvert\alpha\rvert^{2}+\lvert\beta\rvert^{2}=1$.
+		\item Bloch sphere and single-qubit rotations; CNOT for entanglement.
+		\item Lab: build a ``hello-world’’ Bell-state circuit on cloud hardware, pull calibration data, dissect error rates.
+		\item Reading: Nielsen-Chuang §2.1-2.4; Lipton §1 (vectors, bras \& kets).
 	\end{itemize}
 	\item \textbf{1.3 Modern Photonics Snapshot}
 	\begin{itemize}
-		\item How photonic qubits are generated (SPDC sources, time‑bin encoding), manipulated (interferometers, phase shifters), and measured.
-		\item Case study: Xanadu’s \emph{Aurora} (12‑qubit universal photonic prototype, Jan 2025) and PsiQuantum’s wafer‑scale ``Omega’’ chip — scaling claims versus current error budgets.%
-		\footnote{See Xanadu press release, Jan 22 2025; PsiQuantum ``Omega’’ announcement, Feb 26 2025.}
-		\item Practical: run a Gaussian‑boson‑sampling demo in PennyLane and compare to superconducting backend timings.
+		\item How photonic qubits are generated (SPDC sources, time-bin encoding), manipulated (interferometers, phase shifters), and measured.
+		\item Case study: Xanadu’s \emph{Aurora} (12-qubit universal photonic prototype, Jan 2025) and PsiQuantum’s wafer-scale ``Omega’’ chip - scaling claims versus current error budgets.%
+		\footnote{See Xanadu press release, Jan 22 2025; PsiQuantum ``Omega’’ announcement, Feb 26 2025.}
+		\item Practical: run a Gaussian-boson-sampling demo in PennyLane and compare to superconducting backend timings.
 	\end{itemize}
-	\item \textbf{Cross‑Unit Bridges}
+	\item \textbf{Cross-Unit Bridges}
 	\begin{itemize}
 		\item Noise sources preview (T$_1$, T$_2$, photon loss) pointing forward to the decoherence unit.
 		\item Relevance to Shor: why gate depth and qubit count projections matter.
@@ -263,11 +263,11 @@ By the end of Unit 1, a student will be able to:
 \end{itemize}
 
 \vspace{0.5em}
-\noindent\emph{Assessment touchpoint:} 5‑question critical‑reading quiz (vendor data sheets), plus a notebook submission generating and analysing a Bell pair on at least two cloud backends.  The rubric checks that students do \emph{not} blindly trust SDK ``success’’ metrics but cross‑validate with backend calibration logs.
+\noindent\emph{Assessment touchpoint:} 5-question critical-reading quiz (vendor data sheets), plus a notebook submission generating and analysing a Bell pair on at least two cloud backends.  The rubric checks that students do \emph{not} blindly trust SDK ``success’’ metrics but cross-validate with backend calibration logs.
 
 \section{Quantum OC-SVM}
 
-	A \textbf{quantum one-class support-vector machine (Q OC-SVM)} is an anomaly-detection model that retains the classical OC-SVM objective—finding the smallest-radius “soft” hypersphere (or maximum-margin hyper-plane through the origin) enclosing only the training data—but replaces the \emph{kernel} computation with a quantum circuit.
+	A \textbf{quantum one-class support-vector machine (Q OC-SVM)} is an anomaly-detection model that retains the classical OC-SVM objective-finding the smallest-radius “soft” hypersphere (or maximum-margin hyper-plane through the origin) enclosing only the training data-but replaces the \emph{kernel} computation with a quantum circuit.
 	
 	\subsection{Workflow}
 	\begin{enumerate}
@@ -296,13 +296,13 @@ By the end of Unit 1, a student will be able to:
 			\hline
 			\textbf{Level} & \textbf{Topic} & \textbf{Sub-topics a beginner must master} \\
 			\hline
-			\textbf{0} & Quantum OC-SVM & See Levels 1–4 \\
+			\textbf{0} & Quantum OC-SVM & See Levels 1-4 \\
 			\hline
 			\textbf{1} & A. Machine-learning objective & Anomaly-detection use-cases, classical OC-SVM formulation ($\nu$-parameter, slack variables), kernel trick concept \\
 			\hline
 			& B. Quantum advantage idea & Quantum feature maps \& kernels, NISQ vs fault-tolerant limits \\
 			\hline
-			& C. Implementation workflow & Data encoding $\rightarrow$ kernel $\rightarrow$ optimization $\rightarrow$ inference, hybrid quantum–classical loop \\
+			& C. Implementation workflow & Data encoding $\rightarrow$ kernel $\rightarrow$ optimization $\rightarrow$ inference, hybrid quantum-classical loop \\
 			\hline
 			\textbf{2} & A1 $\rightarrow$ Anomaly-detection basics & Definition of outliers, Precision/Recall vs ROC, Train-only-on-normal paradigm \\
 			\hline
@@ -367,7 +367,7 @@ By the end of Unit 1, a student will be able to:
 	\subsection{4. Introduction to Quantum Algorithms \& Paradigms}
 	\begin{itemize}
 		\item Good list, but \textbf{remove HHL and VQE from the OC-SVM track unless teaching kernelized linear-system solvers} (they are overkill).
-		\item \textit{Missing}: explicit mention of “quantum kernel estimation” and “swap test / Hadamard test” paradigms—these are the core of QSVM/OC-SVM.
+		\item \textit{Missing}: explicit mention of “quantum kernel estimation” and “swap test / Hadamard test” paradigms-these are the core of QSVM/OC-SVM.
 	\end{itemize}
 	
 	\subsection{Mapping Learning Outcomes to the Layered Syllabus}
@@ -398,14 +398,14 @@ By the end of Unit 1, a student will be able to:
 		\item \textbf{Biggest factual error}: Calling measurement non-intrusive.
 		\item \textbf{Over-ambitious detour}: Block-encoding $\rightarrow$ QSVT $\rightarrow$ QLSS is not needed for QSVM; prune or make optional.
 		\item \textbf{Pedagogical gaps}: Density matrices, noise \& shot variance, kernel PSD requirement, feature-map design, $\nu$-parameter tuning.
-		\item Once these are patched, every learning outcome maps cleanly onto the staged syllabus—learners progress from foundational concepts through kernel estimation, finally coding and benchmarking a quantum OC-SVM on real hardware.
+		\item Once these are patched, every learning outcome maps cleanly onto the staged syllabus-learners progress from foundational concepts through kernel estimation, finally coding and benchmarking a quantum OC-SVM on real hardware.
 	\end{itemize}
 
 	
 \section{Block-Encoding: Origin and Timeline}
 	
 	\subsection{Formal Definition}
-	The \textbf{formal notion of block-encoding} was introduced by \textbf{Guang Hao Low and Isaac Chuang} in their 2016–17 quantum signal-processing papers. It was later generalized and popularized by \textbf{András Gilyén, Yuan Su, Guang Hao Low, and Nathan Wiebe} in their 2018 work on Quantum Singular Value Transformation (QSVT). Earlier Hamiltonian simulation papers by Dominic Berry, Andrew Childs, and co-authors contained the \textit{idea} in disguise via the Linear Combination-of-Unitaries (LCU) technique, but the explicit block-encoding definition and notation come from Low \& Chuang.
+	The \textbf{formal notion of block-encoding} was introduced by \textbf{Guang Hao Low and Isaac Chuang} in their 2016-17 quantum signal-processing papers. It was later generalized and popularized by \textbf{András Gilyén, Yuan Su, Guang Hao Low, and Nathan Wiebe} in their 2018 work on Quantum Singular Value Transformation (QSVT). Earlier Hamiltonian simulation papers by Dominic Berry, Andrew Childs, and co-authors contained the \textit{idea} in disguise via the Linear Combination-of-Unitaries (LCU) technique, but the explicit block-encoding definition and notation come from Low \& Chuang.
 	
 	\begin{itemize}
 		\item \href{https://www.ias.edu/sites/default/files/Tang%20qsvt_lect_1.pdf?utm_source=chatgpt.com}{PDF: The Block-Encoding}
@@ -415,18 +415,18 @@ By the end of Unit 1, a student will be able to:
 	
 	\subsection{Historical Timeline}
 	
-	\textbf{2015 and earlier – LCU Era}  
+	\textbf{2015 and earlier - LCU Era}  
 	Berry, Childs, Cleve, Kothari, and others show that sparse Hamiltonians can be simulated by writing them as linear combinations of short unitaries. This implicitly embeds a (scaled) Hamiltonian in the top-left block of a larger unitary, but no formal name is given.
 	
-	\textbf{2016–2017 – Birth of the Term}  
+	\textbf{2016-2017 - Birth of the Term}  
 	Low \& Chuang’s \textit{Optimal Hamiltonian Simulation by Quantum Signal Processing} (PRL 118 010501, 2017; preprint Oct 2016) introduces the \textbf{block-encoding notation}
 	\[
 	U = \begin{pmatrix} A/\alpha & * \\ * & * \end{pmatrix}
 	\]
-	and proves that such an encoding plus phase-factor sequences can implement polynomial functions of \( A \).
+	and proves that such an encoding plus phase-factor sequences can implement polynomial functions of $A$.
 	
-	\textbf{2018 – Generalization to QSVT}  
-	Gilyén, Su, Low, \& Wiebe (arXiv:1806.01838) fuse block-encoding with signal-processing techniques, showing a single unifying primitive—Quantum Singular Value Transformation (QSVT)—that subsumes amplitude amplification, Hamiltonian simulation, and various quantum ML routines. Their STOC-19 paper firmly established the term in the literature.
+	\textbf{2018 - Generalization to QSVT}  
+	Gilyén, Su, Low, \& Wiebe (arXiv:1806.01838) fuse block-encoding with signal-processing techniques, showing a single unifying primitive-Quantum Singular Value Transformation (QSVT)-that subsumes amplitude amplification, Hamiltonian simulation, and various quantum ML routines. Their STOC-19 paper firmly established the term in the literature.
 	
 	Since then, block-encoding has become the standard approach whenever one needs to \textit{"smuggle"} a non-unitary matrix into a quantum circuit.
 	
@@ -475,7 +475,7 @@ Reference: Feynman (1982) "Simulating Physics with Computers"; Deutsch (1985) "Q
 	
 	Superposition, entanglement, measurement, quantum bits vs classical bits
 	
-	Recommended: Nielsen \& Chuang (2010), Chapters 1–2.
+	Recommended: Nielsen \& Chuang (2010), Chapters 1-2.
 
 	\item 1.3 The Qubit: Representations and Realizations
 
@@ -568,8 +568,8 @@ Connecting Course Outcomes to Program Curriculum: As Wong and Cheung state, the 
 
 You aim to build on learning outcomes from other program units like data science, cryptography, coding theory, and cybersecurity. However, you face the significant challenge that there is no guarantee that each student has taken these specific units, or that they have equivalent foundational knowledge or mental models. This directly impedes the OBTL goal of setting clear, measurable expectations for what students should be able to do upon completing your quantum course. If students arrive with varied levels of prerequisite knowledge, achieving uniform learning outcomes becomes inherently difficult, making it harder to confirm that the course is contributing to higher-level program objectives in a consistent way.
 
-\item 2. Absence of a Standardised Quantum Curriculum: A core challenge in applying OBTL is the need for explicit statements of what students will be expected to be able to do. Wong and Cheung discuss the importance of defining learning outcomes and mention frameworks like Bloom's taxonomy, although noting they aren't always a perfect fit for computer science. For a field as rapidly evolving and interdisciplinary as quantum computing, you point out the problem: there is no clear-cut quantum curriculum that can be used to manage outcomes. This lack of a widely agreed-upon structure and set of expected competencies across different programs makes it hard to benchmark, align, and clearly define the learning outcomes for your course in a universally understood way. The diverse applications explored in the NQCC hackathon report—spanning optimisation, machine learning, and simulation across various sectors using different hardware types
-—further illustrate the breadth and lack of a single, narrow focus in the field, contributing to the difficulty in standardising curriculum.
+\item 2. Absence of a Standardised Quantum Curriculum: A core challenge in applying OBTL is the need for explicit statements of what students will be expected to be able to do. Wong and Cheung discuss the importance of defining learning outcomes and mention frameworks like Bloom's taxonomy, although noting they aren't always a perfect fit for computer science. For a field as rapidly evolving and interdisciplinary as quantum computing, you point out the problem: there is no clear-cut quantum curriculum that can be used to manage outcomes. This lack of a widely agreed-upon structure and set of expected competencies across different programs makes it hard to benchmark, align, and clearly define the learning outcomes for your course in a universally understood way. The diverse applications explored in the NQCC hackathon report-spanning optimisation, machine learning, and simulation across various sectors using different hardware types
+-further illustrate the breadth and lack of a single, narrow focus in the field, contributing to the difficulty in standardising curriculum.
 
 \item 3. Inconsistent Nomenclature: You note that even the various nomenclatures used in reference books mean that concepts may not be clear when the students are given reading materials. This issue directly conflicts with the OBTL principle of clearly communicating expectations to students. 
 
@@ -746,7 +746,7 @@ by first describing the classical problem formulation before introducing the qua
 \item Hardware and Limitations (NISQ): 
 
 Discuss NISQ limitations
-in a way that relates back to the properties of the quantum state and operations introduced earlier. Noise, limited connectivity, and coherence times are physical realities that break the ideal mathematical picture – comparing ideal (emulated) results to hardware results, as done in the hackathon
+in a way that relates back to the properties of the quantum state and operations introduced earlier. Noise, limited connectivity, and coherence times are physical realities that break the ideal mathematical picture - comparing ideal (emulated) results to hardware results, as done in the hackathon
 , provides concrete examples of these limitations.
 
 \item Future Directions (FTQC): Introduce FTQC concepts, including the need for more sophisticated error correction, explicitly building on the classical coding analogies used earlier. Discussing the resources (e.g., number of physical qubits per logical qubit, as noted in the context of HHL implementation
