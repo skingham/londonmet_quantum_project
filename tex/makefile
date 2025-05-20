@@ -22,8 +22,10 @@ RM := rm
 RPT_NAME := 21014912_msc_quantum_dissertation
 
 PDF_FILES := \
+	21014912_msc_discussion_topics.pdf \
 	21014912_msc_project_proposal.pdf \
-	21014912_msc_quantum_dissertation_2.pdf \
+	21014912_msc_quantum_dissertation.pdf \
+	21014912_msc_quantum_dissertation_final.pdf \
 	$(RPT_NAME).pdf
 
 RPT_TEX_SRCS := \
@@ -57,18 +59,18 @@ LATEX_INTERMEDIATE := $(PDF_DIR)/
 .SECONDARY: $(addprefix $(PDF_DIR)/,$(PDF_FILES:=.pdf=.bcf)) $(addprefix $(PDF_DIR)/,$(PDF_FILES:=.pdf=.bbl)) $(addprefix $(PDF_DIR)/,$(PDF_FILES:=.pdf=.toc))
 .FORCE:
 
-$(PDF_DIR)/%.bbl: $(TEX_DIR)/references.bib
+$(PDF_DIR)/%.bbl: .FORCE
 	$(LATEX) $(LATEX_FLAGS) $*.tex
 	$(BIBTEX) $(BIBTEX_FLAGS) $(PDF_DIR)/$*.bcf
 
-$(PDF_DIR)/%.ind:
+$(PDF_DIR)/%.ind: .FORCE
 	$(LATEX) $(LATEX_FLAGS) $*.tex
 	$(MKIDX) $(MKIDX_FLAGS) $(PDF_DIR)/$*.idx
 
-$(PDF_DIR)/%.pdf: $(TEX_DIR)/%.tex $(RPT_TEX_SRCS) $(PDF_DIR)/%.bbl $(PDF_DIR)/%.ind
+$(PDF_DIR)/%.pdf: $(TEX_DIR)/%.tex $(TEX_SRCS) $(PDF_DIR)/%.bbl $(PDF_DIR)/%.ind
 	$(LATEX) $(LATEX_FLAGS) $< ; (rc=$$? && [[ $$rc == 0 ]] && echo "OK")
 
-$(PDF_DIR)/$(RPT_NAME).pdf: $(RPT_TEX_SRCS) $(PDF_DIR)/$(RPT_NAME).bbl $(PDF_DIR)/$(RPT_NAME).ind
+$(PDF_DIR)/$(RPT_NAME).pdf: $(TEX_SRCS) $(PDF_DIR)/$(RPT_NAME).bbl $(PDF_DIR)/$(RPT_NAME).ind
 	$(LATEX) $(LATEX_FLAGS) $(TEX_DIR)/$(RPT_NAME).tex ; (rc=$$? && [[ $$rc == 0 ]] && echo "OK")
 
 tex: $(PDF_TARGETS)

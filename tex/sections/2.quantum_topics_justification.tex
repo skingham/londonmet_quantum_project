@@ -11,7 +11,7 @@ We should reasonably expect that the student be able to accomplish a range of ta
 \begin{itemize}
 	\item Explain why and where quantum computers can gain advantage over classical algorithms.
 	\item Digest literature by having a familiarity with the standard notations and nomenclatures (Dirac bra-kets, circuit diagrams, complexity metrics).
-	\item Assess the suitability of different quantum hardware platforms (superconducting, trapped‑ion, photonic, annealing) and highlighting their strengths and weaknesses for different classes of problems.
+	\item Assess the suitability of different quantum hardware platforms (superconducting, trapped-ion, photonic, annealing) and highlighting their strengths and weaknesses for different classes of problems.
 	\item Demonstrate proficiency with some of the current generation of quantum SDKs.
 	\item Gain a mastery over a set of algorithmic building blocks (e.g. state preparation, Quantum Fourier Transform, amplitude amplification) and deploy them on simulated, and preferably real,
 	 quantum devices.
@@ -96,18 +96,16 @@ we therefore start from fundamentals but advance quickly.
 Many quantum techniques map directly onto material already covered at the undergraduate level:
 
 \begin{itemize}
-	\item \emph{Quantum Machine learning techniques} $\leftarrow$ linear‑algebra / kernel methods
-	\item \emph{Post-quantum cryptography} $\leftarrow$ number theory, lattice maths.
-	\item \emph{Quantum key distribution} $\leftarrow$ information‑theory concepts.
+	\item \emph{Quantum Machine learning techniques} \cite{Schuld:2014} $\leftarrow$ linear-algebra / kernel methods
+	\item \emph{Post-quantum cryptography} \cite{Bernstein:2008} $\leftarrow$ number theory, lattice maths.
+	\item \emph{Quantum key distribution} \cite{MummadiFathima:2024} $\leftarrow$ information-theory concepts.
 \end{itemize}
-
-\emph{Can cite Schuld \& Petruccione for quantum ML; Bernstein \& Lange for post‑quantum cryptography}
 
 To illustrate this bridging strategy, we choose a concrete problem that is likely to motivate newcomers:
 quantum kernels for \emph{One-Class Support Vector Machines} (OC-SVMs) used for anomaly detection.
 By deconstructing this application, we look to reveal precisely the skills a student must master.
 But some mathematical tools of quantum computation (Dirac notation, tensor products, unitary evolution)
-are non‑negotiable and must be introduced early, though without excessive pedagogy.
+are non-negotiable and must be introduced early, though without excessive pedagogy.
 
 This example also underscores the broader point that
 effective delivery should draw on competencies already present in the curriculum.
@@ -127,6 +125,50 @@ and there is a balance between gaining mastery of these necessary skills and cas
 %Nielsen, on the other hand, introduce the concepts of quantum behaviour, the mathematical constructs needed to model these,
 %and an application of entanglement in super-dense coding that is a good model to covering ground quickly \cite{Nielsen:2010}
 
+\subsubsection{Digital and Analogue Quantum Computing}
+
+Returning to Feynman's and Deutsch's early quantum computing insights, Feynman was observing that classical machines 
+scale badly when simulating quantum-mechanical systems.  
+He was suggesting building devices whose own dynamics replicate a \emph{Hamiltonian} of a target quantum system,
+to study physical systems such as molecules and condensed-mater models \cite{Feynman:1986}.  
+These "analogue" simulators would be highly efficient for a narrow class of problems, 
+and have been found to be incredibly powerful in this respect,
+but they are not freely programmable.
+
+Deutsch introduced the notion of a universal \emph{digital quantum computer} \cite{Deutsch:1985}; 
+a machine that manipulates abstract \emph{qubits} with a gate set, 
+much like a classical computer manipulates bits with logic gates.
+
+In today's quantum landscape, we can see both strands being used to tackle new research areas.
+Problem‑specific hardware such as D‑Wave annealers \cite{DWave:QuantumAnnealing} 
+and Rydberg quantum simulators \cite{Wu:2021}, 
+sit along side gate based, programmable processors from IBM \cite{IBM:2016a}, Google \cite{Google:2024a} and others.
+
+
+%Examples of where natural advantages of certain technologies, such as photonics for quantum communication 
+%and quantum cryptography and key distribution can be discussed.
+
+%Photonics poses interesting challenges and opportunities. 
+%Is both one of the earliest \emph{cite{photonics}} practical quantum technologies 
+%and an expensive one to set up research for \emph{cite{photonics:costs-of-research}}. 
+%Yet it has easily demonstrates a number of quantum principles in a way which is easily explainable at an under-graduate science level.
+%Early \emph{Quantum Key Distribution (QKD)}  \index{Quantum Key Distribution} used quantum properties of photons, 
+%specifically photon polarisation - which can be demonstrated with polarised sunglasses - to develop the delivery of one-time pads 
+%for secure communications.
+
+%Further, the exposition of the QKD of randomly generated one time pads highlights another recent development
+%where quantum randomness was demonstrated for the first time recently, using digital quantum computers and
+%\emph{Random Circuit Sampling} (RCS) \cite{Quantinuum:QRNG}.
+
+%Looking at the physical implementation of quantum systems, we will see certain advantages of different quantum particles
+%with respect to  \emph{noise}, \emph{decoherence} and \emph{gate fidelity}.
+%This brings into scope the topics of near-term \emph{NISQ} vs the holy-grail of \emph{FTQC}, 
+%laying the ground work for the introduction of quantum error correction schemes.
+
+
+Our syllabus will be focused on those platforms that are cloud based and accessible (gate based digital, analogue annealers, for example), 
+but we still introduce a range of quantum computing machinery to understand this landscape.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Qubits \& State Spaces}
 
@@ -134,7 +176,7 @@ Starting with some mental models of quantum information and how it is distinct f
 and refreshing some linear algebra, matrix manipulation and polar notations will be needed.  
 %We don't need to go into in-depth in descriptions of the main quantum particles, but 
 
-We begin with physical intuition of two‑level quantum systems, where a quantum particle has two distinct states:
+We begin with physical intuition of two-level quantum systems, where a quantum particle has two distinct states:
 \begin{itemize}
 	\item A photon with horizontal or vertical polarization of its electromagnetic field.
 	\item An electron with up or down spin state.
@@ -146,10 +188,11 @@ This mental model gives a base for the core abstraction of quantum information a
 
 \begin{figure}[ht]
 	\begin{adjustbox}{center}
-		\includegraphics[width=0.3\textwidth, inner]{figures/physical_qubits_2.png}
+		\includegraphics[width=0.4\textwidth, inner]{figures/physical_qubits_2.png}
 	\end{adjustbox}
+	\vspace{4pt}
 	\caption{Representation of physical qubit states} %\href{https://commons.wikimedia.org/wiki/File:Tolmukapea.jpg}{https://commons.wiki-\\media.org/wiki/File:Tolmukapea.jpg}.}
-\label{fig:phys_qubit}
+	\label{fig:phys_qubit}
 \end{figure}
 
 These simple two level quantum systems have two states that we can label $\lvert0\rangle$ and $\lvert1\rangle$;
@@ -159,11 +202,11 @@ What is different about the information being manipulated in these two systems?
 
 In a digital system we have a switch that we can flip the bit of information from one state to another.
 
-In the quantum system, our quantum bit, or \emph{qubit}, behaves more like a hi-fi balance knob 
+In the quantum system, our quantum bit, or qubit, behaves more like a hi-fi balance knob 
 that can be fully in one state or the other, or a mixed, linear, combination of the two states.
 This \emph{superposition} of states allows the qubit to encode multiple possibilities simultaneously, 
 
-And this underpins the speed‑ups achieved by certain quantum algorithms\cite{Nielsen:2010}.
+And this underpins the speed-ups achieved by certain quantum algorithms\cite{Nielsen:2010}.
 In this framing, two-level quantum system has an amplitude  $\alpha$ and $\beta$  for each of the states,
 and the combined particle state is the vector: 
 $$\lvert\psi\rangle = \alpha \lvert0\rangle + \beta \lvert1\rangle $$
@@ -173,9 +216,11 @@ as a point on a unit circle in a regular Euclidean space, a generalisation of wh
 
 \begin{figure}[ht] 
 	\begin{adjustbox}{center}
-		\includegraphics[width=0.3\textwidth, inner]{figures/unit-vector-2-d-hilbert-state.png}
+%		\includegraphics[width=0.5\textwidth, inner]{figures/unit-vector-2-d-hilbert-state.png}
+		\includegraphics[width=0.5\textwidth, inner]{figures/unit-vector-2-d-hilbert-state_2.png}
 	\end{adjustbox}
-	\caption{$\lvert\psi\rangle$ as superposition of $\lvert0\rangle$ and $\lvert1\rangle>$ }
+	\vspace{4pt}
+	\caption{$\lvert\psi\rangle$ as superposition of ortho-normal bases $\lvert0\rangle$ and $\lvert1\rangle$ }
 	\label{fig:2d_hilbert_space}
 \end{figure}
 
@@ -187,37 +232,36 @@ Hilbert space $\mathcal{H} : \mathbb{C}^2$ \cite{Preskill:2023} \cite{Nielsen:20
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Measurement \& Probability (Born rule)}
 
-Limited Information from Measurement: A single measurement of an $n$-qubit state yields only $n$ bits of classical data, 
-revealing only a \enquote{meagre shadow} of the underlying quantum state \cite{Preskill:2023}.
-
-
-Once we disturb this state $\lvert\phi\rangle$ by measuring our quantum particle, 
-we will either see it in one of these basis states, states that we can measure and observe; 
-horizontal or vertical polarization, up or down spin state, high or low energy levels.  
+A single measurement of an $n$-qubit state yields limited information; only $n$ bits of classical data, 
+are revealed. This is only a \enquote{meagre shadow} \cite{Preskill:2023} of the underlying quantum state.
+So once disturbed by observation, from this quantum particle state $\lvert\psi\rangle$,
+we will see it in one of these basis states, or states that we can measure and observe; 
+"horizontal" or "vertical" polarization, "up" or "down" spin state, "high" or "low" energy levels.  
 
 Whilst the system is isolated and unobserved, we can apply transforms, or computations, to the system,
-and our qubit can evolve as a point on a sphere of possibilities, until we measure it's state as one of the two basis states;
-a photon yielding "horizontal" or "vertical" polarisation.  
-The final measurement outcome is inherently probabilistic; 
-the probability of measuring $\lvert0\rangle$ is $\lvert\alpha\lvert^2|$, or $\lvert1\rangle$ $\lvert\beta\lvert^2|$.
-So these co-ordinates $\alpha$ and $\beta$ have to obey certain rules, 
+and our qubit can evolve as a point on a sphere of possibilities, 
+until we measure it's state as one of the two basis states.
+The final measurement outcome is then inherently probabilistic; 
+the probability of measuring $\lvert0\rangle$ is $\lvert\alpha\lvert^2$, or $\lvert1\rangle$ $\lvert\beta\lvert^2$.
+And these co-ordinates $\alpha$ and $\beta$ have to obey certain rules, 
 such as $\lvert\alpha\lvert^2 + \lvert\beta\lvert^2 = 1$; 
-the final measurement of our photon guaranteed to be either "horizontal" or "vertical".
+meaning that the final measurement of our photon guaranteed to be either "horizontal" or "vertical" polarised.
 
 As $\lvert\alpha\lvert^2 + \lvert\beta\lvert^2 = 1$, we can effectively write our qubit state as \cite{Nielsen:2010}
-$$\lvert\psi\rangle = cos \frac{\theta}{2} \lvert0\rangle + e^{i\varphi} sin \lvert1\rangle $$
+$$\lvert\psi\rangle = cos \frac{\theta}{2} \lvert0\rangle + e^{i\varphi} sin \frac{\theta}{2} \lvert1\rangle $$
 
 The numbers $\theta$ and $\varphi$ define a point on a three dimensional \emph{Bloch sphere} 
 that is useful initially for visualising a qubit state.
 
 \begin{figure}[ht] 
 	\begin{adjustbox}{center}
-		\includegraphics[width=0.3\textwidth, inner]{figures/blochsphere-nielsen-and-chuang-toc-and-chapter1-nov00.png}
+%		\includegraphics[width=0.5\textwidth, inner]{figures/blochsphere-nielsen-and-chuang-toc-and-chapter1-nov00.png}
+		\includegraphics[width=0.5\textwidth, inner]{figures/blochsphere.png}
 	\end{adjustbox}
-	\caption{Bloch sphere representation of a qubit }
+	\vspace{4pt}
+	\caption{Bloch sphere representation of a qubit}
 	\label{fig:bloch_sphere}
 \end{figure}
-(copyright Nielsen \& Chuang \cite{Nielsen:2010})
 
 At later stages these can be developed into an understanding the benefits and difficulties each 
 realisation of a quantum system.
@@ -225,59 +269,122 @@ realisation of a quantum system.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Unitary Dynamics \& Gate Model}
 
-If we know that the two vectors encoding these two basis states of our vector space are
+We can represent the two vectors encoding these two basis states of the quantum vector space as:
 $$\lvert0\rangle = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \quad \textrm{and} \quad \lvert1\rangle = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$$
 
-then for the mathematically inclined giving the qubit state representation as:
+And our qubit state can be represented as the vector:
 
 $$\lvert\phi\rangle = \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = \alpha\lvert0\rangle + \beta\lvert1\rangle$$
-could be enlightening.
 
-One postulate of quantum mechanics states that the evolution of an isolated system is unitary:
-$$ \lvert \psi'\rangle = U \lvert \psi \rangle, \quad U^{\dagger} U = I$$
+Postulate two of quantum mechanics (on closed-system dynamics) dictates that
+an evolution of an isolated quantum system from time $t_0$ to $t_1$ is given by a \emph{unitary transformation} or operator. 
+It can be shown that this is to be equivalent to applying a unitary matrix to our vector state representation \cite{Nielsen:2010}:
+$$ \lvert \psi(t_1)\rangle = U \lvert \psi(t_0) \rangle$$
 
-represents the notion that applying an operator twice leaves us in the initial state.
+A matrix $U$ is unitary only if this relation with its conjugate transpose, $U^{\dagger}$ and the identity matrix, $I$, holds:
+$$U^{\dagger} U = U U^{\dagger} = I$$
 
-Unitary gates are therefore \textbf{reversible}, unlike many classical logic gates. 
+The conjugate transpose $U^{\dagger}$ is the inverse of U, which means that every amplitude change can be exactly undone.  
+In a physical sense, we can rewind any computation:
+\begin{itemize}
+	\item Forward Step: $ \lvert \psi(t_1)\rangle = U \lvert \psi(t_0) \rangle$.
+	\item Backward Step: $ \lvert \psi(t_0)\rangle = U^{\dagger} \lvert \psi(t_1) \rangle$.
+\end{itemize}
+
+Unitary evolution gives us \emph{reversible} computation; no information about the quantum state is lost.
+
+This is unlike classical gates; if we take the example of a universal classical gate, 
+such as the NAND gate (which can be use to construct any arbitrary logical circuit) \cite{Wikipedia:UniversalLogicGates},
+we can see that given the output $1$, we cannot determine which input pair we had to begin with. 
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{ccc}
+		\toprule
+		$A$ & $B$ & $\text{NAND}(A,B)$ \\
+		\midrule
+		0 & 0 & 1 \\
+		0 & 1 & 1 \\
+		1 & 0 & 1 \\
+		1 & 1 & 0 \\
+		\bottomrule
+	\end{tabular}
+	\vspace{4pt}
+	\caption{Truth table for a two‑input \textsc{NAND} gate}
+\end{table}
+
 %[Consider moving Toffoli example here for continuity.]
+% (boolean functions can be made reversible\cite{Bennett:1989}),
 
+%One of the postulates of quantum dynamics is that the evolution of a closed quantum system is described by a
+%\emph{unitary transformation} \cite{Nielsen:2000}.  
+%Given a state of a system at $t_1$ as $|\psi\rangle$, it is related to the state $|\psi'\rangle$ at time $t_2$ 
+%by a unitary operator:
 
-We will define more exactly what a quantum circuit is, 
-but at this point we can understand it from the our general knowledge of classical digital circuits,
-transforming electronic states, doing our bidding in the computers that surround us in our daily lives.
-Except that we are using quantum machinery to transform quantum states.
+%$$|\psi'\rangle = U|\psi\rangle$$
 
-One of the postulates of quantum dynamics is that the evolution of a closed quantum system is described by a
-\emph{unitary transformation} \cite{Nielsen:2000}.  
-Given a state of a system at $t_1$ as $|\psi\rangle$, it is related to the state $|\psi'\rangle$ at time $t_2$ 
-by a unitary operator:
+%Unitary transforms are invertible by their \emph{conjugate transpose} $U^\dag$.  
+%Applying the conjugate transpose, we end up where we started, 
+%which is the same as applying the identity matrix $I$ to our state, leaving the state unchanged:
 
-$$|\psi'\rangle = U|\psi\rangle$$
+%$$UU^\dag = I$$
 
-Unitary transforms are invertible by their \emph{conjugate transpose} $U^\dag$.  
-Applying the conjugate transpose, we end up where we started, 
-which is the same as applying the identity matrix $I$ to our state, leaving the state unchanged:
+%The practical upshot is that all transforms applied to our quantum state $|\psi\rangle$ has to be a unitary transform.
+%And that every tiny step in an evolving quantum system can be run backwards exactly.
 
-$$UU^\dag = I$$
-
-The practical upshot is that all transforms applied to our quantum state $|\psi\rangle$ has to be a unitary transform.
-And that every tiny step in an evolving quantum system can be run backwards exactly.
-
-Because of the rules of unitary transformations, at this point, we can imagine our quantum algorithm, or circuit, 
-as one large unitary transformation, taking our initial quantum state into our desired final state.
+From postulate 2, any valid operation on an isolated quantum system must be a reversible, information preserving,
+unitary transformation, and the input state can always be reconstructed from the output, but applying the adjoint.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Entanglement \& Tensor Products}
+\subsubsection{Tensor Products \& Circuit Construction}
 
-Not all, arbitrary, transformations are valid (irreversible ones especially, and we will touch on that later)
-and an application of entanglement in super-dense coding that is a good model to covering ground quickly \cite{Nielsen:2010}
+In conceptualising the circuit picture of digital quantum computing, the properties of unitary matrices help us out.
+
+The matrix product of two unitary matrices, $U_2U_1$ is also unitary, allowing us to chain gates together.
+
+Operating on different qubits, or wires as it is helpful to think of them, we can apply gates in parallel.
+This \emph{tensor}, or Kronecker product, multiplies the state space dimensions.  
+Tensor-ing two small unitaries $U_1 \otimes U_2$ forms a larger block diagonal matrix \cite{Nielsen:2010}.
+
+Put those two statements together, and we can assemble any big unitary like "Lego-bricks" from small ones;
+big unitaries are just small unitaries multiplied in time and tensored in space.
+And from the Solovay–Kitaev theorem, we can approximate any $2^n x 2^n$ unitary as closely as desired
+using a handful of single-qubit gates and one \emph{entangling} two-qubit (e.g. CNOT) gate.
+These form a \emph{universal gate set} \cite{Nielsen:2010}.
+
+
+%We will define more exactly what a quantum circuit is, 
+%but at this point we can understand it from the our general knowledge of classical digital circuits,
+%transforming electronic states, doing our bidding in the computers that surround us in our daily lives.
+%Except that we are using quantum machinery to transform quantum states.
+
+%Because of the rules of unitary transformations, at this point, we can imagine our quantum algorithm, or circuit, 
+%as one large unitary transformation, taking our initial quantum state into our desired final state.
+
+
+\subsubsection{Entanglement and 'Spooky Action'}
+
+One implication of quantum physics that troubled Einstein \cite{Einstein:1935},
+in the 1935 paper \citetitle{Einstein:1935} by Einstein, Podolsky, and Rosen, 
+was what is now colloquially termed \emph{spooky action at a distance} or the EPR paradox;
+that two or more quantum particles can be bound into a single non-separable, or \emph{entangled} state, 
+whose correlated outcomes defy classical bounds.  
+The transforms effected on one particle, is tightly correlated with the state of the other.
+
+Mathematically, entangling operations allow us to explore the full $2^n$-dimensional hilbert space
+from a register of $n$ independent qubits spans; $\mathcal{H} = (C^2)^{\otimes n}$.
+These entangled states cannot be represented as simple products of qubits in a superposition,
+and moreover, it is entanglement that enables the constructive/destructive \emph{interference patterns}
+that amplify the correct answer when we look at how Shor's and Grover's algorithms work \cite{Nielsen:2010}.
+
+%Not all, arbitrary, transformations are valid (irreversible ones especially, and we will touch on that later)
+%and an application of entanglement in super-dense coding that is a good model to covering ground quickly \cite{Nielsen:2010}
 
 %\href{https://www.forbes.com/sites/chadorzel/2017/02/28/how-do-you-create-quantum-entanglement/}{how-do-you-create-quantum-entanglement}
 
 %\emph{Quantum Registers}
 %In quantum computing a \emph{quantum register} is a system of  \cite{Lipton:2021} (p140).
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Noise, Decoherence \& Error Correction}
@@ -289,6 +396,17 @@ and an application of entanglement in super-dense coding that is a good model to
 %describe shot count; shot noise and statistical error-kernel variance shows up directly in OC-SVM decision boundaries.
 
 
+%We recap the NISQ devices introduction from Preskill and look at error correction.
+
+%We describe the use of logical qubits constructed from physical qubits. 
+
+%We follow this will quantum error correction to demonstrate theoretical and practical solutions to noise and decoherence.
+
+%Surface and colour stabiliser codes can be explained diagrammatically (hence topological protection),
+% and as well as demonstrating on paper how single phase-flip and bit flip errors can be caught an corrected, 
+% we can demonstrate this using SDKs.
+
+
 %\subsubsection{Primitives to Support Quantum Kernel Computations}
 
 %Now we look at the quantum kernel computation itself.  
@@ -296,26 +414,62 @@ and an application of entanglement in super-dense coding that is a good model to
 
 %which often involves measurement techniques like the SWAP test, implied by overlap/fidelity calculations
 
+The power of quantum computing is only achieved through the combination of all three phenomena:
+$$ (\text{superposition})+(\text{entanglement})+(\text{interference control})$$
+
+And students will be able to evidence this when they are introduced to :
+\begin{itemize}
+	\item \textbf{Superdense coding}: two classical bit of information being sent by the exchange of one entangled qubit.
+	\item \textbf{Quantum teleportation}: perfect state transfer between quantum particles.
+	\item \textbf{Quantum error-correction}: creating logical qubits from multiple entangled states, 
+	to protect from errors from operating in noisy quantum systems.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Core Algorithmic Primitives}
 
-The ubiquity of Shor's algorithm for integer factorisation and finding discrete logarithms,
-interestingly means that we need a wide range of supporting methods early.  
-This paper demonstrates several major building blocks that are reused across subsequent algorithms.
+Because of the ubiquity of Shor's algorithm for integer factorisation and finding discrete logarithms \cite{Shor:1997},
+being introduced to this work gives an opportunity to understand how these ideas were generalised into methods
+and building blocks that are reused across subsequent algorithms.
 
-At this point we just need to note that after implementing the modular exponentiation,
-Shor uses a \emph{Quantum Fourier Transform} (QFT) to find the period of the function \cite{Shor:1997}. 
+\begin{enumerate}[label=\textbf{\arabic*.}]
+	\item \textbf{Oracle construction via modular arithmetic}\,:  
+	encode classical data (e.g.\ modular multiplication or exponentiation) in a reversible, query–style unitary \(U_f\).  
+	This idea separates "problem definition" from "quantum processing" and is now standard in algorithm design.
+	
+	\item \textbf{Unitary‐oracle abstraction}\,:  
+	once the reversible black‑box \(U_f\) exists, it can be treated uniformly by
+	higher-level primitives (phase estimation, amplitude amplification, QSVT,~\ldots).
+	
+	\item \textbf{Quantum Phase Estimation (QPE)}\,:  
+	extract the eigen-phase of \(U_f\) with precision \(1/2^m\) using \(m\) control qubits; 
+	QPE is the key subroutine behind order-finding,	Hamiltonian simulation, HHL and many variational routines.
+	
+	\item \textbf{Period finding via the Quantum Fourier Transform}\,:  
+	apply QPE to the modular-exponentiation oracle to recover the period \(r\) (order) of \(a \bmod N\); 
+	this is the engine of Shor's factoring and discrete-log algorithms.
+	
+	\item \textbf{Hidden‑Subgroup formulation}\,:  
+	recast period finding as the general problem of identifying a hidden subgroup from coset states; 
+	the framework unifies Shor, Simon,~etc.\ and guides research on lattice and graph‑isomorphism algorithms.
+	
+	\item \textbf{Amplitude Amplification (AA)}\,:  
+	Grover showed that iteratively reflecting about the good and bad subspaces boosts success probability 
+	from \(O(1/N)\) to \(O(1/\sqrt N)\).
+	AA has since become a drop-in "quadratic booster" for search, optimisation and Monte-Carlo algorithms.
+\end{enumerate}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{State Preparation \& QRAM Issues}
 
-Shor's algorithm demonstrates the main quantum computation stages \cite{Nielsen:2010}:
+Shor's algorithm also demonstrates the main quantum computation stages \cite{Nielsen:2010},
+such as encoding classical data as a quantum state.
 
-The problem of encoding classical data into quantum states efficiently is known to be potentially non-trivial \cite{Tavakoli:2015}, 
+The problem of encoding classical data into quantum states efficiently is known to be potentially non-trverit*ivial \cite{Tavakoli:2015}, 
 sometimes requiring circuits whose complexity scales with the classical data size, despite the memory compression in qubits
 
-\subsubsection{Fourier / Phase Estimation}
+\subsubsection{QFT as Period Finding}
 
 Shor implements an existing, classical, Sch\"{o}nhage-Strassen fast multiplication algorithm.
 This uses a Fourier transform  to find the order of a function.  
@@ -329,15 +483,15 @@ So the function has a minimal period $r$ that divides $r'$.
 To find the smallest integer $r$ such that $x^r = 1\;mod\;M$, 
 we show that $f_x(0),..., f_x(r-1)$ are distinct.  
 
-With integer factorization, it is easy to verity is necessary to boost the probability of success \cite{Lipton:2021}.
-Shor's algorithm succeeds with a probability of less than one.
-
+Shor's algorithm succeeds with a probability of less than one,0
+but as integer factorization is easy to verify, this is used to boost, 
+or amplify the probability of success \cite{Lipton:2021}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Amplitude Amplification}
 
-Like many quantum algorithms, this 
-\emph{Amplitude Amplification} (AA) \cite{Dalzell:2023} is the probabilistic technique of 
+Like many quantum algorithms, Shor and Grover demonstrate the technique which was later generalised as 
+\emph{Amplitude Amplification} (AA) \cite{Dalzell:2023}.  This is the probabilistic technique of 
 repeating the call and to a unitary that verifies success of the call, to boost the success probability
 closer to 1.
 
@@ -353,17 +507,8 @@ closer to 1.
 %We can view the modular \cite{Dalzell:2023}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Block Encoding \& QSVT}
-
-This is in contrast to Block-encoding, 
-helps define certain ideas that are needed to engage with quantum computing as $C = U_1 .. U_n$. 
-The core insight being that classical computing can be realised by quantum machinery, 
-not by making the classical computational reversible (boolean functions can be made reversible\cite{Bennett:1989}),
-but by admitting that the dynamics of a subsystem with a quantum system can be non-unitary.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Case‑Study Back‑Mapping}
+\subsection{Case-Study Back-Mapping}
 
 In a recent paper, \citetitle{Poutre:2024}, \citeauthor{Poutre:2024} \cite{Poutre:2024} use a modified 
 \emph{Large Language Model} (LLM) \emph{Transformer} auto-encoder architecture to 
@@ -428,8 +573,8 @@ The constructing the Gram matrix, as well as the autoencoder, use classic comput
 And as in Shor's original quantum paper on discrete logarithms and factoring \cite{Shor:1997},
 this is an example of a hybrid classical-quantum computing system \cite{Preskill:2023}.
 
-There are commercial realities \emph{(and skills shortages anecdotally from workshop I went to)}
-that can have direct tie-ins to data engineering skills being developed with the full curriculum.
+Having hands-on experience of these toolsets is a possible example of tie-ins to 
+data engineering skills being developed with the full curriculum.
 
 In this hybrid model, 
 the quantum system acts as a co-processor, executing specific sub-routines that are expected to offer quantum advantage.
@@ -445,21 +590,21 @@ We have options to fold practical experience into the course delivery.
 
 Some Hybrid processing pipelines examples are:
 \begin{itemize}
-	\item \href{https://docs.aws.amazon.com/braket/latest/developerguide/braket-what-is-hybrid-job.html}
-	{AWS Braket Hybrid jobs}
-	\item \href{https://pennylane.ai/qml/demos/tutorial_quantum_transfer_learning}
-	{Pennylane hybrid Quantum Transfer Learning example}
-	\item \href{https://ml2quantum.com/2020/05/22/zapata-orquestra/}
-	{Zapata Orquestra's Quantum-Enabled Workflows}
-	\item \href{https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/0.16/runtime-service
-	}{IBM Qiskit Runtime allows an aspect or orchestration}
+	\item \emph{AWS Braket Hybrid jobs}\cite{AWS:Braket:Hybrid}.
+	\item \emph{Pennylane Hybrid Quantum Transfer}\cite{Pennylane:Hybrid}.
+	\item \emph{Zapata Orquestra's Quantum-Enabled Workflows}\cite{Zapata:Orquestra}.
+	\item \emph{IBM Qiskit Runtime Orchestration}\cite{IBM:Qiskit:Orchestration}.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Block Encoding and Quantum Linear System Solvers}
 
-When we were talking about quantum computation first downside of this imposed rule, is that not all, arbitrary, transformations are valid 
-(irreversible ones especially, and we will touch on that later).
+A technique that moves on from simply trying to encode classical data through a set of unitary transformations, is
+%This is in contrast to Block-encoding, 
+%helps define certain ideas that are needed to engage with quantum computing as $C = U_1 .. U_n$. 
+the core insight that classical computing can be realised by quantum machinery, 
+not by making the classical computation unitary,
+but by admitting that the dynamics of a subsystem within a quantum system can be non-unitary.
 
 The pressing problem for machine learning, Gram matrices for SVM kernels, 
 Hamiltonian matrices describing a desired evolution, and general data vectors, are generally non-unitary.

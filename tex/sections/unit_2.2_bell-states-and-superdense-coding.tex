@@ -1,0 +1,532 @@
+    \hypertarget{unit-2.2-bell-states-and-superdense-coding}{%
+\section{Jupyter Notebook Unit 2.2 : Bell States and Superdense
+Coding}\label{unit-2.2-bell-states-and-superdense-coding}}
+
+\hypertarget{superposition}{%
+\subsection*{1. Superposition}\label{superposition}}
+
+Last week we stated that a qubit can be in the basic states
+\(\lvert 0 \rangle = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\) and
+\(\lvert 1 \rangle = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\) or in a
+superposition of those states:
+\(\lvert \psi\rangle = \alpha \lvert 0 \rangle + \beta \lvert 1 \rangle\).
+
+If we apply the \emph{Hadamard} operator,
+\(H = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}\),
+to \(\lvert 0 \rangle = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\), we get
+the following state:
+
+\[
+\frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix}
+\]
+
+Probabilies are calculated by taking the sum of the squares of the
+absolute values of the amplitudes, giving a 50\% chance of measuring
+either 0 or 1:
+
+\[
+\lvert \frac{1}{\sqrt{2}}\lvert ^2 + \lvert \frac{1}{\sqrt{2}}\lvert ^2 = 1
+\]
+
+Creating this in QISKIT, we construct the circuit below:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{qiskit} \PY{k+kn}{import} \PY{n}{QuantumCircuit}
+\PY{c+c1}{\PYZsh{} Create a new circuit with one qubit and add a Hadamard gate to qubit 0}
+\PY{n}{qc} \PY{o}{=} \PY{n}{QuantumCircuit}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+\PY{n}{qc}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+\PY{n}{qc}\PY{o}{.}\PY{n}{measure\PYZus{}all}\PY{p}{(}\PY{p}{)}
+\PY{n}{qc}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{mpl}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{1}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_1_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    Measuring the state of the qubit, we now see roughly 50\% split between
+\(\lvert 0 \rangle\) and \(\lvert 1 \rangle\).
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{qiskit\PYZus{}aer} \PY{k+kn}{import} \PY{n}{AerSimulator}
+\PY{k+kn}{from} \PY{n+nn}{qiskit}\PY{n+nn}{.}\PY{n+nn}{visualization} \PY{k+kn}{import} \PY{n}{plot\PYZus{}histogram}
+
+\PY{c+c1}{\PYZsh{} Simulator backend}
+\PY{n}{backend} \PY{o}{=} \PY{n}{AerSimulator}\PY{p}{(}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Run and get counts}
+\PY{n}{result} \PY{o}{=} \PY{n}{backend}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{qc}\PY{p}{,} \PY{n}{shots}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}\PY{o}{.}\PY{n}{result}\PY{p}{(}\PY{p}{)}
+\PY{n}{counts} \PY{o}{=} \PY{n}{result}\PY{o}{.}\PY{n}{get\PYZus{}counts}\PY{p}{(}\PY{n}{qc}\PY{p}{)}
+\PY{n}{plot\PYZus{}histogram}\PY{p}{(}\PY{n}{counts}\PY{p}{,} \PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Superposition counts}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{2}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_3_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \hypertarget{entanglement-and-bell-states}{%
+\subsection*{2. Entanglement and Bell
+States}\label{entanglement-and-bell-states}}
+
+John Bell proved that the \emph{spooky action at a distance} that
+Einstien, Podolsky \& Rosen first pointed out, has a correlation that is
+stronger that could exist in classical systems.\\
+Bell's 1964 experiment proved that there was no hidden variable being
+shared between the entangled qubits.
+
+Measuring one qubit, in an entangled state, instantaneously determines
+the value of the other.\\
+From his experiment he showed four unique distinguishable orthogonal
+entangled states that are often called the Bell states
+(\(\Phi^+, \Phi^-, \Psi^+, \Psi^-\)) of the four-dimensional Hilbert
+space for two qubits:
+
+\[
+\lvert \Phi^+\rangle = \frac{1}{\sqrt{2}}(\lvert 00\rangle + \lvert 11\rangle) \\
+\lvert \Phi^-\rangle = \frac{1}{\sqrt{2}}(\lvert 00\rangle - \lvert 11\rangle) \\
+\lvert \Psi^+\rangle = \frac{1}{\sqrt{2}}(\lvert 01\rangle + \lvert 10\rangle) \\
+\lvert \Psi^-\rangle = \frac{1}{\sqrt{2}}(\lvert 01\rangle - \lvert 10\rangle)
+\]
+
+\begin{itemize}
+\item
+  Bell states are maximally entangled states showing quantum
+  correlations.
+\item
+  Measuring one qubit alone gives a maximally mixed state (identity
+  matrix), revealing no information.
+\item
+  Measuring correlated observables (e.g.,
+  \(\langle X_1 X_2\rangle\)\hspace{0pt}, \(\langle Z_1 Z_2\rangle\))
+  distinguishes Bell states.
+\end{itemize}
+
+    \hypertarget{how-do-we-put-two-qubits-into-one-of-these-maximally-entagled-states}{%
+\subsection*{How do we put two qubits into one of these maximally
+entagled
+states?}\label{how-do-we-put-two-qubits-into-one-of-these-maximally-entagled-states}}
+
+We have seen a simple circuit with a \emph{Hadamard Gate} and a
+\emph{Controlled Not (CNOT)} gate.
+
+\[
+CNOT = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0  & 1 & 0 \end{bmatrix}
+\]
+
+The Hadamard operator and the CNOT gate to generate the first Bell state
+\(\Phi^+\) given both qubits start in the \(\lvert 00\rangle\) initial
+state.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{qiskit} \PY{k+kn}{import} \PY{n}{QuantumCircuit}
+
+\PY{c+c1}{\PYZsh{} Create a new circuit with two qubits}
+\PY{n}{qc\PYZus{}bell} \PY{o}{=} \PY{n}{QuantumCircuit}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}
+ 
+\PY{c+c1}{\PYZsh{} Add a Hadamard gate to qubit 0}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+ 
+\PY{c+c1}{\PYZsh{} Perform a controlled\PYZhy{}X gate on qubit 1, controlled by qubit 0}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{measure}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{mpl}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{3}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_6_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Simulate}
+\PY{n}{backend} \PY{o}{=} \PY{n}{AerSimulator}\PY{p}{(}\PY{p}{)}
+\PY{n}{result} \PY{o}{=} \PY{n}{backend}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{qc\PYZus{}bell}\PY{p}{,} \PY{n}{shots}\PY{o}{=}\PY{l+m+mi}{1024}\PY{p}{)}\PY{o}{.}\PY{n}{result}\PY{p}{(}\PY{p}{)}
+\PY{n}{plot\PYZus{}histogram}\PY{p}{(}\PY{n}{result}\PY{o}{.}\PY{n}{get\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{4}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_7_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \hypertarget{quantum-computations-are-reversible}{%
+\subsection*{2. Quantum computations are
+reversible}\label{quantum-computations-are-reversible}}
+
+All quantum circuits - unitary transformations - are reversible, and we
+can get the initial conditions from any quantum system.
+
+If we want to recover the initial conditions, we apply the gates in the
+reverse order:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{qiskit} \PY{k+kn}{import} \PY{n}{QuantumCircuit}
+\PY{c+c1}{\PYZsh{} Create a new circuit with two qubits}
+\PY{n}{qc} \PY{o}{=} \PY{n}{QuantumCircuit}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Add a Hadamard gate to qubit 0 and  a controlled\PYZhy{}X gate on qubit 1, controlled by qubit 0}
+\PY{n}{qc}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}         
+\PY{n}{qc}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}     \PY{c+c1}{\PYZsh{} Create entanglement}
+
+ \PY{c+c1}{\PYZsh{} Reverse the circuit}
+\PY{n}{qc}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+\PY{n}{qc}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+
+\PY{n}{qc}\PY{o}{.}\PY{n}{measure}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\PY{n}{qc}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{mpl}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{5}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_9_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    We end up in the initial \(\lvert 00 \rangle\) state with 100\%
+probability:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Simulate}
+\PY{n}{backend} \PY{o}{=} \PY{n}{AerSimulator}\PY{p}{(}\PY{p}{)}
+\PY{n}{result} \PY{o}{=} \PY{n}{backend}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{qc}\PY{p}{,} \PY{n}{shots}\PY{o}{=}\PY{l+m+mi}{1024}\PY{p}{)}\PY{o}{.}\PY{n}{result}\PY{p}{(}\PY{p}{)}
+\PY{n}{plot\PYZus{}histogram}\PY{p}{(}\PY{n}{result}\PY{o}{.}\PY{n}{get\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{6}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_11_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    If we gave Bob a pair of entangled qubits in some unknown Bell state,
+all they would have to do to recover the initial conditions is to simply
+apply the CNOT and Hadamard gates to the pair of qubits.
+
+\hypertarget{superdense-encoding}{%
+\subsection*{3. Superdense Encoding}\label{superdense-encoding}}
+
+As described in \texttt{Nielsen:2000} (Nielsen \& Chuang pp97-98), it
+involves two parties, Alice and Bob, who are a long way from each other.
+
+The goal in to transmit some classical information from Alice to Bob. We
+can show how Alice can send two classical bits of information to Bob by
+sending only one single qubit.
+
+In the initial setup, Alica and Bob share a pair of quibits in the
+entagled state
+\(\lvert \psi\rangle \;=\; \frac{\lvert 00 \rangle + \lvert 11\rangle}{\sqrt{2}}\).
+
+Alice then takes possession of the first qubit, and Bob takes the
+second.
+
+We want to show that: 1. Alice can apply a transform to only her qubit;
+1. Alice sends her qubit to Bob; 1. Bob now has an two qubits in an
+unknown but maximally entangled Bell state; 1. Bob applies the CNOT and
+Hadamard gates to the pair of qubits; 1. From measuring the two-qubits,
+Bob can discern the state.
+
+\hypertarget{sending-state-00}{%
+\subsubsection*{Sending state 00}\label{sending-state-00}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Alice does nothing;
+\item
+  The state is: \textgreater{}
+  \[\frac{1}{\sqrt{2}}(\lvert 00\rangle + \lvert 11 \rangle)\]
+\end{enumerate}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{qc\PYZus{}bell} \PY{o}{=} \PY{n}{QuantumCircuit}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}        \PY{c+c1}{\PYZsh{} Create entanglement}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}    \PY{c+c1}{\PYZsh{} Perform a controlled\PYZhy{}X gate on qubit 1, controlled by qubit 0}
+
+\PY{c+c1}{\PYZsh{} Bob recieves Alice\PYZsq{}s qubit and reverses the Hadamard and CNOT to reveal the message:}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}    \PY{c+c1}{\PYZsh{} Perform a controlled\PYZhy{}X gate on qubit 1, controlled by qubit 0}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}        \PY{c+c1}{\PYZsh{} Create entanglement}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{measure}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Simulate}
+\PY{n}{backend} \PY{o}{=} \PY{n}{AerSimulator}\PY{p}{(}\PY{p}{)}
+\PY{n}{result} \PY{o}{=} \PY{n}{backend}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{qc\PYZus{}bell}\PY{p}{,} \PY{n}{shots}\PY{o}{=}\PY{l+m+mi}{1024}\PY{p}{)}\PY{o}{.}\PY{n}{result}\PY{p}{(}\PY{p}{)}
+\PY{n}{plot\PYZus{}histogram}\PY{p}{(}\PY{n}{result}\PY{o}{.}\PY{n}{get\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{7}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_13_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \hypertarget{sending-state-01}{%
+\subsubsection*{Sending state 01}\label{sending-state-01}}
+
+Start in the joint bell state above.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Alice applies the Pauli X operertor
+  \(\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\).
+\item
+  The combined system has the state: \textgreater{}
+  \[\frac{1}{\sqrt{2}}(\lvert 10\rangle + \lvert 01\rangle)\]
+\end{enumerate}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{qc\PYZus{}bell} \PY{o}{=} \PY{n}{QuantumCircuit}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}        \PY{c+c1}{\PYZsh{} Create entanglement}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}    \PY{c+c1}{\PYZsh{} Perform a controlled\PYZhy{}X gate on qubit 1, controlled by qubit 0}
+
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{x}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}        \PY{c+c1}{\PYZsh{} Apply the (X) operator to qubit 0 to change the Bell state}
+
+\PY{c+c1}{\PYZsh{} Bob recieves Alice\PYZsq{}s qubit and reverses the Hadamard and CNOT to reveal the message:}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}    \PY{c+c1}{\PYZsh{} Perform a controlled\PYZhy{}X gate on qubit 1, controlled by qubit 0}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}        \PY{c+c1}{\PYZsh{} Create entanglement}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{measure}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{mpl}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{8}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_15_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Simulate}
+\PY{n}{backend} \PY{o}{=} \PY{n}{AerSimulator}\PY{p}{(}\PY{p}{)}
+\PY{n}{result} \PY{o}{=} \PY{n}{backend}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{qc\PYZus{}bell}\PY{p}{,} \PY{n}{shots}\PY{o}{=}\PY{l+m+mi}{1024}\PY{p}{)}\PY{o}{.}\PY{n}{result}\PY{p}{(}\PY{p}{)}
+\PY{n}{plot\PYZus{}histogram}\PY{p}{(}\PY{n}{result}\PY{o}{.}\PY{n}{get\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{9}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_16_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \hypertarget{sending-state-10}{%
+\subsubsection*{Sending state 10}\label{sending-state-10}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Alice applies the Z-operator
+  \(\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}\)
+\item
+  The state is now: \textgreater{}
+  \[\frac{1}{\sqrt{2}}(\lvert 00\rangle - \lvert 11\rangle)\]
+\end{enumerate}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{qc\PYZus{}bell} \PY{o}{=} \PY{n}{QuantumCircuit}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}        \PY{c+c1}{\PYZsh{} Create entanglement}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}    \PY{c+c1}{\PYZsh{} Perform a controlled\PYZhy{}X gate on qubit 1, controlled by qubit 0}
+
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{z}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}        \PY{c+c1}{\PYZsh{} Apply the (Z) operator to qubit 0 to change the Bell state}
+
+\PY{c+c1}{\PYZsh{} Bob recieves Alice\PYZsq{}s qubit and reverses the Hadamard and CNOT to reveal the message:}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}    \PY{c+c1}{\PYZsh{} Perform a controlled\PYZhy{}X gate on qubit 1, controlled by qubit 0}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}        \PY{c+c1}{\PYZsh{} Create entanglement}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{measure}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{mpl}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{10}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_18_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Simulate}
+\PY{n}{backend} \PY{o}{=} \PY{n}{AerSimulator}\PY{p}{(}\PY{p}{)}
+\PY{n}{result} \PY{o}{=} \PY{n}{backend}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{qc\PYZus{}bell}\PY{p}{,} \PY{n}{shots}\PY{o}{=}\PY{l+m+mi}{1024}\PY{p}{)}\PY{o}{.}\PY{n}{result}\PY{p}{(}\PY{p}{)}
+\PY{n}{plot\PYZus{}histogram}\PY{p}{(}\PY{n}{result}\PY{o}{.}\PY{n}{get\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{11}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_19_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \hypertarget{sending-state-11}{%
+\subsubsection*{Sending state 11:}\label{sending-state-11}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Alice applies the X-operator then the Z-operator;
+\item
+  The bell state is \textgreater{}
+  \[\frac{1}{\sqrt{2}}(\lvert 01\rangle - \lvert 10\rangle)\]
+\end{enumerate}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{qc\PYZus{}bell} \PY{o}{=} \PY{n}{QuantumCircuit}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}        \PY{c+c1}{\PYZsh{} Create entanglement}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}    \PY{c+c1}{\PYZsh{} Perform a controlled\PYZhy{}X gate on qubit 1, controlled by qubit 0}
+
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{x}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}        \PY{c+c1}{\PYZsh{} Apply the (XZ) operator to qubit 0 to change the Bell state}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{z}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Bob recieves Alice\PYZsq{}s qubit and reverses the Hadamard and CNOT to reveal the message:}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}    \PY{c+c1}{\PYZsh{} Perform a controlled\PYZhy{}X gate on qubit 1, controlled by qubit 0}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}        \PY{c+c1}{\PYZsh{} Create entanglement}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{measure}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\PY{n}{qc\PYZus{}bell}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{mpl}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{12}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_21_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Simulate}
+\PY{n}{backend} \PY{o}{=} \PY{n}{AerSimulator}\PY{p}{(}\PY{p}{)}
+\PY{n}{result} \PY{o}{=} \PY{n}{backend}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{qc\PYZus{}bell}\PY{p}{,} \PY{n}{shots}\PY{o}{=}\PY{l+m+mi}{1024}\PY{p}{)}\PY{o}{.}\PY{n}{result}\PY{p}{(}\PY{p}{)}
+\PY{n}{plot\PYZus{}histogram}\PY{p}{(}\PY{n}{result}\PY{o}{.}\PY{n}{get\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{13}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_22_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{qiskit} \PY{k+kn}{import} \PY{n}{QuantumCircuit}
+
+\PY{c+c1}{\PYZsh{} Create a new circuit with two qubits}
+\PY{n}{qc} \PY{o}{=} \PY{n}{QuantumCircuit}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Add a Hadamard gate to qubit 0 and  a controlled\PYZhy{}X gate on qubit 1, controlled by qubit 0}
+\PY{n}{qc}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+\PY{n}{qc}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Alice encodes her message}
+\PY{c+c1}{\PYZsh{} 00 ; do nothing}
+\PY{c+c1}{\PYZsh{} 01 : apply X}
+\PY{c+c1}{\PYZsh{} 10 : apply Z}
+\PY{c+c1}{\PYZsh{} 11 : apply XZ}
+\PY{c+c1}{\PYZsh{}qc.x(0)}
+\PY{c+c1}{\PYZsh{}qc.z(0)}
+
+\PY{c+c1}{\PYZsh{} Reverse}
+\PY{n}{qc}\PY{o}{.}\PY{n}{cx}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+\PY{n}{qc}\PY{o}{.}\PY{n}{h}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+
+\PY{n}{qc}\PY{o}{.}\PY{n}{measure}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\PY{n}{qc}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{mpl}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Simulate}
+\PY{n}{backend} \PY{o}{=} \PY{n}{AerSimulator}\PY{p}{(}\PY{p}{)}
+\PY{n}{result} \PY{o}{=} \PY{n}{backend}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{qc}\PY{p}{,} \PY{n}{shots}\PY{o}{=}\PY{l+m+mi}{1024}\PY{p}{)}\PY{o}{.}\PY{n}{result}\PY{p}{(}\PY{p}{)}
+\PY{n}{plot\PYZus{}histogram}\PY{p}{(}\PY{n}{result}\PY{o}{.}\PY{n}{get\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+ 
+            
+\prompt{Out}{outcolor}{14}{}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{figures/unit_2.2_bell-states-and-superdense-coding_23_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+

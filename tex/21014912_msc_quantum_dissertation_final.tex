@@ -21,6 +21,13 @@
 \date{\today}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareCaptionFormat{custom}
+{%
+	\textbf{#1#2}\textit{\small #3}
+}
+\captionsetup{format=custom}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \begin{document}
 \doublespacing
@@ -72,7 +79,7 @@
 \singlespacing 
 \tableofcontents
 \listoffigures
-%\listoftables
+\listoftables
 \newpage
 
 \doublespacing
@@ -105,7 +112,25 @@
 \input{sections/a.syllabus_units_detail}
 \pagebreak
 
-%\input{sections/a.week2}
+\input{sections/unit_1.2_qubit-representations}
+\pagebreak
+
+\input{sections/unit_2.0_from-qubits-to-linear-algebra}
+\pagebreak
+
+%\input{sections/unit_2.2_pauli-eigenstates}
+%\pagebreak
+
+\input{sections/unit_2.2_bell-states-and-superdense-coding}
+\pagebreak
+
+%\input{sections/unit_2.3_basic-gates-and-operations}
+%\pagebreak
+
+\input{sections/unit_3.3_grovers_algorithm}
+\pagebreak
+
+%\input{sections/unit_3.5_qfl_multiplication}
 %\pagebreak
 
 %\graphicspath{ {sections/a.week3/} }

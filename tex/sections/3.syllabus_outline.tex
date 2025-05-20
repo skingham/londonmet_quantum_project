@@ -18,7 +18,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Unit 1: Quantum Foundations and Hardware}
+\subsection{Unit 1: Quantum Foundations and Hardware}\label{sec:U1-outline}
 
 %We present an introduction to the field of quantum computing. 
 %We do this by setting out the historic origins and the fundamental concepts that distinguish it from classical computation.
@@ -85,7 +85,7 @@ Higher-level \emph{qudits} exist but do not expand computational power beyond th
 
 %Give examples of the major categories of quantum computing:
 %\begin{itemize}
-%	\item Analogue Quantum Simulators; specialised setups to gain insights into strongly correlated matter (condensed-matter models, spin states).
+%	\item Analogue Quantum\,Simulators; specialised setups to gain insights into strongly correlated matter (condensed-matter models, spin states).
 %	\item Analogue QUBO annealers, such as D-Wave: Fixed Ising form solvers with flexibility over in scalar parameters.
 %	\item Digital photonics, such as PsiQuantum: single-photon and time-bin approaches, uses in communications.
 %	\item Digital gate based systems: typically super-conducting and trapped-ions technologies for general computing applications.
@@ -117,7 +117,7 @@ and noise considerations motivate the distinction between NISQ and future fault-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Outcomes}
-By the end of Unit 1, students can:
+By the end of Unit\,1, students can:
 \begin{itemize}
 	\item \emph{Explain} Feynman's simulation argument and its significance for quantum computation.
 	\item \emph{Contrast} classical and quantum computing using the state-space (exponential) argument.
@@ -141,7 +141,7 @@ By the end of Unit 1, students can:
 \subsection{Unit 2: Quantum Computation, Gates and Circuits}
 
 This unit presents the foundational mathematical skill sets needed to describe and apply gates to effect computations. 
-Students now translate the physical intuition from Unit 1 into the mathematical grammar of quantum computing
+Students now translate the physical intuition from Unit\,1 into the mathematical grammar of quantum computing
 (linear algebra, postulates, gates and simple circuits) so that every later algorithmic idea has a precise formal scaffold.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -170,7 +170,7 @@ and using the qubit as a running example.
 %* Pauli Matrices
 %* Interproducts
 %* Eigenvectors and eigenvalues
-%* Adjoints and Hermitian Operatorss:  $U^{\dagger}$ is both the inverse and the transpose-conjugate; multiplying restores  the identity. 
+%* Adjoints and Hermitian Operators:  $U^{\dagger}$ is both the inverse and the transpose-conjugate; multiplying restores  the identity. 
 %* Tensor Products
 %* Operator functions
 %* Commutator and anti-commutator
@@ -180,7 +180,7 @@ and using the qubit as a running example.
 \subsubsection{Quantum Postulates}
 
 \emph{Purpose}: anchor the algebra to the four standard postulates, 
-emphasising Postulates 2 and 3 as the dynamical core and Postulate 4 as the blueprint for composite systems.
+emphasising Postulates\,2 and\,3 as the dynamical core and Postulate\,4 as the blueprint for composite systems.
 
 \emph{Learning}:
 \begin{itemize}
@@ -202,18 +202,19 @@ emphasising Postulates 2 and 3 as the dynamical core and Postulate 4 as th
 %These two postulates set the stage, but they do not directly govern dynamical evolution.
 	
 %	\emph{Postulates Governing Dynamics}
-%	\begin{table}[h]
+%	\begin{table}[ht]
 %		\centering
 %		\renewcommand{\arraystretch}{1.2}
 %		\begin{tabular}{|c|l|l|l|}
 %			\hline
 %			\textbf{\#} & \textbf{Postulate} & \textbf{What it says} & \textbf{Why it's “dynamics”} \\
 %			\hline
-%			\textbf{2. Unitary Time Evolution} & If a system is isolated during the interval \( t_0 \to t \), its state vector evolves by a \textbf{unitary} operator \( U(t,t_0) \). In the Schrödinger picture: & \( U(t,t_0) = \exp\!\bigl[-\,iH(t-t_0)/\hbar\bigr] \), where \( H \) is the system's Hermitian Hamiltonian. & This gives the reversible, deterministic law (Schrödinger equation) for how amplitudes flow; analogous to Newton's laws for classical trajectories. \\
+%			\textbf{2. Unitary Time Evolution} & If a system is isolated during the interval $ t_0 \to t $, its state vector evolves by a \textbf{unitary} operator $ U(t,t_0) $. In the Schrödinger picture: & $ U(t,t_0) = \exp\!\bigl[-\,iH(t-t_0)/\hbar\bigr] $, where $ H $ is the system's Hermitian Hamiltonian. & This gives the reversible, deterministic law (Schrödinger equation) for how amplitudes flow; analogous to Newton's laws for classical trajectories. \\
 %			\hline
-%			\textbf{3. Measurement (Projective Version)} & Measuring an observable \( M \) with eigenvalues \( \{m_k\} \) and projectors \( \{P_k\} \) produces outcome \( m_k \) with probability \( p_k=\langle\psi|P_k|\psi\rangle \). After measurement, the system jumps to: & \( P_k|\psi\rangle/\sqrt{p_k} \). & This is the \textbf{non-unitary} dynamical rule that accounts for interaction with a detector and explains why we observe definite outcomes despite quantum interference. \\
+%			\textbf{3. Measurement (Projective Version)} & Measuring an observable $ M $ with eigenvalues $ \{m_k\} $ and projectors $ \{P_k\} $ produces outcome $ m_k $ with probability $ p_k=\langle\psi|P_k|\psi\rangle $. After measurement, the system jumps to: & $ P_k|\psi\rangle/\sqrt{p_k} $. & This is the \textbf{non-unitary} dynamical rule that accounts for interaction with a detector and explains why we observe definite outcomes despite quantum interference. \\
 %			\hline
 %		\end{tabular}
+%		\vspace{4pt}
 %		\caption{Postulates governing dynamics in quantum mechanics}
 %	\end{table}
 %	\emph{Summary}
@@ -272,7 +273,7 @@ emphasising Postulates 2 and 3 as the dynamical core and Postulate 4 as th
 
 \emph{Learning}:
 \begin{itemize}
-	\item Build a three-gate circuit (e.g. H–CNOT–Z) and predict output probabilities.
+	\item Build a three-gate circuit (e.g. H-CNOT-Z) and predict output probabilities.
 	\item Describe the no-cloning theorem's impact on quantum communications.
 	\item Run a simple circuit in Qiskit or Cirq and verify results against theory.
 \end{itemize}
@@ -328,11 +329,7 @@ emphasising Postulates 2 and 3 as the dynamical core and Postulate 4 as th
 \begin{itemize}
 	\item Simulate a bit-flip error and show how a three-qubit repetition code detects it.
 	\item Articulate the difference between NISQ error-mitigation and full fault tolerance.
-\end{itemize}
-
-\emph{Outcomes}:
-\begin{itemize}
-	\item \emph{Discuss} the practical trade-offs of state preparation on-chip versus hybrid classical–quantum approaches in the NISQ era.
+	\item Discuss the practical trade-offs of state preparation on-chip versus hybrid classical-quantum approaches in the NISQ era.
 \end{itemize}
 
 %We recap the NISQ devices introduction from Preskill and look at error correction.
@@ -361,7 +358,7 @@ emphasising Postulates 2 and 3 as the dynamical core and Postulate 4 as th
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Outcomes}
-By the end of Unit 2, students can:
+By the end of Unit\,2, students can:
 \begin{itemize}
 	\item \emph{Represent} quantum states in bra-ket, column-vectors, Bloch-sphere co-ordinates form.
 	\item \emph{Apply} single- and two-qubit unitary gates and compute resulting state vectors.
@@ -374,8 +371,8 @@ By the end of Unit 2, students can:
 \begin{itemize}
 	\item \citeauthor{Nielsen:2010} \citetitle{Nielsen:2010}, ch. 2.
 	\item Watrous, J. 2018, "The Theory of Quantum Information", ch. 2 (concise linear-algebra review)
-	\item Wootters \& Zurek, "A Single Quantum Cannot Be Cloned," Nature, 1982. %Wootters \& Zurek, "A Single Quantum Cannot Be Cloned," Nature, 1982, doi:10.1038/299802a0
-	\item IBM Qiskit, Google Cirq \& Pennylane tutorials for hands-on practice.
+	\item Wootters \&\,Zurek, "A Single Quantum Cannot Be Cloned," Nature,\,1982. %Wootters \& Zurek, "A Single Quantum Cannot Be Cloned," Nature, 1982, doi:10.1038/299802a0
+	\item IBM\,Qiskit, Google\,Cirq \& Pennylane tutorials for hands-on practice.
 	\item \citeauthor{Abhijith:2022} \citetitle{Abhijith:2022}
 	\item \citeauthor{Ekert:1996} \citetitle{Ekert:1996}
 \end{itemize}
@@ -386,7 +383,7 @@ By the end of Unit 2, students can:
 
 Students now see why quantum computing matters to cryptography:
 a handful of core algorithms, most famously Shor's and Grover's, break or undermine real-world protocols. 
-This cements the linear-algebra skills from Unit 2 and prepares students for the algorithmic blocks used in Unit 4.
+This cements the linear-algebra skills from Unit\,2 and prepares students for the algorithmic blocks used in Unit\,4.
 
 %Use Shor's original paper as a motivating example for the ideas that were perfected subsequent to his paper:
 %\begin{itemize}
@@ -411,7 +408,7 @@ that underpin certain cryptographic protocols, so that the impact of quantum-spe
 %sUnderstand the mathematical underpinnings of hidden-subgroup problems, and their broader application.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Deutsch–Jozsa and Simon's Algorithms}
+\subsubsection{Deutsch-Jozsa and Simon's Algorithms}
 
 \emph{Purpose}: introduce the hidden-subgroup paradigm in its simplest forms; 
 students practise reading small circuits and interpreting their algebraic output.
@@ -465,7 +462,7 @@ into the complete quantum attack on RSA.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Outcomes}
 
-By the end of Unit 3, students can:
+By the end of Unit\,3, students can:
 \begin{itemize}
 	\item \emph{Explain} how Shor's and Grover's algorithms threaten current public-key and symmetric schemes.
 
@@ -473,7 +470,7 @@ By the end of Unit 3, students can:
 
 	\item \emph{Implement} a small instance of Shor's or Grover's algorithm on a simulator and interpret the results.
 
-	\item \emph{Discuss} the practical trade-offs of state preparation on-chip versus hybrid classical–quantum approaches in the NISQ era.
+	\item \emph{Discuss} the practical trade-offs of state preparation on-chip versus hybrid classical-quantum approaches in the NISQ era.
 \end{itemize}
 
 %\begin{itemize}
@@ -547,7 +544,6 @@ and QSVT as the "polynomial filter" that subsumes Grover, Hamiltonian simulation
 like the \emph{Quantum Approximate Optimization Algorithm} (QAOA) and \emph{Variational Quantum Eigensolver} (VQE).
 These heuristic methods are designed for NISQ devices, and lack provable guarantees but hold promise for practical applications.
  
-\emph{Comparison of Quantum Optimization Techniques}:
 \begin{table}[ht]
 	\centering
 	%\renewcommand{\arraystretch}{1.2}
@@ -562,6 +558,7 @@ These heuristic methods are designed for NISQ devices, and lack provable guarant
 		\textbf{Graph Algorithms} & Concrete optimization tasks (Max-Cut, colouring) that map neatly to both annealing and QAOA. \\
 		\hline
 	\end{tabular}
+	\vspace{4pt}
 	\caption{Comparison of Quantum Optimization Techniques}
 \end{table}
 
@@ -697,15 +694,15 @@ a larger data pipeline, mirroring how real projects are executed in the NISQ era
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Outcomes}
+\subsubsection{Learning}
 
-By the end of Unit 4, students can:
+By the end of Unit\,4, students can:
 \begin{itemize}
 	\item \emph{Explain} the high-level steps of HHL and identify its data-loading bottlenecks.
 	
 	\item \emph{Describe} block encoding and state how QSVT extends Grover and Hamiltonian simulation.
 	
-	\item \emph{Choose} an appropriate optimisation strategy (annealer vs QAOA) for a given QUBO or graph problem.
+	\item \emph{Choose} an appropriate optimisation strategy (annealer vs\,QAOA) for a given QUBO or graph problem.
 	
 	\item \emph{Implement} a simple quantum kernel OC-SVM on a cloud platform and benchmark against a classical baseline.
 	
@@ -718,12 +715,12 @@ By the end of Unit 4, students can:
 	\item \citeauthor{Harrow:2009} \citetitle{Harrow:2009}
 	\item \citeauthor{Abhijith:2022} \citetitle{Abhijith:2022}
 	\item \citeauthor{Dalzell:2023} \citetitle{Dalzell:2023}
-	\item Low \& Chuang, "Hamiltonian Simulation by Uniform Spectral Amplification" (for block encoding).
-	\item Farhi et al., "A Quantum Approximate Optimization Algorithm."
+	\item Low \&\,Chuang, "Hamiltonian Simulation by Uniform Spectral Amplification" (for block encoding).
+	\item Farhi et\,al., "A Quantum Approximate Optimization Algorithm."
 	\item \citeauthor{Havlicek:2019} \citetitle{Havlicek:2019}
 \end{itemize}
 
-(Hands-on: D-Wave Leap docs, AWS Braket hybrid jobs, Qiskit Runtime, PennyLane QSVT demo notebooks.)
+(Hands-on: D-Wave\,Leap docs, AWS\,Braket hybrid jobs, Qiskit\,Runtime, PennyLane QSVT demo notebooks.)
 
 \subsection{Quantum SDKs and Platforms}
 
@@ -731,7 +728,6 @@ As we have walked through the syllabus, we have elided the quantum SDK platforms
 Here is a summary of the systems that are either easily installed to run local and cloud based simulations, 
 access real quantum hardware, or used for circuit analysis in our subject areas.
 
-\emph{Comparison of SDKs for Quantum Computing}:
 \begin{table}[ht]
 	\centering
 	%\renewcommand{\arraystretch}{0.2}
@@ -739,19 +735,20 @@ access real quantum hardware, or used for circuit analysis in our subject areas.
 		\hline
 		\textbf{SDK / Platform} & \textbf{Primary Strength} & \textbf{Ideal Course Sections} \\
 		\hline
-		IBM Qiskit & Most beginner-friendly; rich gate-model library and free cloud back-ends. & Units 1–3 (foundations, gates, Shor/Grover labs) \\
+		IBM Qiskit & Most beginner-friendly; rich gate-model library and free cloud back-ends. & Units\,1-3 (foundations, gates, Shor/Grover labs) \\
 		\hline
-		Google Cirq & Highly customisable circuits with strong pedagogical resources; integrates with TensorFlow Quantum. & Units 2–4 (intermediate algorithms, QAOA, QML) \\
+		Google Cirq & Highly customisable circuits with strong pedagogical resources; integrates with TensorFlow\,Quantum. & Units\,2-4 (intermediate algorithms, QAOA, QML) \\
 		\hline
-		Pennylane & Native hybrid workflows and automatic differentiation for variational circuits.L & Unit 4 (QSVT demo, OC-SVM lab) \\
+		Pennylane & Native hybrid workflows and automatic differentiation for variational circuits.L & Unit\,4 (QSVT demo, OC-SVM lab) \\
 		\hline
-		D-Wave Leap & Turn-key quantum annealer for Ising / QUBO optimisation. & Unit 4 (annealing and graph-optimisation topics) \\
+		D-Wave Leap & Turn-key quantum annealer for Ising / QUBO optimisation. & Unit\,4 (annealing and graph-optimisation topics) \\
 		\hline
-		ORCA  & Photonic hardware case studies for communications and QKD. & Unit 1 (hardware landscape) \\
+		ORCA  & Photonic hardware case studies for communications and QKD. & Unit\,1 (hardware landscape) \\
 		\hline
-		Julia QML / Yao.jl & High-performance simulation and research-grade QML tooling. & Unit 4 (advanced QML experiments) \\
+		Julia QML / Yao.jl & High-performance simulation and research-grade QML tooling. & Unit\,4 (advanced QML experiments) \\
 		\hline
 	\end{tabular}
+	\vspace{4pt}
 	\caption{Comparison of SDKs for Quantum Computing}
 	\label{tab:quantum_sdk_comparison}
 \end{table}
@@ -759,8 +756,8 @@ access real quantum hardware, or used for circuit analysis in our subject areas.
 \subsection{Syllabus Statement}
 
 This section completes the high-level overview of our course syllabus. 
-Appendix A gives details unit description of topics, background information, unit resources 
-and expected laboratory exercises on different quantum plaforms.  
+Appendix A gives a detailed description of each unit's topics, background information, resources 
+and suggested laboratory exercises on different various quantum platforms.  
 
 Appendix B contains python notebooks for several unit sections, with full tuition materials 
 and practical exercises for students. 
